@@ -57,6 +57,7 @@ function dothestats(arrayOfObjects) {
     //times
     //unique array for debugging
     const uniqueTimes = (Array.from(new Set(timesArray))).sort()
+    // maybe find non-conforming (hh:mm) values...later
 
     //usages    
     const totalUsage = usagesArray.reduce((total, element) => { //calculate total, if it's a number

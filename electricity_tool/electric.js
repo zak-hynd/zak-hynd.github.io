@@ -1,3 +1,5 @@
+return 
+
 //parse the incoming csv file and melt it
 document.getElementById('csvFileInput').addEventListener('change', function(event) {
     const file = event.target.files[0];
@@ -72,12 +74,12 @@ function getIntervalMidpoint (header){
 
 
 
-import { sortUserPlugins } from 'vite';
+// import { sortUserPlugins } from 'vite';
 //------------------
 // do the calcs (separate file?)
 
 //supposedly required to import these?
-import { powerPlans } from './power-plans.js';
+// import { powerPlans } from './power-plans.js';
 // Use the plans in calculations
 // const selectedPlan = powerPlans.find(plan => plan.name === "Electric Kiwi - MoveMaster");
 

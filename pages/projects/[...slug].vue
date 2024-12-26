@@ -3,7 +3,6 @@
     const {data} = await useAsyncData(`content-${path}`, () => {
         return queryContent()
             .where({ _path: path})
-            .sort({ order: 1 })
             .findOne()
     })
 </script>

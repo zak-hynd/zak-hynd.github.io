@@ -5,6 +5,7 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
+    "deploy": "gh-pages -d dist",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
@@ -19,7 +20,9 @@
     "vue-router": "latest"
   },
   "devDependencies": {
+    "@iconify-json/entypo-social": "^1.2.2",
     "@nuxtjs/tailwindcss": "^6.12.2",
-    "@tailwindcss/typography": "^0.5.15"
+    "@tailwindcss/typography": "^0.5.15",
+    "gh-pages": "^6.2.0"
   }
 }

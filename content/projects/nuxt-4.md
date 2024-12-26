@@ -5,8 +5,9 @@ date: 2023-05-24
 cover: nasa-Q1p7bh3SHj8-unsplash.jpg
 order: 2
 tags:
-  - nuxt
+  - test
   - vue
+  - nuxt
 ---
 
 # Getting Started with Nuxt 3

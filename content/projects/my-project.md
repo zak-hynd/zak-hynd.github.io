@@ -1,12 +1,12 @@
 ---
 title: "Bobcat"
 description: "A detailed description of my project."
-date: "2024-12-18"
+date: 2024-12-18
 cover: nasa-Q1p7bh3SHj8-unsplash.jpg
 order: 3
 tags:
-  - harpy
-  - scrap
+  - test
+  - nope
 ---
 
 

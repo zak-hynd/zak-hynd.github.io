@@ -6,7 +6,7 @@ cover: StellarShare.gif
 order: 2
 ---
 
-Stellar Share
+# Stellar Share
 
 The final week of boot camp was dedicated to group projects. My team of six decided to build a 
 sci-fi-themed satirical trading/lending app. We were intrigued by the idea of a weighted ratings system 

@@ -7,8 +7,8 @@
 
   const navigation = [
     { name: '{zh}', href: '/', current: route.name === 'index' },
-    { name: 'Projects', href: '/projects', current: route.name.includes('projects') },
-    { name: 'About', href: '/about', current: route.name === 'about' }
+    { name: 'projects', href: '/projects', current: route.name.includes('projects') },
+    { name: 'about', href: '/about', current: route.name === 'about' }
   ]
 
   const links = [

@@ -1,0 +1,58 @@
+/*-- scss:defaults --*/
+
+// Mako-sampled palette
+// bg=0.05, surface=0.15, mid-lo=0.30, centre=0.50, mid-hi=0.70, highlight=0.85, text=0.95
+$mako-bg:        #180d16;
+$mako-surface:   #30203e;
+$mako-mid-lo:    #413f80;
+$mako-centre:    #357ba3;
+$mako-mid-hi:    #3eb4ad;
+$mako-highlight: #85d9b1;
+$mako-text:      #c6ebd1;
+
+$body-bg:       $mako-bg;
+$body-color:    $mako-text;
+$link-color:    $mako-mid-hi;
+
+$navbar-bg:     $mako-bg;
+$navbar-fg:     $mako-text;
+
+$footer-bg:     $mako-bg;
+$footer-fg:     $mako-text;
+
+$code-bg:       $mako-surface;
+$code-color:    $mako-text;
+
+$card-bg:       $mako-surface;
+
+$font-family-sans-serif: "Open Sans", sans-serif;
+
+/*-- scss:rules --*/
+
+h1, h2, h3, h4, h5, h6 {
+  color: $mako-text;
+  font-weight: 700;
+}
+
+a, button {
+  color: $mako-mid-hi;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+a:hover {
+  color: $mako-bg;
+  background-color: $mako-mid-lo;
+  text-decoration: none;
+}
+
+.panel, .card {
+  background-color: rgba(48, 32, 62, 0.6);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.navbar {
+  border-bottom: 1px solid rgba(198, 235, 209, 0.1);
+}

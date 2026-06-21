@@ -2,6 +2,7 @@
 title: "Africa Map and Choropleth"
 description: "Cartographic design and projection work"
 date: 2026-06-22
+order: 4
 ---
 
 Placeholder — content pending.

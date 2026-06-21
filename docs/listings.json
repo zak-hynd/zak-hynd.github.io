@@ -2,14 +2,14 @@
   {
     "listing": "/projects.html",
     "items": [
-      "/projects/africa-choropleth.html",
-      "/projects/ai-workflow.html",
-      "/projects/catchment-storymap.html",
-      "/projects/kriging.html",
       "/projects/leapfrog-postgis.html",
+      "/projects/river-braid.html",
       "/projects/pepeha-mapped.html",
+      "/projects/africa-choropleth.html",
+      "/projects/catchment-storymap.html",
       "/projects/portoviejo-poster.html",
-      "/projects/river-braid.html"
+      "/projects/ai-workflow.html",
+      "/projects/kriging.html"
     ]
   }
 ]

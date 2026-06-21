@@ -2,6 +2,7 @@
 title: "Catchment Trends Storymap"
 description: "Public-engagement storymap built for Landcare Research"
 date: 2026-06-22
+order: 5
 ---
 
 Placeholder — content pending.

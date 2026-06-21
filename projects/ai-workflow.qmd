@@ -2,6 +2,7 @@
 title: "AI Project Management Workflow"
 description: "Deliberate AI-assisted workflow for technical and coursework projects"
 date: 2026-06-22
+order: 7
 ---
 
 Placeholder — content pending.

@@ -4,7 +4,7 @@
     "href": "projects.html",
     "title": "Projects",
     "section": "",
-    "text": "Africa Map and Choropleth\n\n\nCartographic design and projection work\n\n\n\n\n\n\n\n\n\n\nAI Project Management Workflow\n\n\nDeliberate AI-assisted workflow for technical and coursework projects\n\n\n\n\n\n\n\n\n\n\nCatchment Trends Storymap\n\n\nPublic-engagement storymap built for Landcare Research\n\n\n\n\n\n\n\n\n\n\nKriging — Phosphorus Retention\n\n\nUniversal kriging comparison, SAGA GIS vs Python\n\n\n\n\n\n\n\n\n\n\nLeapfrog + PostGIS Drilling Workflow\n\n\nGeologic modelling and database workflow for Ivanhoe Electric, Santa Cruz\n\n\n\n\n\n\n\n\n\n\nPepeha Mapped\n\n\nProcedurally generated geodata-driven pepeha\n\n\n\n\n\n\n\n\n\n\nPortoviejo Earthquake Poster\n\n\n3D geological models and microseismic deployment, Jama-Pedernales earthquake\n\n\n\n\n\n\n\n\n\n\nRiver Braid Change Mapping\n\n\nSAR and multispectral fusion for river channel change detection\n\n\n\n\n\nNo matching items"
+    "text": "Leapfrog + PostGIS Drilling Workflow\n\n\nGeologic modelling and database workflow for Ivanhoe Electric, Santa Cruz\n\n\n\n\n\n\n\n\n\n\nRiver Braid Change Mapping\n\n\nSAR and multispectral fusion for river channel change detection\n\n\n\n\n\n\n\n\n\n\nPepeha Mapped\n\n\nProcedurally generated geodata-driven pepeha\n\n\n\n\n\n\n\n\n\n\nAfrica Map and Choropleth\n\n\nCartographic design and projection work\n\n\n\n\n\n\n\n\n\n\nCatchment Trends Storymap\n\n\nPublic-engagement storymap built for Landcare Research\n\n\n\n\n\n\n\n\n\n\nPortoviejo Earthquake Poster\n\n\n3D geological models and microseismic deployment, Jama-Pedernales earthquake\n\n\n\n\n\n\n\n\n\n\nAI Project Management Workflow\n\n\nDeliberate AI-assisted workflow for technical and coursework projects\n\n\n\n\n\n\n\n\n\n\nKriging — Phosphorus Retention\n\n\nUniversal kriging comparison, SAGA GIS vs Python\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "projects/portoviejo-poster.html",
@@ -42,46 +42,11 @@
     "text": "placeholder — content pending."
   },
   {
-    "objectID": "about.html#the-path-here",
-    "href": "about.html#the-path-here",
-    "title": "About",
-    "section": "",
-    "text": "Geology and zoology at Otago, though “straight through” doesn’t describe it. A semester working full-time instead of studying. A year travelling and working through Europe, after an exchange in Iceland that’s most of the reason geology stuck. The degree took longer than four years to finish — not because of one clean break, but several, each followed by coming back and finishing what was started. That pattern shows up again later."
-  },
-  {
-    "objectID": "about.html#a-decade-in-geoscience-software",
-    "href": "about.html#a-decade-in-geoscience-software",
-    "title": "About",
-    "section": "A decade in geoscience software",
-    "text": "A decade in geoscience software\nOut of Otago, into Seequent (then ARANZ Geo) — first in applications and testing, then product. Over close to a decade there, the title changed several times; what didn’t change was the shape of the work: take competing demands from different teams and turn them into something a development team could actually build against. A feature-priority system for the Leapfrog platform. A customer feedback loop. The SOPs that defined how product and engineering worked together as the company scaled. None of it was asked for in the sense of a job description — each one got built because the gap was visible and nobody else had picked it up.\nThat’s the through-line worth naming directly: the work was never really product management in the people-management sense. It was systems design under competing demands, repeated in different forms. [The AI-assisted project workflow] used for the geospatial coursework now is the same instinct in a new context — not a separate skill, the same one."
-  },
-  {
-    "objectID": "about.html#after-seequent",
-    "href": "about.html#after-seequent",
-    "title": "About",
-    "section": "After Seequent",
-    "text": "After Seequent\nLeft in 2021 wanting a change, walked Te Araroa over that summer, and took a Business Analyst role at Landcare Research that felt closer to work with direct public value. Two and a half years there, then Canada — partly the pull of somewhere new post-COVID, partly underemployment at home. Picked up contract geomodelling work with Rogue Geoscience, including a PostGIS and Leapfrog drillhole workflow for Ivanhoe Electric’s Santa Cruz project that’s on this site as a project page. Geophysics fieldwork in BC followed the same contract line, then a return trip to Australia for a project in Botswana."
-  },
-  {
-    "objectID": "about.html#back-to-christchurch-and-whats-next",
-    "href": "about.html#back-to-christchurch-and-whats-next",
-    "title": "About",
-    "section": "Back to Christchurch, and what’s next",
-    "text": "Back to Christchurch, and what’s next\nHome is Christchurch, on purpose this time rather than by default — both Canada and Australia were worth trying, and both confirmed where the better fit actually is. The Master’s in Geospatial Data Science is the deliberate retooling: fifteen years of geoscience domain knowledge, finally paired with the technical depth — remote sensing, geostatistics, spatial Python — to put that knowledge to work directly, rather than adjacent to someone else who has it."
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Zak Hynd | Geospatial Data Science",
     "section": "",
     "text": "placeholder — content pending."
-  },
-  {
-    "objectID": "index.html#zak-hynd",
-    "href": "index.html#zak-hynd",
-    "title": "Zak Hynd | Geospatial Data Science",
-    "section": "",
-    "text": "Geospatial data scientist working across remote sensing, geostatistics, and spatial Python — with a decade behind it building geoscience software as a product, before retooling technical through a Master’s in Geospatial Data Science.\nThat product decade wasn’t spent managing people. It was spent building systems that reconcile competing demands into something a team could actually execute on — a feature-priority framework for a geomodelling platform used across business units, a customer feedback loop that outlived several product cycles, the SOPs that defined how product and engineering worked together. The same instinct now shows up in how I run AI-assisted technical work: dividing tasks deliberately, checking intermediate output,treating the model as a tool under direction rather than a shortcut around thinking. [See the AI workflow project →]\nThe geology background isn’t incidental either. Fieldwork, drillhole data, structural interpretation — the domain knowledge sits underneath the SAR and machine-learning work now, not apart from it. [River braid mapping] is the clearest current example: Sentinel-1 SAR and Sentinel-2 optical fused to track river channel change after the 2021 Canterbury flood, built as a proof of concept for catchment-management workflows.\nBefore any of this, geology and zoology at Otago University, with a stint at the University of Iceland. Christchurch-based, open to remote."
   },
   {
     "objectID": "projects/ai-workflow.html",

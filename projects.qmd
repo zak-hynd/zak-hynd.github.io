@@ -3,7 +3,7 @@ title: "Projects"
 listing:
   contents: projects
   type: grid
-  sort: "date desc"
+  sort: "order asc"
   fields: [image, title, description]
   page-size: 12
 ---

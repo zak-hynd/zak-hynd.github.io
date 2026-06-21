@@ -2,6 +2,7 @@
 title: "Leapfrog + PostGIS Drilling Workflow"
 description: "Geologic modelling and database workflow for Ivanhoe Electric, Santa Cruz"
 date: 2026-06-22
+order: 1
 ---
 
 Placeholder — content pending.

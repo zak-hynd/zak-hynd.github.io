@@ -1,0 +1,7 @@
+---
+title: "Pepeha Mapped"
+description: "Procedurally generated geodata-driven pepeha"
+date: 2026-06-22
+---
+
+Placeholder — content pending.

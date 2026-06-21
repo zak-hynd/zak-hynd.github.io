@@ -1,0 +1,15 @@
+[
+  {
+    "listing": "/projects.html",
+    "items": [
+      "/projects/africa-choropleth.html",
+      "/projects/ai-workflow.html",
+      "/projects/catchment-storymap.html",
+      "/projects/kriging.html",
+      "/projects/leapfrog-postgis.html",
+      "/projects/pepeha-mapped.html",
+      "/projects/portoviejo-poster.html",
+      "/projects/river-braid.html"
+    ]
+  }
+]

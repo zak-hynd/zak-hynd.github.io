@@ -225,7 +225,7 @@ The figure below shows the idea in section: two drillholes cutting a set of bedd
 ::: {#fig-alpha-only}
 ![](assets/leapfrog-postgresql/alpha-only.svg){fig-alt="Cross-section showing two drillholes intersecting four bedding structures, each drawn as an hourglass of possible plane orientations" width="75%"}
 
-Idealised cross-section through two drillholes (grey) and the modelled sedimentary units. Four bedding structures logged with alpha but no beta. For each, the white lines mark the outer envelope of apparent intersection – the two beta values where the bedding plane lies normal to the section plane – and the transparent fill spans the full range of orientations the unknown beta could take. Synthetic data; the geometry is schematic, not surveyed.
+Idealised cross-section through two drillholes (grey) and the modelled sedimentary units. Four bedding structures logged with alpha but no beta. For each, the white lines mark the steepest apparent dip the structure can show in this section, and the transparent fill spans the apparent dips the plane traces as beta varies through its full range. Synthetic data; the geometry is schematic, not surveyed.
 :::
 
 ## Reflection

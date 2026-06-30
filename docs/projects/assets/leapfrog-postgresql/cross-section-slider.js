@@ -19,7 +19,7 @@
     {
       filename: "04-Faulted-Bedrock-units.svg",
       label: "04 – Faulted bedrock units",
-      caption: "Bedrock units modelled within the fault blocks: Oracle Granite (host rock), Diabase dikes (older intrusions), and porphyritic intrusions linked to the mineralised system. A shared offset surface controls the whole series of intrusive bodies' reference surface – adjust one orientation, and the fifty-odd dikes follow."
+      caption: "Bedrock units modelled within the fault blocks: Oracle Granite (host rock), Diabase dikes (older intrusions), and porphyritic intrusions linked to the mineralised system. The dikes share one offset surface as reference geometry – adjust its orientation, and the fifty-odd dikes follow."
     },
     {
       filename: "05-Unfaulted-Basalt-dikes.svg",

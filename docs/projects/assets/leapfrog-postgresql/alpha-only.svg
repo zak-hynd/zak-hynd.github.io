@@ -24,14 +24,14 @@
      inkscape:deskcolor="#505050"
      inkscape:document-units="mm"
      inkscape:zoom="0.8071128"
-     inkscape:cx="536.48016"
-     inkscape:cy="144.34166"
+     inkscape:cx="252.75278"
+     inkscape:cy="446.6538"
      inkscape:window-width="3072"
      inkscape:window-height="1622"
      inkscape:window-x="-11"
      inkscape:window-y="-11"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer5" />
+     inkscape:current-layer="g27" />
   <defs
      id="defs1">
     <clipPath
@@ -180,8 +180,8 @@
        transform="rotate(7,-584.95991,3470.1187)"
        inkscape:label="40">
       <path
-         style="fill:#ffffff;fill-opacity:0.25098041;stroke:none;stroke-width:1.5875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
-         d="m 180.30853,193.69927 36.71461,4.48825 -30.2315,-44.70553 35.12781,3.75932 z"
+         style="fill:#ffffff;fill-opacity:0.25098;stroke:none;stroke-width:1.5875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
+         d="m 173.58633,202.15997 2.06053,-67.25382 47.65326,72.12162 11.36832,-65.66475 z"
          id="path24"
          transform="rotate(-7,-584.9596,3470.1187)"
          sodipodi:nodetypes="ccccc" />
@@ -206,7 +206,7 @@
        inkscape:label="85">
       <path
          style="display:inline;fill:#ffffff;fill-opacity:0.25098;stroke:none;stroke-width:1.5875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
-         d="m -235.13845,104.24862 57.19446,-0.55099 -56.67993,6.88849 56.47937,-13.437226 z"
+         d="m -178.72629,103.10979 -54.77702,1.70798 -1.12061,5.76835 56.47937,-13.437226 z"
          id="path28"
          sodipodi:nodetypes="ccccc" />
       <path
@@ -229,8 +229,8 @@
        transform="rotate(14,216.35107,1797.9054)"
        inkscape:label="60">
       <path
-         style="fill:#ffffff;fill-opacity:0.25098041;stroke:none;stroke-width:1.5875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
-         d="m 119.10741,74.07276 48.07764,26.95466 -49.04753,0.35285 48.27454,-26.858216 z"
+         style="fill:#ffffff;fill-opacity:0.25098;stroke:none;stroke-width:1.5875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
+         d="M 168.57014,102.21321 116.78755,72.536433 114.59761,102.98262 168.68657,73.075076 Z"
          id="path29"
          sodipodi:nodetypes="ccccc"
          transform="rotate(-7,95.613557,2944.0715)" />
@@ -254,8 +254,8 @@
        transform="rotate(2,-1091.0505,8277.9925)"
        inkscape:label="75">
       <path
-         style="fill:#ffffff;fill-opacity:0.25098041;stroke:none;stroke-width:1.5875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
-         d="m 114.69131,94.928395 55.5342,-0.178638 -56.92292,-14.745138 55.68412,0.444103 z"
+         style="fill:#ffffff;fill-opacity:0.25098;stroke:none;stroke-width:1.5875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
+         d="m 114.69131,94.928395 -0.1272,-14.239451 54.23392,13.943681 0.18868,-14.183903 z"
          id="path32"
          sodipodi:nodetypes="ccccc"
          transform="rotate(-7,95.613443,2944.0715)" />
@@ -292,7 +292,7 @@
      inkscape:label="Annotation">
     <path
        style="fill:none;fill-opacity:1;stroke:#85d9b1;stroke-width:0.79375;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
-       d="M 111.36194,155.87583 104.8876,144.81209"
+       d="m 104.06025,129.10294 5.69515,-9.20934"
        id="path36"
        sodipodi:nodetypes="cc"
        inkscape:label="pointer" />
@@ -311,15 +311,15 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.81944px;line-height:1;font-family:Calibri;-inkscape-font-specification:'Calibri, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#85d9b1;fill-opacity:1;stroke:none;stroke-width:1.5875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
-       x="96.030724"
-       y="162.3255"
+       x="97.18972"
+       y="117.35632"
        id="text37"
        inkscape:label="Outer envelope"><tspan
          sodipodi:role="line"
          id="tspan37"
          style="stroke-width:1.5875"
-         x="96.030724"
-         y="162.3255">outer envelope</tspan></text>
+         x="97.18972"
+         y="117.35632">outer envelope</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.81944px;line-height:1;font-family:Calibri;-inkscape-font-specification:'Calibri, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#85d9b1;fill-opacity:1;stroke:none;stroke-width:1.5875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"

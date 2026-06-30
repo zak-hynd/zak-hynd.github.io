@@ -7,7 +7,7 @@ order: 1
 
 ---
 title: "Leapfrog + PostgreSQL drilling workflow"
-subtitle: "[Rebuilding a stalled geologic model, and the database layer beneath the tool]"
+subtitle: "Rebuilding a stalled geologic model, and the database layer beneath the tool"
 format:
   html:
     toc: true

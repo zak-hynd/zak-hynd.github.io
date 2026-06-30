@@ -19,3 +19,7 @@ format:
       - custom.scss
     css: styles.css
     toc: true
+
+resources:
+  - projects/assets/
+  # - projects/assets/leapfrog-postgresql/

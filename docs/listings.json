@@ -2,7 +2,7 @@
   {
     "listing": "/projects.html",
     "items": [
-      "/projects/leapfrog-postgis.html",
+      "/projects/leapfrog-postgresql.html",
       "/projects/river-braid.html",
       "/projects/pepeha-mapped.html",
       "/projects/africa-choropleth.html",

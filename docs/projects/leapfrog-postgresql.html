@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-06-27">
+<meta name="description" content="Geologic modelling and database workflow for Ivanhoe Electric, Santa Cruz">
+
+<title>Leapfrog + PostgreSQL drilling workflow – Zak Hynd | Geospatial Data Science</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5fc4cbe156334aab5c533b39e2380197.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="assets/leapfrog-postgresql/cross-section-slider.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Zak Hynd | Geospatial Data Science</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../projects.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#context" id="toc-context" class="nav-link active" data-scroll-target="#context">Context</a></li>
+  <li><a href="#modelling-architecture" id="toc-modelling-architecture" class="nav-link" data-scroll-target="#modelling-architecture">Modelling architecture</a></li>
+  <li><a href="#the-database-layer" id="toc-the-database-layer" class="nav-link" data-scroll-target="#the-database-layer">The database layer</a></li>
+  <li><a href="#easier-to-interpret-not-just-maintain" id="toc-easier-to-interpret-not-just-maintain" class="nav-link" data-scroll-target="#easier-to-interpret-not-just-maintain">Easier to interpret, not just maintain</a></li>
+  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">Reflection</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Leapfrog + PostgreSQL drilling workflow</h1>
+<p class="subtitle lead">[PROVISIONAL — rebuilding a stalled model, and the database beneath the tool… try again]</p>
+</div>
+
+<div>
+  <div class="description">
+    Geologic modelling and database workflow for Ivanhoe Electric, Santa Cruz
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 27, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="context" class="level2">
+<h2 class="anchored" data-anchor-id="context">Context</h2>
+<p>This is a porphyry copper system near Santa Cruz, Arizona, modelled for Ivanhoe Electric in Leapfrog. I didn’t build the original – I was brought in to keep it updated as the drilling campaign ramped up, daily revisions against incoming holes. The model had been going for years by then, and it had reached the state long-running models reach: increasingly hard to maintain, because the early decisions needed overriding and the way it had been built made overriding them expensive. The work shown here is reproduced with synthetic data – the structure and the reasoning are real, the numbers are not. The real setup was a long-running interpretation project: several geologists, several years, on a commercial modelling tool with known structural limits. Two of those limits drove everything that follows. The tool couldn’t, on its own, rebuild a model that had grown too tangled to patch. And it couldn’t record why a decision had been made – which doesn’t matter much when the model lives in one person’s head, and starts mattering a great deal when it doesn’t. Once several geologists work the same model, the unwritten reasoning becomes the bottleneck. Why were those polyline edits added there – are they still needed, can I delete them? Why was that interval reclassified, who did it, when? The model held the geometry but not the answers. So the work split across two fronts. One was the modelling architecture – how the geology was decomposed into models that could be rebuilt rather than hand-repaired. The other was the database beneath the tool, where the multi-table logic and the provenance lived. That database wasn’t built from scratch: the project ran on Rogue Geoscience’s PostgreSQL schema, already in use across other jobs, and the work here was extending it to do what this model needed. Different problems, one instinct underneath: compute and derive what you can, hand-maintain only what you must, and make the manual edits that remain deliberate and legible. What follows is a worked response to a tool’s limits, not a feature tour.</p>
+</section>
+<section id="modelling-architecture" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="modelling-architecture">Modelling architecture</h2>
+<p>*The trigger was a change request, and not a small one. The client wanted to add more faults, widen the model to take in a new area, bring in new units, and revise the sequencing relationship between the faults and the sediments. Any one of those is routine. Together, on the existing build, they weren’t. The old model couldn’t absorb the change cheaply. It was a single model where the faults crosscut everything, so each new fault raised the maintenance cost of every surface it touched – and revising the fault-sediment sequencing meant reworking relationships that were threaded through the whole thing. The model didn’t need another fault patched in. It needed rebuilding. The rebuild separated the modelling concerns. Rather than one model carrying everything, the geology split into federated models – one for the faults, one for the <strong>bedrock interface</strong> (<strong>BRI</strong>), one for the bedrock units, a standalone model for the basalt dikes, and several valley-fill models, each isolating a problem the others didn’t have to know about. The point wasn’t tidiness. It was that each model could now be regenerated on its own, without dragging the rest through a costly rebuild it didn’t need. The clearest case was the BRI. It had been unioned from all the bedrock-unit volumes, which meant its geometry depended on every unit resolving cleanly – and about half the time it didn’t, throwing triangulation errors that required rerunning the whole regeneration with a minor millimetre resolution adjustment and a flip of a coin.</p>
+<blockquote class="blockquote">
+<p>Rebuilt as its own model, the reprocessing of the contiguous BRI surface dropped from roughly an hour to about a minute.</p>
+</blockquote>
+<p>The geometry it produces is a union of the fault-block volumes minus their eroded tops, which produces one contiguous surface that carries the fault scarps along with it. Downstream operations – eg. geotech, resource modelling – needed that surface whole, fault-scarps included, so the contiguity wasn’t cosmetic. Three instruments controlled these surfaces, each picking up where the last ran out. The interval table is the routine one – fine for modern drilling, where the logged contacts can be trusted to sit where the data says. It’s the historic drilling that needs more: older holes with less reliable surveying and litho logs that were never recoded into the newer interpretation. For those, the bedrock interface was logged by hand into the model_points table – a downhole point marking the top of bedrock where the interval data couldn’t be relied on to find it. The same model_points table carried the fault contacts. A fault contact isn’t logged directly the way a lithology boundary is – it’s interpreted, read off the surrounding data: RQD, assays, rocktypes, logged colours, core imagery. Where a geologist judged a fault to cross the hole, the contact went into model_points as a downhole point, including the legacy holes and the cases where a contact is missing and its absence is itself information. Then the polylines – the instrument for where no drilling constrains the surface at all. Leapfrog polyline edits, used where the interpolation needs nudging toward the surrounding data and the geological pattern. Drilling tells you where the surface is; the polylines tell you where it should go where nothing drilled it. Those polyline edits were segmented by purpose, not dumped into one object – geophysics-derived elevations in one, consistent step-fault offsets in another, max/min constraints in a third, with comment-and-date discipline encouraged on each. That’s separation of concerns, and it helps the next person read what an edit was for. It also did real work. The edits were shared objects, inherited by multiple modelled surfaces rather than redrawn for each – so when the change request added five new faults, the surfaces they generated picked up the right edits automatically, without anyone re-tracing them. Segmenting by purpose wasn’t only tidiness; it was what made the edits reusable across surfaces that didn’t exist yet. The same instinct as everywhere else here – define the thing once, let it propagate, keep the manual state minimal. What it is not is an audit trail. The discipline is manual, and the real provenance record lives in the database, not here. One move is worth pulling out, because it’s the instinct in miniature. The dike swarms shared a common offset surface as reference geometry, rather than each dike being placed by hand. With perhaps fifty similarly-oriented dikes built against one reference, adjusting their orientation became a matter of moving the reference surface – the whole swarm followed. Dynamic control, minimal manual state, and a long interpretation job made considerably shorter. The simplified idealised cross‑section below shows why the deposit has to be broken into parts. Revealing the section step by step – faults, BRI, bedrock, dikes, valley fill – illustrates how much complexity a single model would be trying to hold. Faults are built first not because they’re oldest – they aren’t – but because in Leapfrog they define the blocks the older units have to be modelled within. Build order is a tool constraint, not a geological sequence.</p>
+<div id="fig-cross-section" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cross-section-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cs-slider-wrap" style="margin: 2rem 0;">
+  <div style="position: relative;">
+    <img id="cs-img" src="" alt="Cross-section step" style="width: 100%; height: auto; display: block;" class="figure-img">
+  </div>
+  <div style="margin-top: 0.75rem;">
+    <div id="cs-label" style="font-size: 0.85rem; color: var(--bs-secondary-color, #aaa); margin-bottom: 0.5rem;"></div>
+    <input id="cs-range" type="range" min="0" max="6" step="1" value="3" aria-label="Cross-section step">
+    <p id="cs-caption" style="font-size: 0.8rem; color: var(--bs-secondary-color, #aaa); margin-top: 0.3rem; margin-bottom: 0;"></p>
+  </div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cross-section-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Idealised cross-section, not to scale. The section cuts across a series of Basin &amp; Range normal-fault blocks; roughly north–south-trending faults that have dropped and tilted the crust into alternating ranges and basins across the southwestern US and northern Mexico. The bedrock units have been displaced along those faults, and there is still debate about whether any of the valley fill sediments are also displaced; the cross-section shows the modelled interpretation of that geometry, not a measured survey. ‘Synthetic data’; structure and reasoning are real.
+</figcaption>
+</figure>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<strong>Legend</strong>
+<div style="font-size: 0.78rem; line-height: 2; margin-top: 0.25rem;">
+<p><svg width="16" height="16" style="margin-right:6px; vertical-align:middle;"><rect x="0" y="0" width="16" height="16" fill="#888" stroke="#ddd" stroke-width="1"></rect><line x1="2" y1="14" x2="14" y2="2" stroke="#222" stroke-width="4"></line></svg>Faults<br> <span style="display:inline-block; width:16px; height:16px; background:#ded2c2; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Alluvium<br> <span style="display:inline-block; width:16px; height:16px; background:#967661; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Gila Conglomerate<br> <span style="display:inline-block; width:16px; height:16px; background:#2ad4ff; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Lake Sediments<br> <span style="display:inline-block; width:16px; height:16px; background:#866053; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Whitetail Conglomerate<br> <span style="display:inline-block; width:16px; height:16px; background:#ff9ee4; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Bedrock Colluvium<br> <span style="display:inline-block; width:16px; height:16px; background:#484848; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Mafic Conglomerate<br> <span style="display:inline-block; width:16px; height:16px; background:#a93132; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Basal Conglomerate<br> <span style="display:inline-block; width:16px; height:16px; background:#2a7fff; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Basalt Dikes<br> <span style="display:inline-block; width:16px; height:16px; background:#faa403; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Porphyry<br> <span style="display:inline-block; width:16px; height:16px; background:#037f05; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Diabase Dikes<br> <span style="display:inline-block; width:16px; height:16px; background:#fdc1cb; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Oracle Granite<br></p>
+</div>
+</div></div></section>
+<section id="the-database-layer" class="level2">
+<h2 class="anchored" data-anchor-id="the-database-layer">The database layer</h2>
+<p>For the most part, Leapfrog modelled the geometry well-enough. What it couldn’t do was the two things a long project needs most: reason across multiple tables at once, and remember why a decision was made. It reads drillhole data, but it won’t compute a derived classification from the overlap of three other tables, and it has no native place to record that an interval was reclassified, by whom, or on what grounds. On a model that lives in one geologist’s head for a few weeks, neither gap matters. On one worked by several people over several years, both compound – the reasoning that never got written down becomes the thing nobody can reconstruct.So the database carried what the tool couldn’t. The drilling data sat in PostgreSQL, and a layer of derived VIEWs sat between the raw tables and Leapfrog. The keystone was <code>lf_lith</code>: one flat table, assembled on the fly, that Leapfrog could consume as a single lithology source while the work of combining several tables happened underneath it, in SQL, where it was legible and reproducible.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-lf-schema" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-lf-schema-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 449.23 372.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 368)">
+<title>schema</title>
+<g id="clust1" class="cluster">
+<title>cluster_raw</title>
+<path fill="transparent" stroke="#413f80" d="M34.54,-186C34.54,-186 98.7,-186 98.7,-186 104.7,-186 110.7,-192 110.7,-198 110.7,-198 110.7,-344 110.7,-344 110.7,-350 104.7,-356 98.7,-356 98.7,-356 34.54,-356 34.54,-356 28.54,-356 22.54,-350 22.54,-344 22.54,-344 22.54,-198 22.54,-198 22.54,-192 28.54,-186 34.54,-186"></path>
+<text text-anchor="middle" x="64.25" y="-339.4" font-family="Open Sans" font-size="14.00" fill="#c6ebd1">raw tables</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_interp</title>
+<path fill="transparent" stroke="#413f80" d="M20,-8C20,-8 113.24,-8 113.24,-8 119.24,-8 125.24,-14 125.24,-20 125.24,-20 125.24,-166 125.24,-166 125.24,-172 119.24,-178 113.24,-178 113.24,-178 20,-178 20,-178 14,-178 8,-172 8,-166 8,-166 8,-20 8,-20 8,-14 14,-8 20,-8"></path>
+<text text-anchor="middle" x="61.53" y="-161.4" font-family="Open Sans" font-size="14.00" fill="#c6ebd1">interpretation</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_views</title>
+<path fill="transparent" stroke="#413f80" d="M186.24,-43C186.24,-43 269.84,-43 269.84,-43 275.84,-43 281.84,-49 281.84,-55 281.84,-55 281.84,-271 281.84,-271 281.84,-277 275.84,-283 269.84,-283 269.84,-283 186.24,-283 186.24,-283 180.24,-283 174.24,-277 174.24,-271 174.24,-271 174.24,-55 174.24,-55 174.24,-49 180.24,-43 186.24,-43"></path>
+<text text-anchor="middle" x="228.46" y="-266.4" font-family="Open Sans" font-size="14.00" fill="#c6ebd1">derived VIEWs</text>
+</g>
+<!-- collar -->
+<g id="node1" class="node">
+<title>collar</title>
+<path fill="#30203e" stroke="#413f80" d="M85.62,-288C85.62,-288 47.62,-288 47.62,-288 43.62,-288 39.62,-284 39.62,-280 39.62,-280 39.62,-272 39.62,-272 39.62,-268 43.62,-264 47.62,-264 47.62,-264 85.62,-264 85.62,-264 89.62,-264 93.62,-268 93.62,-272 93.62,-272 93.62,-280 93.62,-280 93.62,-284 89.62,-288 85.62,-288"></path>
+<text text-anchor="middle" x="66.62" y="-272.7" font-family="Open Sans" font-size="11.00" fill="#c6ebd1">collar</text>
+</g>
+<!-- lf_collar -->
+<g id="node9" class="node">
+<title>lf_collar</title>
+<path fill="#30203e" stroke="#413f80" d="M249.53,-180C249.53,-180 205.54,-180 205.54,-180 201.54,-180 197.54,-176 197.54,-172 197.54,-172 197.54,-164 197.54,-164 197.54,-160 201.54,-156 205.54,-156 205.54,-156 249.53,-156 249.53,-156 253.53,-156 257.53,-160 257.53,-164 257.53,-164 257.53,-172 257.53,-172 257.53,-176 253.53,-180 249.53,-180"></path>
+<text text-anchor="middle" x="227.54" y="-164.7" font-family="Open Sans" font-size="11.00" fill="#c6ebd1">lf_collar</text>
+</g>
+<!-- collar&#45;&gt;lf_collar -->
+<g id="edge1" class="edge">
+<title>collar-&gt;lf_collar</title>
+<path fill="none" stroke="#6b6480" stroke-width="1.5" d="M93.73,-272.28C104.27,-269.81 116.07,-265.73 125.24,-259 156.74,-235.88 143.26,-209.82 174.24,-186 179.48,-181.97 185.69,-178.8 191.97,-176.33"></path>
+<polygon fill="#6b6480" stroke="#6b6480" stroke-width="1.5" points="192.8,-178.26 197.73,-174.24 191.37,-174.31 192.8,-178.26"></polygon>
+</g>
+<!-- survey -->
+<g id="node2" class="node">
+<title>survey</title>
+<path fill="#30203e" stroke="#413f80" d="M85.62,-253C85.62,-253 47.62,-253 47.62,-253 43.62,-253 39.62,-249 39.62,-245 39.62,-245 39.62,-237 39.62,-237 39.62,-233 43.62,-229 47.62,-229 47.62,-229 85.62,-229 85.62,-229 89.62,-229 93.62,-233 93.62,-237 93.62,-237 93.62,-245 93.62,-245 93.62,-249 89.62,-253 85.62,-253"></path>
+<text text-anchor="middle" x="66.62" y="-237.7" font-family="Open Sans" font-size="11.00" fill="#c6ebd1">survey</text>
+</g>
+<!-- lf_survey -->
+<g id="node10" class="node">
+<title>lf_survey</title>
+<path fill="#30203e" stroke="#413f80" d="M252.19,-145C252.19,-145 202.88,-145 202.88,-145 198.88,-145 194.88,-141 194.88,-137 194.88,-137 194.88,-129 194.88,-129 194.88,-125 198.88,-121 202.88,-121 202.88,-121 252.19,-121 252.19,-121 256.19,-121 260.19,-125 260.19,-129 260.19,-129 260.19,-137 260.19,-137 260.19,-141 256.19,-145 252.19,-145"></path>
+<text text-anchor="middle" x="227.54" y="-129.7" font-family="Open Sans" font-size="11.00" fill="#c6ebd1">lf_survey</text>
+</g>
+<!-- survey&#45;&gt;lf_survey -->
+<g id="edge2" class="edge">
+<title>survey-&gt;lf_survey</title>
+<path fill="none" stroke="#6b6480" stroke-width="1.5" d="M93.75,-237.3C104.29,-234.84 116.1,-230.76 125.24,-224 156.96,-200.56 142.84,-173.87 174.24,-150 178.65,-146.65 183.74,-143.94 188.99,-141.76"></path>
+<polygon fill="#6b6480" stroke="#6b6480" stroke-width="1.5" points="189.85,-143.68 194.72,-139.6 188.36,-139.75 189.85,-143.68"></polygon>
+</g>
+<!-- lithology -->
+<g id="node3" class="node">
+<title>lithology</title>
+<path fill="#30203e" stroke="#413f80" d="M90.46,-218C90.46,-218 42.78,-218 42.78,-218 38.78,-218 34.78,-214 34.78,-210 34.78,-210 34.78,-202 34.78,-202 34.78,-198 38.78,-194 42.78,-194 42.78,-194 90.46,-194 90.46,-194 94.46,-194 98.46,-198 98.46,-202 98.46,-202 98.46,-210 98.46,-210 98.46,-214 94.46,-218 90.46,-218"></path>
+<text text-anchor="middle" x="66.62" y="-202.7" font-family="Open Sans" font-size="11.00" fill="#c6ebd1">lithology</text>
+</g>
+<!-- lf_lith -->
+<g id="node14" class="node">
+<title>lf_lith</title>
+<path fill="#413f80" stroke="#85d9b1" stroke-width="2.2" d="M246.54,-110C246.54,-110 208.54,-110 208.54,-110 204.54,-110 200.54,-106 200.54,-102 200.54,-102 200.54,-94 200.54,-94 200.54,-90 204.54,-86 208.54,-86 208.54,-86 246.54,-86 246.54,-86 250.54,-86 254.54,-90 254.54,-94 254.54,-94 254.54,-102 254.54,-102 254.54,-106 250.54,-110 246.54,-110"></path>
+<text text-anchor="middle" x="227.54" y="-94.7" font-family="Open Sans" font-size="11.00" fill="#c6ebd1">lf_lith</text>
+</g>
+<!-- lithology&#45;&gt;lf_lith -->
+<g id="edge6" class="edge">
+<title>lithology-&gt;lf_lith</title>
+<path fill="none" stroke="#85d9b1" stroke-width="1.5" d="M98.55,-195.42C107.69,-191.44 117.35,-186.3 125.24,-180 153.5,-157.41 144.78,-136.01 174.24,-115 180.25,-110.71 187.4,-107.46 194.46,-105.02"></path>
+<polygon fill="#85d9b1" stroke="#85d9b1" stroke-width="1.5" points="195.26,-106.97 200.34,-103.15 193.98,-102.97 195.26,-106.97"></polygon>
+</g>
+<!-- structures -->
+<g id="node4" class="node">
+<title>structures</title>
+<path fill="#30203e" stroke="#413f80" d="M94.77,-323C94.77,-323 38.47,-323 38.47,-323 34.47,-323 30.47,-319 30.47,-315 30.47,-315 30.47,-307 30.47,-307 30.47,-303 34.47,-299 38.47,-299 38.47,-299 94.77,-299 94.77,-299 98.77,-299 102.77,-303 102.77,-307 102.77,-307 102.77,-315 102.77,-315 102.77,-319 98.77,-323 94.77,-323"></path>
+<text text-anchor="middle" x="66.62" y="-307.7" font-family="Open Sans" font-size="11.00" fill="#c6ebd1">structures</text>
+</g>
+<!-- lf_structure -->
+<g id="node12" class="node">
+<title>lf_structure</title>
+<path fill="#30203e" stroke="#413f80" d="M258.89,-215C258.89,-215 196.19,-215 196.19,-215 192.19,-215 188.19,-211 188.19,-207 188.19,-207 188.19,-199 188.19,-199 188.19,-195 192.19,-191 196.19,-191 196.19,-191 258.89,-191 258.89,-191 262.89,-191 266.89,-195 266.89,-199 266.89,-199 266.89,-207 266.89,-207 266.89,-211 262.89,-215 258.89,-215"></path>
+<text text-anchor="middle" x="227.54" y="-199.7" font-family="Open Sans" font-size="11.00" fill="#c6ebd1">lf_structure</text>
+</g>
+<!-- structures&#45;&gt;lf_structure -->
+<g id="edge3" class="edge">
+<title>structures-&gt;lf_structure</title>
+<path fill="none" stroke="#6b6480" stroke-width="1.5" d="M102.94,-304.76C110.77,-302.27 118.68,-298.81 125.24,-294 156.74,-270.88 143.26,-244.82 174.24,-221 176.85,-218.99 179.71,-217.19 182.7,-215.59"></path>
+<polygon fill="#6b6480" stroke="#6b6480" stroke-width="1.5" points="183.71,-217.43 188.19,-212.91 181.87,-213.65 183.71,-217.43"></polygon>
+</g>
+<!-- lf_alpha_only -->
+<g id="node13" class="node">
+<title>lf_alpha_only</title>
+<path fill="#30203e" stroke="#413f80" d="M262.64,-250C262.64,-250 192.44,-250 192.44,-250 188.44,-250 184.44,-246 184.44,-242 184.44,-242 184.44,-234 184.44,-234 184.44,-230 188.44,-226 192.44,-226 192.44,-226 262.64,-226 262.64,-226 266.64,-226 270.64,-230 270.64,-234 270.64,-234 270.64,-242 270.64,-242 270.64,-246 266.64,-250 262.64,-250"></path>
+<text text-anchor="middle" x="227.54" y="-234.7" font-family="Open Sans" font-size="11.00" fill="#c6ebd1">lf_alpha_only</text>
+</g>
+<!-- structures&#45;&gt;lf_alpha_only -->
+<g id="edge4" class="edge">
+<title>structures-&gt;lf_alpha_only</title>
+<path fill="none" stroke="#6b6480" stroke-width="1.5" d="M102.78,-301.95C110.3,-299.65 118.12,-296.98 125.24,-294 152.81,-282.47 182.53,-265.44 202.6,-253.19"></path>
+<polygon fill="#6b6480" stroke="#6b6480" stroke-width="1.5" points="203.73,-254.96 207.74,-250.03 201.53,-251.38 203.73,-254.96"></polygon>
+</g>
+<!-- model_points -->
+<g id="node5" class="node">
+<title>model_points</title>
+<path fill="#30203e" stroke="#413f80" d="M103.17,-40C103.17,-40 30.07,-40 30.07,-40 26.07,-40 22.07,-36 22.07,-32 22.07,-32 22.07,-24 22.07,-24 22.07,-20 26.07,-16 30.07,-16 30.07,-16 103.17,-16 103.17,-16 107.17,-16 111.17,-20 111.17,-24 111.17,-24 111.17,-32 111.17,-32 111.17,-36 107.17,-40 103.17,-40"></path>
+<text text-anchor="middle" x="66.62" y="-24.7" font-family="Open Sans" font-size="11.00" fill="#c6ebd1">model_points</text>
+</g>
+<!-- lf_model_pt -->
+<g id="node11" class="node">
+<title>lf_model_pt</title>
+<path fill="#30203e" stroke="#413f80" d="M259.11,-75C259.11,-75 195.97,-75 195.97,-75 191.97,-75 187.97,-71 187.97,-67 187.97,-67 187.97,-59 187.97,-59 187.97,-55 191.97,-51 195.97,-51 195.97,-51 259.11,-51 259.11,-51 263.11,-51 267.11,-55 267.11,-59 267.11,-59 267.11,-67 267.11,-67 267.11,-71 263.11,-75 259.11,-75"></path>
+<text text-anchor="middle" x="227.54" y="-59.7" font-family="Open Sans" font-size="11.00" fill="#c6ebd1">lf_model_pt</text>
+</g>
+<!-- model_points&#45;&gt;lf_model_pt -->
+<g id="edge5" class="edge">
+<title>model_points-&gt;lf_model_pt</title>
+<path fill="none" stroke="#6b6480" stroke-width="1.5" d="M111.47,-37.66C133.3,-42.47 159.66,-48.27 181.63,-53.11"></path>
+<polygon fill="#6b6480" stroke="#6b6480" stroke-width="1.5" points="181.4,-55.21 187.71,-54.45 182.3,-51.11 181.4,-55.21"></polygon>
+</g>
+<!-- model_points&#45;&gt;lf_lith -->
+<g id="edge7" class="edge">
+<title>model_points-&gt;lf_lith</title>
+<path fill="none" stroke="#3eb4ad" stroke-width="1.5" d="M111.31,-39.2C116.1,-40.92 120.83,-42.85 125.24,-45 149.29,-56.73 150.45,-67.74 174.24,-80 180.64,-83.3 187.78,-86.21 194.68,-88.68"></path>
+<polygon fill="#3eb4ad" stroke="#3eb4ad" stroke-width="1.5" points="194.03,-90.68 200.39,-90.64 195.4,-86.71 194.03,-90.68"></polygon>
+</g>
+<!-- model_intervals -->
+<g id="node6" class="node">
+<title>model_intervals</title>
+<path fill="#30203e" stroke="#413f80" d="M109.36,-110C109.36,-110 23.88,-110 23.88,-110 19.88,-110 15.88,-106 15.88,-102 15.88,-102 15.88,-94 15.88,-94 15.88,-90 19.88,-86 23.88,-86 23.88,-86 109.36,-86 109.36,-86 113.36,-86 117.36,-90 117.36,-94 117.36,-94 117.36,-102 117.36,-102 117.36,-106 113.36,-110 109.36,-110"></path>
+<text text-anchor="middle" x="66.62" y="-94.7" font-family="Open Sans" font-size="11.00" fill="#c6ebd1">model_intervals</text>
+</g>
+<!-- model_intervals&#45;&gt;lf_lith -->
+<g id="edge8" class="edge">
+<title>model_intervals-&gt;lf_lith</title>
+<path fill="none" stroke="#4a9fd4" stroke-width="1.5" d="M117.47,-98C142.59,-98 172.33,-98 194.41,-98"></path>
+<polygon fill="#4a9fd4" stroke="#4a9fd4" stroke-width="1.5" points="194.42,-100.1 200.42,-98 194.42,-95.9 194.42,-100.1"></polygon>
+</g>
+<!-- model_ignore -->
+<g id="node7" class="node">
+<title>model_ignore</title>
+<path fill="#30203e" stroke="#413f80" d="M103.99,-145C103.99,-145 29.25,-145 29.25,-145 25.25,-145 21.25,-141 21.25,-137 21.25,-137 21.25,-129 21.25,-129 21.25,-125 25.25,-121 29.25,-121 29.25,-121 103.99,-121 103.99,-121 107.99,-121 111.99,-125 111.99,-129 111.99,-129 111.99,-137 111.99,-137 111.99,-141 107.99,-145 103.99,-145"></path>
+<text text-anchor="middle" x="66.62" y="-129.7" font-family="Open Sans" font-size="11.00" fill="#c6ebd1">model_ignore</text>
+</g>
+<!-- model_ignore&#45;&gt;lf_collar -->
+<g id="edge10" class="edge">
+<title>model_ignore-&gt;lf_collar</title>
+<path fill="none" stroke="#cc7a8f" stroke-width="1.5" d="M111.89,-142.75C137.01,-148.28 168.02,-155.11 191.45,-160.27"></path>
+<polygon fill="#cc7a8f" stroke="#cc7a8f" stroke-width="1.5" points="191.23,-162.37 197.54,-161.61 192.13,-158.27 191.23,-162.37"></polygon>
+</g>
+<!-- model_ignore&#45;&gt;lf_survey -->
+<g id="edge11" class="edge">
+<title>model_ignore-&gt;lf_survey</title>
+<path fill="none" stroke="#cc7a8f" stroke-width="1.5" d="M111.89,-133C136,-133 165.53,-133 188.58,-133"></path>
+<polygon fill="#cc7a8f" stroke="#cc7a8f" stroke-width="1.5" points="188.6,-135.1 194.6,-133 188.6,-130.9 188.6,-135.1"></polygon>
+</g>
+<!-- model_ignore&#45;&gt;lf_structure -->
+<g id="edge13" class="edge">
+<title>model_ignore-&gt;lf_structure</title>
+<path fill="none" stroke="#cc7a8f" stroke-width="1.5" d="M89.64,-145.14C110.9,-156.57 144.19,-173.73 174.24,-186 176.91,-187.09 179.69,-188.17 182.5,-189.21"></path>
+<polygon fill="#cc7a8f" stroke="#cc7a8f" stroke-width="1.5" points="181.95,-191.24 188.31,-191.3 183.38,-187.29 181.95,-191.24"></polygon>
+</g>
+<!-- model_ignore&#45;&gt;lf_lith -->
+<g id="edge12" class="edge">
+<title>model_ignore-&gt;lf_lith</title>
+<path fill="none" stroke="#cc7a8f" stroke-width="1.5" d="M111.89,-123.25C138.02,-117.49 170.52,-110.34 194.24,-105.11"></path>
+<polygon fill="#cc7a8f" stroke="#cc7a8f" stroke-width="1.5" points="194.97,-107.1 200.38,-103.76 194.07,-103 194.97,-107.1"></polygon>
+</g>
+<!-- colour_lookup -->
+<g id="node8" class="node">
+<title>colour_lookup</title>
+<path fill="#30203e" stroke="#413f80" d="M104.93,-75C104.93,-75 28.3,-75 28.3,-75 24.3,-75 20.3,-71 20.3,-67 20.3,-67 20.3,-59 20.3,-59 20.3,-55 24.3,-51 28.3,-51 28.3,-51 104.93,-51 104.93,-51 108.93,-51 112.93,-55 112.93,-59 112.93,-59 112.93,-67 112.93,-67 112.93,-71 108.93,-75 104.93,-75"></path>
+<text text-anchor="middle" x="66.62" y="-59.7" font-family="Open Sans" font-size="11.00" fill="#c6ebd1">colour_lookup</text>
+</g>
+<!-- colour_lookup&#45;&gt;lf_lith -->
+<g id="edge9" class="edge">
+<title>colour_lookup-&gt;lf_lith</title>
+<path fill="none" stroke="#d9a85c" stroke-width="1.5" d="M113.16,-73.03C139.09,-78.74 170.96,-85.76 194.3,-90.9"></path>
+<polygon fill="#d9a85c" stroke="#d9a85c" stroke-width="1.5" points="194.03,-92.99 200.34,-92.23 194.93,-88.89 194.03,-92.99"></polygon>
+</g>
+<!-- leapfrog -->
+<g id="node15" class="node">
+<title>leapfrog</title>
+<path fill="#357ba3" stroke="#357ba3" d="M432.86,-155.29C432.86,-155.29 424.29,-160.57 424.29,-160.57 420.01,-163.21 410.7,-165.86 405.66,-165.86 405.66,-165.86 374.4,-165.86 374.4,-165.86 369.37,-165.86 360.06,-163.21 355.77,-160.57 355.77,-160.57 347.21,-155.29 347.21,-155.29 342.93,-152.64 342.93,-147.36 347.21,-144.71 347.21,-144.71 355.77,-139.43 355.77,-139.43 360.06,-136.79 369.37,-134.14 374.4,-134.14 374.4,-134.14 405.66,-134.14 405.66,-134.14 410.7,-134.14 420.01,-136.79 424.29,-139.43 424.29,-139.43 432.86,-144.71 432.86,-144.71 437.14,-147.36 437.14,-152.64 432.86,-155.29"></path>
+<text text-anchor="middle" x="390.03" y="-146.7" font-family="Open Sans" font-size="11.00" fill="#180d16">leapfrog</text>
+</g>
+<!-- lf_collar&#45;&gt;leapfrog -->
+<g id="edge14" class="edge">
+<title>lf_collar-&gt;leapfrog</title>
+<path fill="none" stroke="#6b6480" stroke-width="1.5" d="M257.6,-164.74C280.61,-162.16 313.26,-158.5 340.26,-155.47"></path>
+<polygon fill="#6b6480" stroke="#6b6480" stroke-width="1.5" points="340.55,-157.55 346.28,-154.79 340.09,-153.38 340.55,-157.55"></polygon>
+</g>
+<!-- lf_survey&#45;&gt;leapfrog -->
+<g id="edge15" class="edge">
+<title>lf_survey-&gt;leapfrog</title>
+<path fill="none" stroke="#6b6480" stroke-width="1.5" d="M260.25,-136.36C282.91,-138.76 313.85,-142.04 339.73,-144.78"></path>
+<polygon fill="#6b6480" stroke="#6b6480" stroke-width="1.5" points="339.66,-146.88 345.85,-145.43 340.1,-142.71 339.66,-146.88"></polygon>
+</g>
+<!-- lf_model_pt&#45;&gt;leapfrog -->
+<g id="edge16" class="edge">
+<title>lf_model_pt-&gt;leapfrog</title>
+<path fill="none" stroke="#6b6480" stroke-width="1.5" d="M267.16,-73.95C272.18,-75.77 277.19,-77.79 281.84,-80 311.58,-94.13 342.79,-115.34 363.81,-130.71"></path>
+<polygon fill="#6b6480" stroke="#6b6480" stroke-width="1.5" points="362.59,-132.42 368.67,-134.29 365.08,-129.04 362.59,-132.42"></polygon>
+</g>
+<!-- lf_structure&#45;&gt;leapfrog -->
+<g id="edge18" class="edge">
+<title>lf_structure-&gt;leapfrog</title>
+<path fill="none" stroke="#6b6480" stroke-width="1.5" d="M266.41,-191C271.6,-189.33 276.85,-187.63 281.84,-186 304.59,-178.55 330,-170.03 350.36,-163.15"></path>
+<polygon fill="#6b6480" stroke="#6b6480" stroke-width="1.5" points="351.23,-165.07 356.24,-161.16 349.88,-161.09 351.23,-165.07"></polygon>
+</g>
+<!-- lf_alpha_only&#45;&gt;leapfrog -->
+<g id="edge19" class="edge">
+<title>lf_alpha_only-&gt;leapfrog</title>
+<path fill="none" stroke="#6b6480" stroke-width="1.5" stroke-dasharray="5,2" d="M270.29,-225.92C274.25,-224.4 278.16,-222.76 281.84,-221 311.66,-206.71 342.86,-185.19 363.86,-169.58"></path>
+<polygon fill="#6b6480" stroke="#6b6480" stroke-width="1.5" points="365.16,-171.23 368.7,-165.95 362.64,-167.87 365.16,-171.23"></polygon>
+</g>
+<!-- lf_lith&#45;&gt;leapfrog -->
+<g id="edge17" class="edge">
+<title>lf_lith-&gt;leapfrog</title>
+<path fill="none" stroke="#6b6480" stroke-width="1.5" d="M254.58,-106.27C263.25,-109.03 272.97,-112.14 281.84,-115 304.39,-122.28 329.58,-130.5 349.88,-137.14"></path>
+<polygon fill="#6b6480" stroke="#6b6480" stroke-width="1.5" points="349.38,-139.19 355.74,-139.06 350.69,-135.2 349.38,-139.19"></polygon>
+</g>
+</g>
+</svg>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lf-schema-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Raw and interpretation tables derive into VIEWs; Leapfrog reads only the VIEWs. The arrows show the flow of data, coloured by source table. The ignore table fans across the schema, marking records to be ignorable within Leapfrog’s SQL filters.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>What <code>lf_lith</code> computes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>lf_lith</code> is a VIEW, not a stored table – it recomputes every time Leapfrog reads it, so the source tables stay the single point of truth. Its derived columns do the work that would otherwise be manual or impossible for Leapfrog to do on its own:</p>
+<ul>
+<li><code>group_lith</code> – a coarser reclassification of the logged codes into broader units, for modelling at group level.</li>
+<li><code>*_interp</code> – a set of reclassified-lithology columns (<code>basalt_interp</code>, <code>diabase_interp</code>, <code>porphyry_interp</code>, and others), each set from <code>model_intervals</code> where a geologist can override the logged code for an interval – usually to separate distinct layers or dikes so each models cleanly – without touching the original log.`</li>
+<li><code>hexRGB</code> – the blended logged colours as a single hex value – before Imago core imagery could be pulled into 3D, this was the next best thing, computed by the colour-blend function over <code>colour_lookup</code>.</li>
+<li><code>fault</code> – an <code>above_</code> / <code>below_</code> code, set from where the interval falls against fault-contact points in <code>model_points</code>. This is what keeps fault-boundary contacts from contaminating the surfaces they sit on.</li>
+<li><code>ignore</code> / <code>ignore_comment</code> – a flag and a reason, pulled from the ignore table, marking intervals to be ignored from the model and saying why.</li>
+</ul>
+</div>
+</div>
+<p>The <code>fault</code> column is worth focusing on, because it’s the clearest case of the database doing what the tool couldn’t. A drillhole crossing a fault logs a contact at the fault plane – but that contact belongs to the fault, not to the lithological surface the modeller is trying to constrain. Fed in naively, it drags the surface toward the fault and distorts it. The fix is a filter: each interval is coded <code>above_</code> or <code>below_</code> the relevant fault from its overlap with the fault-contact points recorded in <code>model_points</code>, and the surface is informed only by the points on the correct side. The contaminating intervals don’t get deleted – they get classified, and excluded from the relevant modelled surfaces.</p>
+<div id="tbl-fault-filter" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-fault-filter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Fault-contact filter – rows in, derived column out
+</figcaption>
+<div aria-describedby="tbl-fault-filter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="tbl-fault-pick" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-fault-pick-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) The <code>model_points</code> table records the fault pick
+</figcaption>
+<div aria-describedby="tbl-fault-pick-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>holeid</th>
+<th>depth</th>
+<th>type</th>
+<th>code</th>
+<th>comment</th>
+<th>…</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>SC-123</td>
+<td>431.6</td>
+<td><code>fault</code></td>
+<td><code>Fault-04</code></td>
+<td>from RQD logs</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div id="tbl-lf-lith-fault" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-lf-lith-fault-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) <code>lf_lith</code> reads the fault depth and codes the intervals on either side of it
+</figcaption>
+<div aria-describedby="tbl-lf-lith-fault-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>holeid</th>
+<th>from</th>
+<th>to</th>
+<th>major_lith</th>
+<th><code>fault</code></th>
+<th>…</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>SC-123</td>
+<td>425.0</td>
+<td>431.6</td>
+<td>OracleGranite</td>
+<td><code>above_Fault-04</code></td>
+<td>…</td>
+</tr>
+<tr class="even">
+<td>SC-123</td>
+<td>431.6</td>
+<td>445.0</td>
+<td>OracleGranite</td>
+<td><code>below_Fault-04</code></td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+</figure>
+</div>
+<p>The same granite, logged continuously through the hole, split into two coded intervals by the fault pick sitting between them. When Leapfrog models a surface from this table, a single clause does the filtering: <code>WHERE fault IS NULL</code> drops both coded intervals, leaving only the intervals no fault runs through. The contaminating data isn’t deleted – it’s coded, and the code is what excludes it.</p>
+<p>This matters more than dropping a single contact point, because the intervals do real interpolation work. Each one typically carries volume points – distance values that push or pull the interpolated surface c so an interval left in on the wrong side of a fault doesn’t just add a stray contact, it drags the surface across the fault toward data that belongs to the other block. Coding the whole interval, not just the pick, is what keeps that from happening.</p>
+<p>The <code>ignore</code> column works the same way, and that’s the point of the pattern. An interval flagged in <code>model_ignore</code> – bad recovery, suspect logging, a historic hole with questionable survey data – gets an ignore code and an ignore_comment saying why. In Leapfrog, <code>AND 'ignore' IS NULL</code> drops it. One filtering idiom, applied to two different problems: don’t delete the questionable data, code it, and let a <code>WHERE … IS NULL</code> clause decide what the model sees. The raw log stays intact and the reason stays attached.</p>
+</section>
+<section id="easier-to-interpret-not-just-maintain" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="easier-to-interpret-not-just-maintain">Easier to interpret, not just maintain</h2>
+<p>Two builds nobody asked for. Both started as questions – could the database make the model easier to interpret, not just easier to maintain – and both turned out useful enough to keep. They sit outside the original brief, which is why they’re here rather than above.</p>
+<p><strong>Colour blend</strong> Core is logged with named colours, not hex – “Dark Brown”, “Light Grey”, and so on, up to six per interval across major, minor, and streak. Leapfrog can’t render a named colour, so by default the logged colour never makes it into 3D, and a geologist scanning the model loses one of the cues they’d use at the core tray.</p>
+<p>So the database supplied it. A lookup table, colour_lookup, paired every colour name that appears in the lithology log with a suitable hex value. The blend function then took the up-to-six colours on an interval and combined them into a single hexRGB, weighted so the major colour dominates and the streak only tints – the same priority a geologist reads them in. The interval then renders in 3D as close to its logged colour as a single value allows.</p>
+<div id="fig-rgb-intervals" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Schematic 3D plot of drillhole intervals displaying logged rock colour">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-rgb-intervals-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="assets/leapfrog-postgresql/rgb-intervals.webp" class="img-fluid figure-img" style="width:75.0%" alt="Schematic 3D plot of drillhole intervals displaying logged rock colour">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rgb-intervals-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Schematic 3D plot of drillhole intervals displaying blended logged rock colour (hexRGB). Synthetic data.
+</figcaption>
+</figure>
+</div>
+<p>It’s worth noting this was the workaround of its time. The direct path now is Imago – core photography linked into Leapfrog, so the actual core imagery shows in 3D rather than a blended approximation of it. The blend solved the problem with what was available; the problem it solved has since been solved better.</p>
+<p><strong>Alpha-only structure</strong> Oriented core gives two angles: alpha, the dip of a plane relative to the core axis, and beta, its rotation around that axis. Alpha alone fixes a cone the plane could lie on; beta is what pins it to a single orientation. A lot of structural logging, especially older logging, records alpha and no beta – which leaves the measurement real but unplottable. Leapfrog needs both, so those intervals simply don’t appear.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Beta is measured from a fixed reference on the core – usually a line marked along the bottom of the hole. No reference line, no beta.</p>
+</div></div><p>The cone is the insight. With alpha but no beta, the true plane sits somewhere on a cone of possible orientations – so rather than discard the measurement, the <code>lf_alpha_only</code> VIEW reconstructs the cone. It fans roughly ten synthetic beta values around the full circle for each alpha-only measurement, each offset about a millimetre in depth to dodge the duplicate-point flag Leapfrog raises on coincident data. In 3D the fan stands as an hourglass – view-only, never feeding a surface – and set beside the properly oriented structures and the modelled contacts nearby, it lets a geologist judge by eye whether a surface’s orientation is validated by the structural measurements.</p>
+<p>The figure below shows the idea in section. Two drillholes cut a set of bedding structures logged with alpha but no beta; each hourglass is the same construction sliced flat, the white lines marking the envelope where the plane lies in the section plane and the fill spanning the orientations the unknown beta could take.</p>
+<div id="fig-alpha-only" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Cross-section showing two drillholes intersecting four bedding structures, each drawn as an hourglass of possible plane orientations">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-alpha-only-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="assets/leapfrog-postgresql/alpha-only.svg" class="img-fluid figure-img" style="width:75.0%" alt="Cross-section showing two drillholes intersecting four bedding structures, each drawn as an hourglass of possible plane orientations">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-alpha-only-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Idealised cross-section through two drillholes (grey) and the modelled sedimentary units. Four bedding structures logged with alpha but no beta. For each, the white lines mark the outer envelope of apparent intersection – the two beta values where the bedding plane lies normal to the section plane – and the transparent fill spans the full range of orientations the unknown beta could take. Synthetic data; the geometry is schematic, not surveyed.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="reflection" class="level2">
+<h2 class="anchored" data-anchor-id="reflection">Reflection</h2>
+<p>The two halves of this don’t sit the same way, and it’s worth being plain about why.</p>
+<p>The model split was the right call without qualification. A build that couldn’t absorb a change request got rebuilt into separate models that could each be regenerated on their own – the failing BRI went from a roughly hour-long regeneration (that had to be restarted half the time), to about a minute, by isolating the concern that was breaking. That’s a clean win. Faced with the same problem again, the same decision.</p>
+<p>The database layer is where the honest tension sits. It solved real problems – the multi-table logic Leapfrog couldn’t do, the provenance it couldn’t keep – and it solved them well. But it solved them by extending the schema underneath the tool, and an extended schema is still a thing the next person has to learn. The work here – the fault-contact filter, the <code>model_ignore</code> table, the <code>model_intervals</code> reclassification, the colour-blend function, the alpha-only VIEW – was built onto Rogue Geoscience’s PostgreSQL schema, not invented from scratch. That cuts both ways. It means the conventions are partly standard, so anyone who’s worked a Rogue database has a head start. It also means the bespoke parts – the genuinely new ideas, the alpha-only cone reconstruction among them – are the parts with no precedent to lean on. Better than the unmaintainable single model it replaced, but better isn’t free. Someone inherits it.</p>
+<p>I’d still build it. The provenance problem was real and compounding, and on a multi-year, multi-geologist project the cost of not solving it lands on exactly the people least equipped to absorb it – whoever picks the model up after the person who held it in their head has gone. But the trade-off is real and I’d rather name it than dress it up: I traded a tool anyone can open for a system someone has to learn. On this project that was the right trade. It isn’t always.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+(function () {
+  const STEPS = [
+    {
+      filename: "01-Fault-model.svg",
+      label: "01 – Fault model",
+      caption: "The fault model is built first. In Leapfrog, faults define the blocks that all older geology must be modelled within – build order is a tool constraint, not a geological sequence."
+    },
+    {
+      filename: "02-Faulted-BRI-model.svg",
+      label: "02 – BRI model",
+      caption: "The bedrock interface (BRI) model captures the contact between bedrock units below and valley-fill sediments above, resolved independently within each fault block."
+    },
+    {
+      filename: "03-Contiguous-BRI-surface.svg",
+      label: "03 – Unioned BRI surface",
+      caption: "The BRI volumes are unioned into one contiguous surface that carries the fault scarps with it. Downstream teams (geotech, resource modelling, etc.), need that surface whole."
+    },
+    {
+      filename: "04-Faulted-Bedrock-units.svg",
+      label: "04 – Faulted bedrock units",
+      caption: "Bedrock units modelled within the fault blocks: Oracle Granite (host rock), Diabase dikes (older intrusions), and porphyritic intrusions linked to the mineralised system. A shared offset surface controls the whole series of intrusive bodies' reference surface – adjust one orientation, and the fifty-odd dikes follow."
+    },
+    {
+      filename: "05-Unfaulted-Basalt-dikes.svg",
+      label: "05 – Basalt dikes",
+      caption: "Basalt dikes, considered contemporaneous with Basin & Range extensional faulting."
+    },
+    {
+      filename: "06-Sediments.svg",
+      label: "06 – Valley fill",
+      caption: "Valley-fill sediments and overburden: Basal Conglomerate, Mafic Conglomerate, Mass-wasting boulders of bedrock (colluvium), Whitetail Conglomerate, Gila Conglomerate, Lacustrine deposits, and Alluvium – several built in their own models when necessary."
+    },
+    {
+      filename: "07-Final-combined-model.svg",
+      label: "07 – Combined model with fault planes overlaid",
+      caption: "Fault planes overlaid on the complete geology. The faults were built first (Step 1) but are shown last here so the units they displace are visible beneath them."
+    }
+  ];
+
+  const INITIAL_STEP = 3;
+  const IMG_BASE = "assets/leapfrog-postgresql/";
+
+  function applyStep(stepIndex) {
+    const step = STEPS[stepIndex];
+    document.getElementById("cs-img").src = IMG_BASE + step.filename;
+    document.getElementById("cs-label").textContent = step.label;
+    document.getElementById("cs-caption").textContent = step.caption;
+  }
+
+  function updateTrackFill(rangeEl) {
+    const min = parseFloat(rangeEl.min);
+    const max = parseFloat(rangeEl.max);
+    const val = parseFloat(rangeEl.value);
+    const pct = ((val - min) / (max - min)) * 100;
+    rangeEl.style.background = `linear-gradient(to right, #3eb4ad 0%, #3eb4ad ${pct}%, #444 ${pct}%, #444 100%)`;
+  }
+
+  function init() {
+    const range = document.getElementById("cs-range");
+    range.value = INITIAL_STEP;
+    applyStep(INITIAL_STEP);
+    updateTrackFill(range);
+    range.addEventListener("input", function () {
+      applyStep(parseInt(this.value, 10));
+      updateTrackFill(this);
+    });
+  }
+
+  window.addEventListener("load", init);
+})();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

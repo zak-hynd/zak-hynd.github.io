@@ -3,7 +3,8 @@ project:
   output-dir: docs
 
 website:
-  title: "Zak Hynd | Geospatial Data Science"
+  title: "Zak Hynd"
+  favicon: assets/favicon.png
   navbar:
     left:
       - href: index.qmd

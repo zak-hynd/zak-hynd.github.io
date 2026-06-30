@@ -23,9 +23,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#505050"
      inkscape:document-units="mm"
-     inkscape:zoom="0.8071128"
-     inkscape:cx="252.75278"
-     inkscape:cy="446.6538"
+     inkscape:zoom="1.1414299"
+     inkscape:cx="421.40127"
+     inkscape:cy="412.20229"
      inkscape:window-width="3072"
      inkscape:window-height="1622"
      inkscape:window-x="-11"
@@ -291,64 +291,64 @@
      id="layer7"
      inkscape:label="Annotation">
     <path
-       style="fill:#413f80;fill-opacity:1;stroke:#85d9b1;stroke-width:1.190625;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
-       d="m 104.06025,129.10294 5.69515,-9.20934"
+       style="fill:#413f80;fill-opacity:1;stroke:#85d9b1;stroke-width:1.45520833;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
+       d="m 98.449931,130.86143 8.392609,-13.21805"
        id="path1"
        sodipodi:nodetypes="cc"
        inkscape:label="pointer" />
     <path
-       style="fill:none;fill-opacity:1;stroke:#413f80;stroke-width:0.79375;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
-       d="m 104.06025,129.10294 5.69515,-9.20934"
+       style="fill:none;fill-opacity:1;stroke:#413f80;stroke-width:1.05833333;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
+       d="m 98.449931,130.86143 8.392609,-13.21805"
        id="path36"
        sodipodi:nodetypes="cc"
        inkscape:label="pointer" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.81944px;line-height:1;font-family:Calibri;-inkscape-font-specification:'Calibri, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#413f80;fill-opacity:1;stroke:#85d9b1;stroke-width:0.396875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
-       x="35.928982"
-       y="50.068779"
+       x="34.34148"
+       y="51.656281"
        id="text36"
        inkscape:label="85"><tspan
          sodipodi:role="line"
          id="tspan36"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.81944px;line-height:1;font-family:Calibri;-inkscape-font-specification:'Calibri, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#413f80;fill-opacity:1;stroke:#85d9b1;stroke-width:0.396875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
-         x="35.928982"
-         y="50.068779">α: 85°</tspan></text>
+         x="34.34148"
+         y="51.656281">α: 85°</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.81944px;line-height:1;font-family:Calibri;-inkscape-font-specification:'Calibri, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#413f80;fill-opacity:1;stroke:#85d9b1;stroke-width:0.396875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
-       x="97.18972"
-       y="117.35632"
+       x="93.48555"
+       y="115.23966"
        id="text37"
        inkscape:label="Outer envelope"><tspan
          sodipodi:role="line"
          id="tspan37"
-         style="stroke-width:0.396875;fill:#413f80;fill-opacity:1;stroke:#85d9b1;stroke-opacity:1;stroke-dasharray:none"
-         x="97.18972"
-         y="117.35632">outer envelope</tspan></text>
+         style="fill:#413f80;fill-opacity:1;stroke:#85d9b1;stroke-width:0.396875;stroke-dasharray:none;stroke-opacity:1"
+         x="93.48555"
+         y="115.23966">outer envelope</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.81944px;line-height:1;font-family:Calibri;-inkscape-font-specification:'Calibri, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#413f80;fill-opacity:1;stroke:#85d9b1;stroke-width:0.396875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
-       x="47.518978"
-       y="156.69673"
+       x="46.460644"
+       y="157.22589"
        id="text38"
        inkscape:label="75"><tspan
          sodipodi:role="line"
          id="tspan38"
-         style="stroke-width:0.396875;fill:#413f80;fill-opacity:1;stroke:#85d9b1;stroke-opacity:1;stroke-dasharray:none"
-         x="47.518978"
-         y="156.69673">α: 75°</tspan></text>
+         style="fill:#413f80;fill-opacity:1;stroke:#85d9b1;stroke-width:0.396875;stroke-dasharray:none;stroke-opacity:1"
+         x="46.460644"
+         y="157.22589">α: 75°</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.81944px;line-height:1;font-family:Calibri;-inkscape-font-specification:'Calibri, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#413f80;fill-opacity:1;stroke:#85d9b1;stroke-width:0.396875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
-       x="184.97632"
+       x="183.38884"
        y="71.394371"
        id="text39"
        inkscape:label="60"><tspan
          sodipodi:role="line"
          id="tspan39"
-         style="stroke-width:0.396875;fill:#413f80;fill-opacity:1;stroke:#85d9b1;stroke-opacity:1;stroke-dasharray:none"
-         x="184.97632"
+         style="fill:#413f80;fill-opacity:1;stroke:#85d9b1;stroke-width:0.396875;stroke-dasharray:none;stroke-opacity:1"
+         x="183.38884"
          y="71.394371">α: 60°</tspan></text>
     <text
        xml:space="preserve"
@@ -370,14 +370,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.81944px;line-height:1;font-family:Calibri;-inkscape-font-specification:'Calibri, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#413f80;fill-opacity:1;stroke:#85d9b1;stroke-width:0.396875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
-       x="174.31354"
-       y="203.05672"
+       x="173.78438"
+       y="202.52756"
        id="text40"
        inkscape:label="40"><tspan
          sodipodi:role="line"
          id="tspan40"
-         style="stroke-width:0.396875;fill:#413f80;fill-opacity:1;stroke:#85d9b1;stroke-opacity:1;stroke-dasharray:none"
-         x="174.31354"
-         y="203.05672">α: 40°</tspan></text>
+         style="fill:#413f80;fill-opacity:1;stroke:#85d9b1;stroke-width:0.396875;stroke-dasharray:none;stroke-opacity:1"
+         x="173.78438"
+         y="202.52756">α: 40°</tspan></text>
   </g>
 </svg>

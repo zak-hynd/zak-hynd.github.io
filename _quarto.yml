@@ -6,7 +6,7 @@ project:
     - projects/assets/
 
 website:
-  title: "Zak Hynd"
+  title: "zh:"
   navbar:
     left:
       - href: index.qmd

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="zh">
+  <rect width="64" height="64" rx="14" fill="#180d16"/>
+  <text x="31" y="33" text-anchor="middle" dominant-baseline="central"
+        font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="28" font-weight="600" fill="#85d9b1">zh:</text>
+</svg>

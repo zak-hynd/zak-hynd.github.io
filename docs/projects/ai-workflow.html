@@ -174,7 +174,11 @@ ul.task-list li input[type="checkbox"] {
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  var link = document.querySelector('a[aria-label="Copy email address"]');
+  var icon = document.querySelector('i.bi-envelope');
+
+  if (!icon) return;
+
+  var link = icon.closest('a');
 
   if (!link) return;
 
@@ -631,7 +635,7 @@ document.addEventListener('DOMContentLoaded', function () {
     </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="../#">
+    <a class="nav-link" href="javascript:void(0)">
       <i class="bi bi-envelope" role="img" aria-label="Copy email address">
 </i> 
     </a>

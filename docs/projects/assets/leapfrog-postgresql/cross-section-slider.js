@@ -1,4 +1,3 @@
-<script>
 (function () {
   const STEPS = [
     {
@@ -69,4 +68,3 @@
 
   window.addEventListener("load", init);
 })();
-</script>

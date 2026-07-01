@@ -4,6 +4,7 @@ project:
   resources:
     - assets/favicon/
     - projects/assets/
+    - projects/assets/leapfrog-postgresql/
 
 format:
   html:

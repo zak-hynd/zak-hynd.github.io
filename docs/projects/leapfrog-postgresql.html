@@ -615,113 +615,15 @@ Figure&nbsp;4: Idealised cross-section through two drillholes (grey) and the mod
 </section>
 
 </main> <!-- /main -->
-<span class="footer-right-icons">
-
-  <a href="https://github.com/zak-hynd" aria-label="GitHub" target="_blank" rel="noopener">
-
-    <i class="bi bi-github"></i>
-
-  </a>
-
-  <button id="email-copy-btn" aria-label="Copy email address" title="Copy email address">
-
-    <i class="bi bi-envelope"></i>
-
-  </button>
-
-  <span id="email-tooltip">copied</span>
-
-</span>
-
-
-
-<style>
-
-.footer-right-icons {
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 12px;
-
-  float: right;
-
-}
-
-.footer-right-icons a,
-
-.footer-right-icons button {
-
-  color: inherit;
-
-  opacity: 0.75;
-
-  background: none;
-
-  border: none;
-
-  padding: 0;
-
-  cursor: pointer;
-
-  font-size: 1rem;
-
-  line-height: 1;
-
-}
-
-.footer-right-icons a:hover,
-
-.footer-right-icons button:hover { opacity: 1; }
-
-#email-tooltip {
-
-  font-size: 0.75rem;
-
-  opacity: 0;
-
-  transition: opacity 0.3s;
-
-}
-
-</style>
-
-
-
-<!-- <script>
-
-document.addEventListener('DOMContentLoaded', function () {
-
-  var btn = document.getElementById('email-copy-btn');
-
-  var tip = document.getElementById('email-tooltip');
-
-  if (!btn) return;
-
-  btn.addEventListener('click', function () {
-
-    navigator.clipboard.writeText('zak.hynd@gmail.com').then(function () {
-
-      tip.style.opacity = '1';
-
-      setTimeout(function () { tip.style.opacity = '0'; }, 1800);
-
-    });
-
-  });
-
-});
-
-</script> -->
-
-
-
 <script>
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  var link = document.querySelector('a[aria-label="Copy email address"]');
+  var icon = document.querySelector('i.bi-envelope');
+
+  if (!icon) return;
+
+  var link = icon.closest('a');
 
   if (!link) return;
 
@@ -758,78 +660,9 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 });
-<script>
-(function () {
-  const STEPS = [
-    {
-      filename: "01-Fault-model.svg",
-      label: "01 – Fault model",
-      caption: "The fault model is built first. In Leapfrog, faults define the blocks that all older geology must be modelled within – build order is a tool constraint, not a geological sequence."
-    },
-    {
-      filename: "02-Faulted-BRI-model.svg",
-      label: "02 – BRI model",
-      caption: "The bedrock interface (BRI) model captures the contact between bedrock units below and valley-fill sediments above, resolved independently within each fault block."
-    },
-    {
-      filename: "03-Contiguous-BRI-surface.svg",
-      label: "03 – Unioned BRI surface",
-      caption: "The BRI volumes are unioned into one contiguous surface that carries the fault scarps with it. Downstream teams (geotech, resource modelling, etc.), need that surface whole."
-    },
-    {
-      filename: "04-Faulted-Bedrock-units.svg",
-      label: "04 – Faulted bedrock units",
-      caption: "Bedrock units modelled within the fault blocks: Oracle Granite (host rock), Diabase dikes (older intrusions), and porphyritic intrusions linked to the mineralised system. The dikes share one offset surface as reference geometry – adjust its orientation, and the fifty-odd dikes follow."
-    },
-    {
-      filename: "05-Unfaulted-Basalt-dikes.svg",
-      label: "05 – Basalt dikes",
-      caption: "Basalt dikes, considered contemporaneous with Basin & Range extensional faulting."
-    },
-    {
-      filename: "06-Sediments.svg",
-      label: "06 – Valley fill",
-      caption: "Valley-fill sediments and overburden: Basal Conglomerate, Mafic Conglomerate, Mass-wasting boulders of bedrock (colluvium), Whitetail Conglomerate, Gila Conglomerate, Lacustrine deposits, and Alluvium – several built in their own models when necessary."
-    },
-    {
-      filename: "07-Final-combined-model.svg",
-      label: "07 – Combined model with fault planes overlaid",
-      caption: "Fault planes overlaid on the complete geology. The faults were built first (Step 1) but are shown last here so the units they displace are visible beneath them."
-    }
-  ];
 
-  const INITIAL_STEP = 3;
-  const IMG_BASE = "assets/leapfrog-postgresql/";
-
-  function applyStep(stepIndex) {
-    const step = STEPS[stepIndex];
-    document.getElementById("cs-img").src = IMG_BASE + step.filename;
-    document.getElementById("cs-label").textContent = step.label;
-    document.getElementById("cs-caption").textContent = step.caption;
-  }
-
-  function updateTrackFill(rangeEl) {
-    const min = parseFloat(rangeEl.min);
-    const max = parseFloat(rangeEl.max);
-    const val = parseFloat(rangeEl.value);
-    const pct = ((val - min) / (max - min)) * 100;
-    rangeEl.style.background = `linear-gradient(to right, #3eb4ad 0%, #3eb4ad ${pct}%, #444 ${pct}%, #444 100%)`;
-  }
-
-  function init() {
-    const range = document.getElementById("cs-range");
-    range.value = INITIAL_STEP;
-    applyStep(INITIAL_STEP);
-    updateTrackFill(range);
-    range.addEventListener("input", function () {
-      applyStep(parseInt(this.value, 10));
-      updateTrackFill(this);
-    });
-  }
-
-  window.addEventListener("load", init);
-})();
 </script>
+<script src="assets/leapfrog-postgresql/cross-section-slider.js"></script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1248,7 +1081,7 @@ document.addEventListener('DOMContentLoaded', function () {
     </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="../#">
+    <a class="nav-link" href="javascript:void(0)">
       <i class="bi bi-envelope" role="img" aria-label="Copy email address">
 </i> 
     </a>

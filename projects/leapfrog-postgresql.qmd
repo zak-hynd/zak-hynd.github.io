@@ -13,7 +13,7 @@ format:
   html:
     toc: true
     css: assets/leapfrog-postgresql/cross-section-slider.css
-    include-after-body: assets/leapfrog-postgresql/cross-section-slider.js
+    include-after-body: assets/leapfrog-postgresql/cross-section-slider.html
 ---
 
 ## Context

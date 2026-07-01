@@ -170,113 +170,15 @@ ul.task-list li input[type="checkbox"] {
 
 
 </main> <!-- /main -->
-<span class="footer-right-icons">
-
-  <a href="https://github.com/zak-hynd" aria-label="GitHub" target="_blank" rel="noopener">
-
-    <i class="bi bi-github"></i>
-
-  </a>
-
-  <button id="email-copy-btn" aria-label="Copy email address" title="Copy email address">
-
-    <i class="bi bi-envelope"></i>
-
-  </button>
-
-  <span id="email-tooltip">copied</span>
-
-</span>
-
-
-
-<style>
-
-.footer-right-icons {
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 12px;
-
-  float: right;
-
-}
-
-.footer-right-icons a,
-
-.footer-right-icons button {
-
-  color: inherit;
-
-  opacity: 0.75;
-
-  background: none;
-
-  border: none;
-
-  padding: 0;
-
-  cursor: pointer;
-
-  font-size: 1rem;
-
-  line-height: 1;
-
-}
-
-.footer-right-icons a:hover,
-
-.footer-right-icons button:hover { opacity: 1; }
-
-#email-tooltip {
-
-  font-size: 0.75rem;
-
-  opacity: 0;
-
-  transition: opacity 0.3s;
-
-}
-
-</style>
-
-
-
-<!-- <script>
-
-document.addEventListener('DOMContentLoaded', function () {
-
-  var btn = document.getElementById('email-copy-btn');
-
-  var tip = document.getElementById('email-tooltip');
-
-  if (!btn) return;
-
-  btn.addEventListener('click', function () {
-
-    navigator.clipboard.writeText('zak.hynd@gmail.com').then(function () {
-
-      tip.style.opacity = '1';
-
-      setTimeout(function () { tip.style.opacity = '0'; }, 1800);
-
-    });
-
-  });
-
-});
-
-</script> -->
-
-
-
 <script>
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  var link = document.querySelector('a[aria-label="Copy email address"]');
+  var icon = document.querySelector('i.bi-envelope');
+
+  if (!icon) return;
+
+  var link = icon.closest('a');
 
   if (!link) return;
 
@@ -313,7 +215,9 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 });
-<script id = "quarto-html-after-body" type="application/javascript">
+
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -731,7 +635,7 @@ document.addEventListener('DOMContentLoaded', function () {
     </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="../#">
+    <a class="nav-link" href="javascript:void(0)">
       <i class="bi bi-envelope" role="img" aria-label="Copy email address">
 </i> 
     </a>

@@ -110,6 +110,13 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Projects</span></a>
   </li>  
 </ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/zak-hynd"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
@@ -154,6 +161,53 @@ ul.task-list li input[type="checkbox"] {
 
 
 </main> <!-- /main -->
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  var icon = document.querySelector('i.bi-envelope');
+
+  if (!icon) return;
+
+  var link = icon.closest('a');
+
+  if (!link) return;
+
+  link.addEventListener('click', function (e) {
+
+    e.preventDefault();
+
+    navigator.clipboard.writeText('zak.hynd@gmail.com').then(function () {
+
+      var toast = document.createElement('span');
+
+      toast.textContent = 'Email copied';
+
+      toast.style.cssText = 'position:fixed;bottom:1rem;right:1rem;background:#30203e;' +
+
+        'color:#dce3ec;padding:6px 12px;border-radius:6px;font-size:0.8rem;' +
+
+        'z-index:1000;opacity:0;transition:opacity 0.25s';
+
+      document.body.appendChild(toast);
+
+      requestAnimationFrame(function () { toast.style.opacity = '1'; });
+
+      setTimeout(function () {
+
+        toast.style.opacity = '0';
+
+        setTimeout(function () { toast.remove(); }, 300);
+
+      }, 1500);
+
+    });
+
+  });
+
+});
+
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -555,6 +609,32 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Zak Hynd</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/zak-hynd">
+      <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="./#">
+      <i class="bi bi-envelope" role="img" aria-label="Copy email address">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 

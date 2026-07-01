@@ -110,6 +110,13 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Projects</span></a>
   </li>  
 </ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/zak-hynd"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
@@ -146,13 +153,60 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>I came into software through geoscience, and I’ve stayed close to it. A geology degree first, then most of a decade building the platforms geologists actually work in – close enough to the technical detail to be useful, far enough up to shape what got built. The job titles along the way were product ones. The work itself was systems design: taking competing demands and turning them into something a team could execute.</p>
-<p>The evidence is in what got built. Early on, a push to bring automated testing into the release process, to make it faster and more reliable. Later, a feature-priority framework that pulled competing business-unit demands into a single list the Leapfrog development team could work from. A customer feedback loop owned and evolved across most of the decade. A process for putting working prototypes in front of users before release, so feedback landed while the features were still cheap to change. None of these was a deliverable on a job description – each got built because the gap was there and the work needed it. The same instinct now runs the AI-assisted workflow behind my coursework: competing parts reconciled into something executable, in a new medium. <a href="./projects/ai-workflow.html">That workflow is written up here →</a></p>
-<p>The geoscience didn’t stay in the past. The degree was geology and zoology – an exchange at the University of Iceland is most of the reason the geology stuck – and the product work itself was deep in the domain, building tools for structural geology, vein and dike modelling, and 3D interpretation. Later came contract geomodelling work with Rogue Geoscience, including a PostgreSQL and Leapfrog drillhole workflow for Ivanhoe Electric’s Santa Cruz copper project in Arizona, which is a project page on this site. Drillhole data, structural interpretation, the shape of a deposit underground: that domain knowledge sits underneath the remote-sensing work now rather than beside it. It’s why I read a SAR scene or a change-detection result as a geoscientist would, not just as a technician running a pipeline.</p>
+<p>The evidence is in what got built. Early on, a push to bring automated testing into the release process, to make it faster and more reliable. Later, a feature-priority framework that pulled competing business-unit demands into a single list the Leapfrog development team could work from. A customer feedback loop owned and evolved across most of the decade. A process for putting working prototypes in front of users before release, so feedback landed while the features were still cheap to change. None of these was a deliverable on a job description – each got built because the gap was there and the work needed it. The same instinct now runs the <a href="./projects/ai-workflow.html">AI-assisted workflow</a> behind my coursework: competing parts reconciled into something executable, in a new medium.</p>
+<p>The geoscience didn’t stay in the past. The degree was geology and zoology – an exchange at the University of Iceland is most of the reason the geology stuck – and the product work itself was deep in the domain, building tools for structural geology, vein and dike modelling, and 3D interpretation. Later came contract geomodelling work with Rogue Geoscience, including a PostgreSQL and Leapfrog drillhole workflow for Ivanhoe Electric’s Santa Cruz copper project in Arizona, <a href="projects/leapfrog-postgresql.qmd.qmd">written up as a project here.</a> Drillhole data, structural interpretation, the shape of a deposit underground: that domain knowledge sits underneath the remote-sensing work now rather than beside it. It’s why I read a SAR scene or a change-detection result as a geoscientist would, not just as a technician running a pipeline.</p>
 <p>The Master’s in Geospatial Data Science is the deliberate part. Fifteen years of domain knowledge is worth more paired with the technical depth to act on it directly – remote sensing, geostatistics, spatial Python – than kept adjacent to whoever holds that depth instead.</p>
 
 
 
 </main> <!-- /main -->
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  var icon = document.querySelector('i.bi-envelope');
+
+  if (!icon) return;
+
+  var link = icon.closest('a');
+
+  if (!link) return;
+
+  link.addEventListener('click', function (e) {
+
+    e.preventDefault();
+
+    navigator.clipboard.writeText('zak.hynd@gmail.com').then(function () {
+
+      var toast = document.createElement('span');
+
+      toast.textContent = 'Email copied';
+
+      toast.style.cssText = 'position:fixed;bottom:1rem;right:1rem;background:#30203e;' +
+
+        'color:#dce3ec;padding:6px 12px;border-radius:6px;font-size:0.8rem;' +
+
+        'z-index:1000;opacity:0;transition:opacity 0.25s';
+
+      document.body.appendChild(toast);
+
+      requestAnimationFrame(function () { toast.style.opacity = '1'; });
+
+      setTimeout(function () {
+
+        toast.style.opacity = '0';
+
+        setTimeout(function () { toast.remove(); }, 300);
+
+      }, 1500);
+
+    });
+
+  });
+
+});
+
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -554,6 +608,32 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Zak Hynd</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/zak-hynd">
+      <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="javascript:void(0)">
+      <i class="bi bi-envelope" role="img" aria-label="Copy email address">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 

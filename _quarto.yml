@@ -5,16 +5,6 @@ project:
     - assets/favicon/
     - projects/assets/
 
-website:
-  title: "zh:"
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
-      - href: projects.qmd
-        text: Projects
-
 format:
   html:
     theme:
@@ -24,3 +14,28 @@ format:
     toc: true
     include-in-header:
       - assets/_favicon.html
+    include-after-body:
+      - assets/_footer.html
+
+website:
+  title: "zh:"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+      - href: projects.qmd
+        text: Projects
+    right:
+      - icon: github
+        href: https://github.com/zak-hynd
+        aria-label: GitHub
+  page-footer:
+    left: "© 2026 Zak Hynd"
+    right:
+    - icon: github
+      href: https://github.com/zak-hynd
+      aria-label: GitHub
+    - icon: envelope
+      href: "javascript:void(0)"
+      aria-label: Copy email address

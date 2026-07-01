@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Projects – Zak Hynd</title>
+<title>Projects – zh:</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -148,7 +148,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Zak Hynd</span>
+    <span class="navbar-title">zh:</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -168,6 +168,13 @@ window.Quarto = {
   <li class="nav-item">
     <a class="nav-link active" href="./projects.html" aria-current="page"> 
 <span class="menu-text">Projects</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/zak-hynd"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -328,7 +335,150 @@ Kriging — Phosphorus Retention
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div></main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+<span class="footer-right-icons">
+
+  <a href="https://github.com/zak-hynd" aria-label="GitHub" target="_blank" rel="noopener">
+
+    <i class="bi bi-github"></i>
+
+  </a>
+
+  <button id="email-copy-btn" aria-label="Copy email address" title="Copy email address">
+
+    <i class="bi bi-envelope"></i>
+
+  </button>
+
+  <span id="email-tooltip">copied</span>
+
+</span>
+
+
+
+<style>
+
+.footer-right-icons {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  float: right;
+
+}
+
+.footer-right-icons a,
+
+.footer-right-icons button {
+
+  color: inherit;
+
+  opacity: 0.75;
+
+  background: none;
+
+  border: none;
+
+  padding: 0;
+
+  cursor: pointer;
+
+  font-size: 1rem;
+
+  line-height: 1;
+
+}
+
+.footer-right-icons a:hover,
+
+.footer-right-icons button:hover { opacity: 1; }
+
+#email-tooltip {
+
+  font-size: 0.75rem;
+
+  opacity: 0;
+
+  transition: opacity 0.3s;
+
+}
+
+</style>
+
+
+
+<!-- <script>
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  var btn = document.getElementById('email-copy-btn');
+
+  var tip = document.getElementById('email-tooltip');
+
+  if (!btn) return;
+
+  btn.addEventListener('click', function () {
+
+    navigator.clipboard.writeText('zak.hynd@gmail.com').then(function () {
+
+      tip.style.opacity = '1';
+
+      setTimeout(function () { tip.style.opacity = '0'; }, 1800);
+
+    });
+
+  });
+
+});
+
+</script> -->
+
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  var link = document.querySelector('a[aria-label="Copy email address"]');
+
+  if (!link) return;
+
+  link.addEventListener('click', function (e) {
+
+    e.preventDefault();
+
+    navigator.clipboard.writeText('zak.hynd@gmail.com').then(function () {
+
+      var toast = document.createElement('span');
+
+      toast.textContent = 'Email copied';
+
+      toast.style.cssText = 'position:fixed;bottom:1rem;right:1rem;background:#30203e;' +
+
+        'color:#dce3ec;padding:6px 12px;border-radius:6px;font-size:0.8rem;' +
+
+        'z-index:1000;opacity:0;transition:opacity 0.25s';
+
+      document.body.appendChild(toast);
+
+      requestAnimationFrame(function () { toast.style.opacity = '1'; });
+
+      setTimeout(function () {
+
+        toast.style.opacity = '0';
+
+        setTimeout(function () { toast.remove(); }, 300);
+
+      }, 1500);
+
+    });
+
+  });
+
+});
+<script id = "quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -729,6 +879,32 @@ Kriging — Phosphorus Retention
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Zak Hynd</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/zak-hynd">
+      <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="./#">
+      <i class="bi bi-envelope" role="img" aria-label="Copy email address">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 

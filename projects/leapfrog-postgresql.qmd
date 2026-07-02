@@ -57,7 +57,7 @@ The idealised cross‑section below shows why the deposit has to be broken into 
   </div>
   <div style="margin-top: 0.75rem;">
     <div id="cs-label" style="font-size: 0.85rem; color: var(--bs-secondary-color, #aaa); margin-bottom: 0.5rem;"></div>
-    <input id="cs-range" type="range" min="0" max="6" step="1" value="3" aria-label="Cross-section step" />
+    <input id="cs-range" type="range" min="0" max="7" step="1" value="3" aria-label="Cross-section step" />
     <p id="cs-caption" style="font-size: 0.8rem; color: var(--bs-secondary-color, #aaa); margin-top: 0.3rem; margin-bottom: 0;"></p>
   </div>
 </div>

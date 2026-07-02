@@ -23,17 +23,22 @@
     {
       filename: "05-Unfaulted-Basalt-dikes.svg",
       label: "05 – Basalt dikes",
-      caption: "Basalt dikes, considered contemporaneous with Basin & Range extensional faulting."
+      caption: "Basalt dikes, considered contemporaneous with Basin & Range extensional faulting so built in a separate 'unfaulted' model."
     },
     {
-      filename: "06-Sediments.svg",
-      label: "06 – Valley fill",
-      caption: "Valley-fill sediments and overburden: Basal Conglomerate, Mafic Conglomerate, Mass-wasting boulders of bedrock (colluvium), Whitetail Conglomerate, Gila Conglomerate, Lacustrine deposits, and Alluvium – several built in their own models when necessary."
+      filename: "06-Main-sediments.svg",
+      label: "06 – Overburden and valley fill",
+      caption: "Valley‑fill and overburden units built above the BRI: Basal Conglomerate, Whitetail Conglomerate, Gila Conglomerate, and Alluvium. Straightforward stratigraphic volumes."
     },
     {
-      filename: "07-Final-combined-model.svg",
-      label: "07 – Combined model with fault planes overlaid",
-      caption: "Fault planes overlaid on the complete geology. The faults were built first (Step 1) but are shown last here so the units they displace are visible beneath them."
+      filename: "07-All-sediments.svg",
+      label: "07 – All sediments",
+      caption: "Additional sedimentary units requiring more manual modelling techniques to separate layers: Mafic Conglomerate, mass‑wasting boulder deposits (colluvium), and Lacustrine sediments."
+    },
+    {
+      filename: "08-Final-combined-model.svg",
+      label: "08 – Combined model with fault planes overlaid",
+      caption: "The faults were built first (Step 1) but included as part of the 'complete model' partly as a discussion point about whether they entirely predate (and offset) the sedimentary units."
     }
   ];
 

@@ -1,6 +1,7 @@
 ---
 title: "AI project management workflow"
 subtitle: "Files, rituals, and a division of labour for a worker with no memory"
+description: "An assistant that forgets between sessions, and the file system to manage its memory."
 date: 2026-07-04
 order: 3
 image: assets/ai-workflow/polaroid.webp

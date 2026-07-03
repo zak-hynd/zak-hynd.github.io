@@ -1,14 +1,10 @@
 ---
 title: "Leapfrog + PostgreSQL drilling workflow"
+subtitle: "Rebuilding a stalled geologic model, and the database layer beneath the tool"
 description: "Geologic modelling and database workflow for Ivanhoe Electric, Santa Cruz"
 date: 2026-06-27
 order: 1
 image: assets/leapfrog-postgresql/08-Final-combined-model.svg
----
-
----
-title: "Leapfrog + PostgreSQL drilling workflow"
-subtitle: "Rebuilding a stalled geologic model, and the database layer beneath the tool"
 format:
   html:
     toc: true
@@ -164,7 +160,7 @@ digraph schema {
 
 - `group_lith` – a coarser reclassification of the logged codes into broader units, for modelling at group level.
 - `*_interp` – a set of reclassified-lithology columns (`basalt_interp`, `diabase_interp`, `porphyry_interp`, and others), each set from `model_intervals` where a geologist can override the logged code for an interval – usually to separate distinct layers or dikes so each models cleanly – without touching the original log.
-- `hexRGB` – the blended logged colours as a single hex value – before Imago core imagery could be pulled into 3D, this was the next best thing, computed by the colour-blend function over `colour_lookup`.
+- `hexRGB` – the blended logged colours as a single hex value – computed by the colour-blend function over `colour_lookup`, so the logged colour can display in 3D alongside other data – Leapfrog can't render the named colours directly.
 - `fault` – an `above_` / `below_` code, set from where the interval falls against fault-contact points in `model_points`. This is what keeps fault-boundary contacts from contaminating the surfaces they sit on.
 - `ignore` / `ignore_comment` – a flag and a reason, pulled from the ignore table, marking intervals to be ignored from the model and saying why.
 :::
@@ -209,7 +205,6 @@ So the database supplied it. A lookup table, colour_lookup, paired every colour 
 Schematic 3D plot of drillhole intervals displaying blended logged rock colour (hexRGB). Synthetic data.
 :::
 
-It's worth noting this was the workaround of its time. The direct path now is Imago – core photography linked into Leapfrog, so the actual core imagery shows in 3D rather than a blended approximation of it. The blend solved the problem with what was available; the problem it solved has since been solved better.
 
 **Alpha-only structure**
 Oriented core gives two angles: alpha, the dip of a plane relative to the core axis, and beta, its rotation around that axis. Alpha alone fixes a cone the plane could lie on; beta is what pins it to a single orientation. A lot of structural logging, especially older logging, records alpha and no beta – which leaves the measurement real but unplottable. Leapfrog needs both, so those intervals simply don't appear.

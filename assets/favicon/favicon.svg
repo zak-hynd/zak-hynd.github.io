@@ -24,11 +24,11 @@
      inkscape:pageopacity="0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#505050"
-     inkscape:zoom="20.953125"
-     inkscape:cx="31.976137"
-     inkscape:cy="32"
-     inkscape:window-width="3072"
-     inkscape:window-height="1622"
+     inkscape:zoom="10.476563"
+     inkscape:cx="26.630872"
+     inkscape:cy="37.464579"
+     inkscape:window-width="2256"
+     inkscape:window-height="1398"
      inkscape:window-x="-11"
      inkscape:window-y="-11"
      inkscape:window-maximized="1"
@@ -40,8 +40,8 @@
      fill="#180d16"
      id="rect1" />
   <text
-     x="34.047852"
-     y="35.480469"
+     x="34.302811"
+     y="32.101639"
      text-anchor="middle"
      dominant-baseline="central"
      font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
@@ -49,5 +49,5 @@
      font-weight="600"
      fill="#85d9b1"
      id="text1"
-     style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:36px;font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;-inkscape-font-specification:'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:central;text-anchor:middle;fill:#85d9b1">zh:</text>
+     style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:36.0001px;font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;-inkscape-font-specification:'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;dominant-baseline:central;text-anchor:middle;fill:#85d9b1;stroke-width:1">zh:</text>
 </svg>

@@ -6,8 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-06-22">
-<meta name="description" content="SAR and multispectral fusion for river channel change detection">
+<meta name="dcterms.date" content="2026-07-05">
+<meta name="description" content="SAR and multispectral fusion to track channel change">
 
 <title>River Braid Change Mapping – zh:</title>
 <style>
@@ -129,8 +129,16 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#why-two-sensors" id="toc-why-two-sensors" class="nav-link active" data-scroll-target="#why-two-sensors">Why two sensors</a></li>
+  <li><a href="#what-the-flood-did" id="toc-what-the-flood-did" class="nav-link" data-scroll-target="#what-the-flood-did">What the flood did</a></li>
+  <li><a href="#where-it-stands" id="toc-where-it-stands" class="nav-link" data-scroll-target="#where-it-stands">Where it stands</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -138,11 +146,12 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">River Braid Change Mapping</h1>
+<p class="subtitle lead">Sentinel-1 SAR and Sentinel-2 optical fused to track channel change through the May 2021 Canterbury flood</p>
 </div>
 
 <div>
   <div class="description">
-    SAR and multispectral fusion for river channel change detection
+    SAR and multispectral fusion to track channel change
   </div>
 </div>
 
@@ -153,7 +162,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 22, 2026</p>
+      <p class="date">July 5, 2026</p>
     </div>
   </div>
   
@@ -165,9 +174,60 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Placeholder — content pending.</p>
+<div id="fig-change-map" class="figure quarto-float quarto-figure quarto-figure-center anchored" alt="...">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-change-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/river-braid/change-map-crop.webp" class="img-fluid figure-img" style="width:100.0%" alt="...">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-change-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Pre- to post-flood channel change on the lower Waimakariri, active braid zone. Blue: newly wet. Orange: newly dry. Grey: unchanged. One flood, one map – where the braids moved and where they stayed.
+</figcaption>
+</figure>
+</div>
+<p>A big flood doesn’t just raise water levels – it redraws the river. The question that matters afterwards is how the channels have shifted across the braidplain. Where the braids settle at low flow determines where new gravel sits, what critical infrastructure is at risk, and which farmland has been lost behind a breached stopbank. Environment Canterbury (ECan) answers this with aerial LiDAR at sub-metre accuracy, and nothing at Sentinel resolution competes with that. But LiDAR flights are expensive, scheduled, and months apart, and floods don’t wait for aircraft.</p>
+<p>This project asked whether open-access satellite imagery could fill the gap between flights – a frequent, wide-area triage layer that flags where channel change has happened and points limited survey effort at the river sections that warrant it. Not a LiDAR replacement; a way of deciding where to send it. This GISC406 Remote Sensing project is framed as a proof of concept aimed at that kind of workflow.</p>
+<p>The test case was the May 2021 Canterbury flood, which pushed the Waimakariri to roughly 2000 cumecs – an order of magnitude above its baseline flow – and reworked the braidplain along the length of the lower river.</p>
+<section id="why-two-sensors" class="level2">
+<h2 class="anchored" data-anchor-id="why-two-sensors">Why two sensors</h2>
+<p>The obvious tool for flood mapping is optical imagery – Sentinel-2’s near-infrared and green bands give a clean water index (NDWI) – but the weather that causes a flood also hides it: cloud. Radar penetrates cloud, which is why Sentinel-1 SAR is the standard flood-mapping workhorse. On a braided river it hits a different wall: water and the surrounding gravel and scrub return backscatter distributions that overlap almost completely. In this corridor the two classes separated by 2.2 dB on the better polarisation – not enough to make a confident classification, but enough to corroborate one.</p>
+<p>So neither sensor can do the job alone, and you can’t <em>just</em> blend the two different sensors’ values. The approach here combines their decisions. Every scene from either sensor is classified independently into Wet, Dry, or Uncertain, and the per-pixel labels are tallied across all passes in a time window – optical votes decide the state, agreeing SAR passes upgrade it from Provisional to Corroborated. Cloud-affected pixels stay Uncertain and simply drop out of the tally, rather than contaminating a composite. Each sensor contributes where it is strong and abstains where it is weak.</p>
+<p>Two of these state maps – a pre-flood baseline and a post-flood window – then compare endpoint by endpoint to produce the change map: where the corridor wetted, dried, or held.</p>
+<div id="fig-state-maps" class="figure quarto-float quarto-figure quarto-figure-center anchored" alt="...">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-state-maps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/river-braid/state-panel.webp" class="img-fluid figure-img" style="width:100.0%" alt="...">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-state-maps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: From signal to state: SAR backscatter (top), true colour and NDWI (middle rows), and the aggregated per-pixel state map (bottom), pre- and post-flood. The state map is built from every usable pass in the window, not a single scene.
+</figcaption>
+</figure>
+</div>
+<p>The scope was set deliberately: per-pixel channel state, not channel geometry – 10 m pixels can’t resolve braid threads narrower than themselves, and pretending otherwise is how remote sensing projects overreach. Combining optical and SAR decisions this way for braided-channel monitoring appears not to have been done before – each component is standard, the integration is the new part. Thresholds, calibration, and aggregation rules are in the <a href="assets/river-braid-report.pdf">full report</a>.</p>
+</section>
+<section id="what-the-flood-did" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-flood-did">What the flood did</h2>
+<p>The pipeline classified both windows – a pre-flood baseline and the post-flood recession – with one calibration, across an order-of-magnitude difference in river flow. Nothing was retuned for the event. For a system meant to ingest every pass continuously, that is the property that matters most: there is no analyst standing by to recalibrate when conditions change, so the same thresholds have to hold at 50 cumecs and at 2000.</p>
+<p>The change map shows the flood’s signature across the corridor. About 3.3 times as much area gained water as lost it – inundation on top of migration, not migration alone. But the balance shifts along the river: in the wide braidplain, new braids cut through previously dry ground and old ones were abandoned, clear lateral migration; in the narrower sections, the existing channels mostly widened and stayed put. That distinction – braids that moved versus braids that grew – is exactly what a triage layer needs to surface, because the two patterns put different things at risk.</p>
+<div id="fig-change-maps" class="figure quarto-float quarto-figure quarto-figure-center anchored" alt="...">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-change-maps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/river-braid/change-map-focus-areas.webp" class="img-fluid figure-img" style="width:100.0%" alt="...">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-change-maps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Two reaches, two behaviours. Focus Area West (top): lateral braid migration across the wide braidplain. Focus Area East (bottom): channel widening and inundation in a narrower section.
+</figcaption>
+</figure>
+</div>
+<p>One result ran against expectation. Post-event imagery is usually worse – cloud, turbidity, sensor gaps – but the post-flood state map came out sharper than the baseline, with the Unresolved share nearly halving. Sustained high flow pushed marginal pixels – shallow braid edges that sat in NDWI’s uncertain band at low flow – into a clean Wet signal. If that pattern holds across events, the windows where the map matters most are also the windows where it performs best.</p>
+</section>
+<section id="where-it-stands" class="level2">
+<h2 class="anchored" data-anchor-id="where-it-stands">Where it stands</h2>
+<p>One river, one event is a thin test. The pipeline was built to make that a cheap problem to fix: it is parameterised on catchment name and area of interest, so extending to the Rakaia or the Rangitata, or to a quieter time period, is a re-run rather than a redesign. What a wider run would test is the property the single catchment could only suggest – whether one calibration really does hold across rivers and events, or whether the Waimakariri was a lucky fit.</p>
+<p>The method has obvious next steps, and I’m exploring them further – a confidence-weighted vote with decay so stale passes stop corroborating the current state, additional SAR polarisations, and eventually supervised classification, once an accumulating state-map archive can generate its own training labels. That last one is the interesting inversion: the proof of concept can’t use machine learning for want of ground truth, but run it long enough and it produces the ground truth itself.</p>
+<p>The method has obvious next steps, and I’m exploring them further: - <strong>A smarter vote.</strong> Confidence weighting, so passes near a classification threshold count for less than clean ones, and a decay term, so a month-old detection stops corroborating the current state. The equal-weight tally was the right starting simplification, not the end point. - <strong>A stronger classifier.</strong> A random forest with texture features, so the spatial pattern of a braid counts as evidence alongside the per-pixel signal – trained initially against the accumulated state maps, validated against whatever independent truth a survey flight provides. - <strong>More signals in the tally.</strong> Additional SAR polarisations, more optical bands, other constellations. Spatial resolution varies not just between satellites but between sensors on the same platform – Sentinel-2’s own bands range from 10 m to 60 m – and the decision-level vote is built for exactly that mismatch: each signal contributes a label, not a measurement, so sources with incompatible resolutions and physics sit in the same tally. The proof of concept fused two signals; the architecture doesn’t care how many there are.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script>

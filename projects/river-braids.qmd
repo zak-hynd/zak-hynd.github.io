@@ -8,9 +8,9 @@ image: assets/river-braids/change-map-crop.webp
 ---
 
 ::: {#fig-change-map .figure}
-![](assets/river-braids/change-map-crop.webp){fig-alt="..." width="100%"}
+![](assets/river-braids/change-map-crop.webp){fig-alt="A close-up change map of a braided river reach. Light blue marks newly wet ground and threads across the braidplain in fresh channels; darker blue marks channels that stayed wet. Tan dry ground dominates the margins, with a small amount of orange where water was lost. The blue tones clearly outweigh the orange, and the new channels cut across ground that was previously dry." width="100%"}
 
-Pre- to post-flood channel change on the lower Waimakariri, active braid zone. Blue: newly wet. Orange: newly dry. Grey: unchanged. One flood, one map – where the braids moved and where they stayed.
+The May 2021 flood at Focus Area West, southwest of the Gorge Bridge. New braids cut across previously dry ground; far less area lost water than gained it.
 :::
 
 
@@ -29,10 +29,10 @@ So neither sensor can do the job alone, and you can’t *just* blend the two dif
 
 Two of these state maps – a pre-flood baseline and a post-flood window – then compare endpoint by endpoint to produce the change map: where the corridor wetted, dried, or held.
 
-::: {#fig-state-maps .figure}
-![](assets/river-braids/state-maps.webp){fig-alt="..." width="100%"}
+::: {#fig-state-panel .figure}
+![](assets/river-braids/state-panel.webp){fig-alt="A grid of maps of the same river reach, pre-flood on the left and post-flood on the right. Top row: grainy Sentinel-1 radar backscatter. Second row: true-colour satellite imagery. Third row: NDWI water index. Bottom row: the aggregated state map, running from tan dry through grey uncertain to blue wet. Left to right, the wet channel network is visibly broader and better connected after the flood, and the post-flood state map carries fewer grey uncertain pixels along the channel edges. A locator map at the base places the reach within the wider river corridor." width="100%"}
 
-From signal to state: SAR backscatter (top), true colour and NDWI (middle rows), and the aggregated per-pixel state map (bottom), pre- and post-flood. The state map is built from every usable pass in the window, not a single scene.
+From signal to state, Focus Area East. Each column aggregates every usable pass in its window: Sentinel-1 VH backscatter (A, E), Sentinel-2 true colour (B, F) and NDWI (C, G), and the resulting per-pixel state map (D, H). Pre-flood left, post-flood right.
 :::
 
 The scope was set deliberately: per-pixel channel state, not channel geometry – 10 m pixels can't resolve braid threads narrower than themselves, and pretending otherwise is how remote sensing projects overreach. Combining optical and SAR decisions this way for braided-channel monitoring appears not to have been done before – each component is standard, the integration is the new part. Thresholds, calibration, and aggregation rules are in the [full report](assets/river-braids/gisc406-report.pdf).
@@ -44,16 +44,16 @@ The pipeline classified both windows – a pre-flood baseline and the post-flood
 
 The change map shows the flood's signature across the corridor. About 3.3 times as much area gained water as lost it – inundation on top of migration, not migration alone. But the balance shifts along the river: in the wide braidplain, new braids cut through previously dry ground and old ones were abandoned, clear lateral migration; in the narrower sections, the existing channels mostly widened and stayed put. That distinction – braids that moved versus braids that grew – is exactly what a triage layer needs to surface, because the two patterns put different things at risk.
 
-::: {#fig-change-maps .figure}
-![](assets/river-braids/change-map.webp){fig-alt="..." width="100%"}
+::: {#fig-corridor-change .figure}
+![](assets/river-braids/corridor-change.webp){fig-alt="Change map of the lower Waimakariri corridor with two detail insets. In the wider braidplain (Focus Area West) light-blue new channels have migrated laterally, tracing fresh paths while abandoned ones show as orange. In the narrower reach (Focus Area East) the change hugs the existing channel, which has widened in place rather than moved. Tan dry ground fills the margins throughout, and across the whole corridor blue gained-water tones clearly outnumber orange lost-water areas." width="100%"}
 
-Two reaches, two behaviours. Focus Area West (top): lateral braid migration across the wide braidplain. Focus Area East (bottom): channel widening and inundation in a narrower section.
+The corridor and both focus areas. Wide braidplain (West, top): braids migrate laterally, new channels appearing as others are abandoned. Narrower reach (East, bottom): the channel widens in place rather than moving. The pattern the triage layer needs to tell apart.
 :::
 
 One result ran against expectation. Post-event imagery is usually worse – cloud, turbidity, sensor gaps – but the post-flood state map came out sharper than the baseline, with the Unresolved share nearly halving. Sustained high flow pushed marginal pixels – shallow braid edges that sat in NDWI's uncertain band at low flow – into a clean Wet signal. If that pattern holds across events, the windows where the map matters most are also the windows where it performs best.
 
 
-## Where it stands
+## What's next
 
 One river, one event is a thin test. The pipeline was built to make that a cheap problem to fix: it is parameterised on catchment name and area of interest, so extending to the Rakaia or the Rangitata, or to a quieter time period, is a re-run rather than a redesign. What a wider run would test is the property the single catchment could only suggest – whether one calibration really does hold across rivers and events, or whether the Waimakariri was a lucky fit.
 

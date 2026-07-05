@@ -136,7 +136,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#why-two-sensors" id="toc-why-two-sensors" class="nav-link active" data-scroll-target="#why-two-sensors">Why two sensors</a></li>
   <li><a href="#what-the-flood-did" id="toc-what-the-flood-did" class="nav-link" data-scroll-target="#what-the-flood-did">What the flood did</a></li>
-  <li><a href="#where-it-stands" id="toc-where-it-stands" class="nav-link" data-scroll-target="#where-it-stands">Where it stands</a></li>
+  <li><a href="#whats-next" id="toc-whats-next" class="nav-link" data-scroll-target="#whats-next">What’s next</a></li>
   </ul>
 </nav>
     </div>
@@ -174,13 +174,13 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div id="fig-change-map" class="figure quarto-float quarto-figure quarto-figure-center anchored" alt="...">
+<div id="fig-change-map" class="figure quarto-float quarto-figure quarto-figure-center anchored" alt="A close-up change map of a braided river reach. Light blue marks newly wet ground and threads across the braidplain in fresh channels; darker blue marks channels that stayed wet. Tan dry ground dominates the margins, with a small amount of orange where water was lost. The blue tones clearly outweigh the orange, and the new channels cut across ground that was previously dry.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-change-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="assets/river-braids/change-map-crop.webp" class="img-fluid figure-img" style="width:100.0%" alt="...">
+<img src="assets/river-braids/change-map-crop.webp" class="img-fluid figure-img" style="width:100.0%" alt="A close-up change map of a braided river reach. Light blue marks newly wet ground and threads across the braidplain in fresh channels; darker blue marks channels that stayed wet. Tan dry ground dominates the margins, with a small amount of orange where water was lost. The blue tones clearly outweigh the orange, and the new channels cut across ground that was previously dry.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-change-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Pre- to post-flood channel change on the lower Waimakariri, active braid zone. Blue: newly wet. Orange: newly dry. Grey: unchanged. One flood, one map – where the braids moved and where they stayed.
+Figure&nbsp;1: Channel change from the May 2021 Canterbury flood at Focus Area West, southeast of the Gorge Bridge. New braids cut across previously dry ground; far less area lost water than gained it.
 </figcaption>
 </figure>
 </div>
@@ -192,13 +192,13 @@ Figure&nbsp;1: Pre- to post-flood channel change on the lower Waimakariri, activ
 <p>The obvious tool for flood mapping is optical imagery – Sentinel-2’s near-infrared and green bands give a clean water index (NDWI) – but the weather that causes a flood also hides it: cloud. Radar penetrates cloud, which is why Sentinel-1 SAR is the standard flood-mapping workhorse. On a braided river it hits a different wall: water and the surrounding gravel and scrub return backscatter distributions that overlap almost completely. In this corridor the two classes separated by 2.2 dB on the better polarisation – not enough to make a confident classification, but enough to corroborate one.</p>
 <p>So neither sensor can do the job alone, and you can’t <em>just</em> blend the two different sensors’ values. The approach here combines their decisions. Every scene from either sensor is classified independently into Wet, Dry, or Uncertain, and the per-pixel labels are tallied across all passes in a time window – optical votes decide the state, agreeing SAR passes upgrade it from Provisional to Corroborated. Cloud-affected pixels stay Uncertain and simply drop out of the tally, rather than contaminating a composite. Each sensor contributes where it is strong and abstains where it is weak.</p>
 <p>Two of these state maps – a pre-flood baseline and a post-flood window – then compare endpoint by endpoint to produce the change map: where the corridor wetted, dried, or held.</p>
-<div id="fig-state-maps" class="figure quarto-float quarto-figure quarto-figure-center anchored" alt="...">
+<div id="fig-state-panel" class="figure quarto-float quarto-figure quarto-figure-center anchored" alt="A grid of maps of the same river reach, pre-flood on the left and post-flood on the right. Top row: grainy Sentinel-1 radar backscatter. Second row: true-colour satellite imagery. Third row: NDWI water index. Bottom row: the aggregated state map, running from tan dry through grey uncertain to blue wet. Left to right, the wet channel network is visibly broader and better connected after the flood, and the post-flood state map carries fewer grey uncertain pixels along the channel edges. A locator map at the base places the reach within the wider river corridor.">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-state-maps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="assets/river-braids/state-maps.webp" class="img-fluid figure-img" style="width:100.0%" alt="...">
+<div aria-describedby="fig-state-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="assets/river-braids/state-maps.webp" class="img-fluid figure-img" style="width:100.0%" alt="A grid of maps of the same river reach, pre-flood on the left and post-flood on the right. Top row: grainy Sentinel-1 radar backscatter. Second row: true-colour satellite imagery. Third row: NDWI water index. Bottom row: the aggregated state map, running from tan dry through grey uncertain to blue wet. Left to right, the wet channel network is visibly broader and better connected after the flood, and the post-flood state map carries fewer grey uncertain pixels along the channel edges. A locator map at the base places the reach within the wider river corridor.">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-state-maps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: From signal to state: SAR backscatter (top), true colour and NDWI (middle rows), and the aggregated per-pixel state map (bottom), pre- and post-flood. The state map is built from every usable pass in the window, not a single scene.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-state-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: From signal to state, Focus Area East. Each column aggregates every usable pass in its window: Sentinel-1 VH backscatter (A, E), Sentinel-2 true colour (B, F) and NDWI (C, G), and the resulting per-pixel state map (D, H). Pre-flood left, post-flood right.
 </figcaption>
 </figure>
 </div>
@@ -208,20 +208,20 @@ Figure&nbsp;2: From signal to state: SAR backscatter (top), true colour and NDWI
 <h2 class="anchored" data-anchor-id="what-the-flood-did">What the flood did</h2>
 <p>The pipeline classified both windows – a pre-flood baseline and the post-flood recession – with one calibration, across an order-of-magnitude difference in river flow. Nothing was retuned for the event. For a system meant to ingest every pass continuously, that is the property that matters most: there is no analyst standing by to recalibrate when conditions change, so the same thresholds have to hold at 50 cumecs and at 2000.</p>
 <p>The change map shows the flood’s signature across the corridor. About 3.3 times as much area gained water as lost it – inundation on top of migration, not migration alone. But the balance shifts along the river: in the wide braidplain, new braids cut through previously dry ground and old ones were abandoned, clear lateral migration; in the narrower sections, the existing channels mostly widened and stayed put. That distinction – braids that moved versus braids that grew – is exactly what a triage layer needs to surface, because the two patterns put different things at risk.</p>
-<div id="fig-change-maps" class="figure quarto-float quarto-figure quarto-figure-center anchored" alt="...">
+<div id="fig-corridor-change" class="figure quarto-float quarto-figure quarto-figure-center anchored" alt="Change map of the lower Waimakariri corridor with two detail insets. In the wider braidplain (Focus Area West) light-blue new channels have migrated laterally, tracing fresh paths while abandoned ones show as orange. In the narrower reach (Focus Area East) the change hugs the existing channel, which has widened in place rather than moved. Tan dry ground fills the margins throughout, and across the whole corridor blue gained-water tones clearly outnumber orange lost-water areas.">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-change-maps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="assets/river-braids/change-map.webp" class="img-fluid figure-img" style="width:100.0%" alt="...">
+<div aria-describedby="fig-corridor-change-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="assets/river-braids/change-map.webp" class="img-fluid figure-img" style="width:100.0%" alt="Change map of the lower Waimakariri corridor with two detail insets. In the wider braidplain (Focus Area West) light-blue new channels have migrated laterally, tracing fresh paths while abandoned ones show as orange. In the narrower reach (Focus Area East) the change hugs the existing channel, which has widened in place rather than moved. Tan dry ground fills the margins throughout, and across the whole corridor blue gained-water tones clearly outnumber orange lost-water areas.">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-change-maps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Two reaches, two behaviours. Focus Area West (top): lateral braid migration across the wide braidplain. Focus Area East (bottom): channel widening and inundation in a narrower section.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-corridor-change-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: The corridor and both focus areas. Wide braidplain (West, top): braids migrate laterally, new channels appearing as others are abandoned. Narrower reach (East, bottom): the channel widens in place rather than moving. The pattern the triage layer needs to tell apart.
 </figcaption>
 </figure>
 </div>
 <p>One result ran against expectation. Post-event imagery is usually worse – cloud, turbidity, sensor gaps – but the post-flood state map came out sharper than the baseline, with the Unresolved share nearly halving. Sustained high flow pushed marginal pixels – shallow braid edges that sat in NDWI’s uncertain band at low flow – into a clean Wet signal. If that pattern holds across events, the windows where the map matters most are also the windows where it performs best.</p>
 </section>
-<section id="where-it-stands" class="level2">
-<h2 class="anchored" data-anchor-id="where-it-stands">Where it stands</h2>
+<section id="whats-next" class="level2">
+<h2 class="anchored" data-anchor-id="whats-next">What’s next</h2>
 <p>One river, one event is a thin test. The pipeline was built to make that a cheap problem to fix: it is parameterised on catchment name and area of interest, so extending to the Rakaia or the Rangitata, or to a quieter time period, is a re-run rather than a redesign. What a wider run would test is the property the single catchment could only suggest – whether one calibration really does hold across rivers and events, or whether the Waimakariri was a lucky fit.</p>
 <p>The method has obvious next steps, and I’m exploring them further – a confidence-weighted vote with decay so stale passes stop corroborating the current state, additional SAR polarisations, and eventually supervised classification, once an accumulating state-map archive can generate its own training labels. That last one is the interesting inversion: the proof of concept can’t use machine learning for want of ground truth, but run it long enough and it produces the ground truth itself.</p>
 <p>The method has obvious next steps, and I’m exploring them further:</p>

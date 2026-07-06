@@ -224,7 +224,7 @@ Figure&nbsp;1: Idealised cross-section, not to scale. The section cuts across a 
 <p><svg width="16" height="16" style="margin-right:6px; vertical-align:middle;"><rect x="0" y="0" width="16" height="16" fill="#888" stroke="#ddd" stroke-width="1"></rect><line x1="2" y1="14" x2="14" y2="2" stroke="#222" stroke-width="4"></line></svg>Faults<br> <span style="display:inline-block; width:16px; height:16px; background:#ded2c2; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Alluvium<br> <span style="display:inline-block; width:16px; height:16px; background:#967661; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Gila Conglomerate<br> <span style="display:inline-block; width:16px; height:16px; background:#2ad4ff; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Lake Sediments<br> <span style="display:inline-block; width:16px; height:16px; background:#866053; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Whitetail Conglomerate<br> <span style="display:inline-block; width:16px; height:16px; background:#ff9ee4; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Bedrock Colluvium<br> <span style="display:inline-block; width:16px; height:16px; background:#484848; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Mafic Conglomerate<br> <span style="display:inline-block; width:16px; height:16px; background:#a93132; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Basal Conglomerate<br> <span style="display:inline-block; width:16px; height:16px; background:#2a7fff; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Basalt Dikes<br> <span style="display:inline-block; width:16px; height:16px; background:#faa403; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Porphyry<br> <span style="display:inline-block; width:16px; height:16px; background:#037f05; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Diabase Dikes<br> <span style="display:inline-block; width:16px; height:16px; background:#fdc1cb; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Oracle Granite<br></p>
 </div>
 </div></div></section>
-<section id="the-database-layer" class="level2">
+<section id="the-database-layer" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="the-database-layer">The database layer</h2>
 <p>For the most part, Leapfrog modelled the geometry well enough. The two things it couldn’t do are the two a long project needs most: reason across several tables at once, and remember why a decision was made. It reads drillhole data, but it won’t compute a derived classification from the overlap of three other tables, and it has no native place to record that an interval was reclassified, by whom, or on what grounds.</p>
 <p>So the database carried what the tool couldn’t. The drilling data sat in PostgreSQL, and a layer of derived VIEWs sat between the raw tables and Leapfrog. The keystone was <code>lf_lith</code>: one flat table, assembled on the fly, that Leapfrog could consume as a single lithology source while the work of combining several tables happened underneath it, in SQL, where it was legible and reproducible.</p>
@@ -237,15 +237,15 @@ Figure&nbsp;1: Idealised cross-section, not to scale. The section cuts across a 
 <svg width="672" height="480" viewbox="0.00 0.00 449.23 372.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 368)">
 <title>schema</title>
-<g id="clust2" class="cluster">
-<title>cluster_interp</title>
-<path fill="transparent" stroke="#413f80" d="M20,-8C20,-8 113.24,-8 113.24,-8 119.24,-8 125.24,-14 125.24,-20 125.24,-20 125.24,-166 125.24,-166 125.24,-172 119.24,-178 113.24,-178 113.24,-178 20,-178 20,-178 14,-178 8,-172 8,-166 8,-166 8,-20 8,-20 8,-14 14,-8 20,-8"></path>
-<text text-anchor="middle" x="61.53" y="-161.4" font-family="Open Sans" font-size="14.00" fill="#c6ebd1">interpretation</text>
-</g>
 <g id="clust1" class="cluster">
 <title>cluster_raw</title>
 <path fill="transparent" stroke="#413f80" d="M34.54,-186C34.54,-186 98.7,-186 98.7,-186 104.7,-186 110.7,-192 110.7,-198 110.7,-198 110.7,-344 110.7,-344 110.7,-350 104.7,-356 98.7,-356 98.7,-356 34.54,-356 34.54,-356 28.54,-356 22.54,-350 22.54,-344 22.54,-344 22.54,-198 22.54,-198 22.54,-192 28.54,-186 34.54,-186"></path>
 <text text-anchor="middle" x="64.25" y="-339.4" font-family="Open Sans" font-size="14.00" fill="#c6ebd1">raw tables</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_interp</title>
+<path fill="transparent" stroke="#413f80" d="M20,-8C20,-8 113.24,-8 113.24,-8 119.24,-8 125.24,-14 125.24,-20 125.24,-20 125.24,-166 125.24,-166 125.24,-172 119.24,-178 113.24,-178 113.24,-178 20,-178 20,-178 14,-178 8,-172 8,-166 8,-166 8,-20 8,-20 8,-14 14,-8 20,-8"></path>
+<text text-anchor="middle" x="61.53" y="-161.4" font-family="Open Sans" font-size="14.00" fill="#c6ebd1">interpretation</text>
 </g>
 <g id="clust3" class="cluster">
 <title>cluster_views</title>
@@ -285,8 +285,8 @@ Figure&nbsp;1: Idealised cross-section, not to scale. The section cuts across a 
 <!-- survey&#45;&gt;lf_survey -->
 <g id="edge2" class="edge">
 <title>survey-&gt;lf_survey</title>
-<path fill="none" stroke="#6b6480" stroke-width="1.5" d="M93.73,-237.28C104.27,-234.81 116.07,-230.73 125.24,-224 156.74,-200.88 143.26,-174.82 174.24,-151 178.65,-147.6 183.75,-144.82 189,-142.55"></path>
-<polygon fill="#6b6480" stroke="#6b6480" stroke-width="1.5" points="189.92,-144.45 194.73,-140.28 188.38,-140.54 189.92,-144.45"></polygon>
+<path fill="none" stroke="#6b6480" stroke-width="1.5" d="M93.75,-237.3C104.29,-234.84 116.1,-230.76 125.24,-224 156.96,-200.56 142.84,-173.87 174.24,-150 178.65,-146.65 183.74,-143.94 188.99,-141.76"></path>
+<polygon fill="#6b6480" stroke="#6b6480" stroke-width="1.5" points="189.85,-143.68 194.72,-139.6 188.36,-139.75 189.85,-143.68"></polygon>
 </g>
 <!-- lithology -->
 <g id="node3" class="node">
@@ -303,8 +303,8 @@ Figure&nbsp;1: Idealised cross-section, not to scale. The section cuts across a 
 <!-- lithology&#45;&gt;lf_lith -->
 <g id="edge6" class="edge">
 <title>lithology-&gt;lf_lith</title>
-<path fill="none" stroke="#85d9b1" stroke-width="1.5" d="M98.52,-195.39C107.66,-191.4 117.33,-186.27 125.24,-180 153.3,-157.74 145.17,-136.94 174.24,-116 180.26,-111.66 187.42,-108.3 194.48,-105.72"></path>
-<polygon fill="#85d9b1" stroke="#85d9b1" stroke-width="1.5" points="195.34,-107.64 200.36,-103.74 194,-103.67 195.34,-107.64"></polygon>
+<path fill="none" stroke="#85d9b1" stroke-width="1.5" d="M98.55,-195.42C107.69,-191.44 117.35,-186.3 125.24,-180 153.5,-157.41 144.78,-136.01 174.24,-115 180.25,-110.71 187.4,-107.46 194.46,-105.02"></path>
+<polygon fill="#85d9b1" stroke="#85d9b1" stroke-width="1.5" points="195.26,-106.97 200.34,-103.15 193.98,-102.97 195.26,-106.97"></polygon>
 </g>
 <!-- structures -->
 <g id="node4" class="node">
@@ -357,8 +357,8 @@ Figure&nbsp;1: Idealised cross-section, not to scale. The section cuts across a 
 <!-- model_points&#45;&gt;lf_lith -->
 <g id="edge7" class="edge">
 <title>model_points-&gt;lf_lith</title>
-<path fill="none" stroke="#3eb4ad" stroke-width="1.5" d="M111.34,-39.14C116.12,-40.87 120.85,-42.82 125.24,-45 149.45,-57 150.19,-68.67 174.24,-81 180.61,-84.27 187.74,-87.08 194.63,-89.42"></path>
-<polygon fill="#3eb4ad" stroke="#3eb4ad" stroke-width="1.5" points="193.99,-91.42 200.34,-91.28 195.29,-87.43 193.99,-91.42"></polygon>
+<path fill="none" stroke="#3eb4ad" stroke-width="1.5" d="M111.31,-39.2C116.1,-40.92 120.83,-42.85 125.24,-45 149.29,-56.73 150.45,-67.74 174.24,-80 180.64,-83.3 187.78,-86.21 194.68,-88.68"></path>
+<polygon fill="#3eb4ad" stroke="#3eb4ad" stroke-width="1.5" points="194.03,-90.68 200.39,-90.64 195.4,-86.71 194.03,-90.68"></polygon>
 </g>
 <!-- model_intervals -->
 <g id="node6" class="node">
@@ -435,8 +435,8 @@ Figure&nbsp;1: Idealised cross-section, not to scale. The section cuts across a 
 <!-- lf_model_pt&#45;&gt;leapfrog -->
 <g id="edge16" class="edge">
 <title>lf_model_pt-&gt;leapfrog</title>
-<path fill="none" stroke="#6b6480" stroke-width="1.5" d="M267.13,-74.77C272.16,-76.67 277.18,-78.75 281.84,-81 310.88,-94.99 341.58,-115.4 362.64,-130.39"></path>
-<polygon fill="#6b6480" stroke="#6b6480" stroke-width="1.5" points="361.69,-132.29 367.79,-134.08 364.13,-128.87 361.69,-132.29"></polygon>
+<path fill="none" stroke="#6b6480" stroke-width="1.5" d="M267.16,-73.95C272.18,-75.77 277.19,-77.79 281.84,-80 311.58,-94.13 342.79,-115.34 363.81,-130.71"></path>
+<polygon fill="#6b6480" stroke="#6b6480" stroke-width="1.5" points="362.59,-132.42 368.67,-134.29 365.08,-129.04 362.59,-132.42"></polygon>
 </g>
 <!-- lf_structure&#45;&gt;leapfrog -->
 <g id="edge18" class="edge">
@@ -453,8 +453,8 @@ Figure&nbsp;1: Idealised cross-section, not to scale. The section cuts across a 
 <!-- lf_lith&#45;&gt;leapfrog -->
 <g id="edge17" class="edge">
 <title>lf_lith-&gt;leapfrog</title>
-<path fill="none" stroke="#6b6480" stroke-width="1.5" d="M254.68,-106.47C280.58,-114.86 320.55,-127.81 350.17,-137.41"></path>
-<polygon fill="#6b6480" stroke="#6b6480" stroke-width="1.5" points="349.59,-139.43 355.95,-139.28 350.89,-135.43 349.59,-139.43"></polygon>
+<path fill="none" stroke="#6b6480" stroke-width="1.5" d="M254.58,-106.27C263.25,-109.03 272.97,-112.14 281.84,-115 304.39,-122.28 329.58,-130.5 349.88,-137.14"></path>
+<polygon fill="#6b6480" stroke="#6b6480" stroke-width="1.5" points="349.38,-139.19 355.74,-139.06 350.69,-135.2 349.38,-139.19"></polygon>
 </g>
 </g>
 </svg>
@@ -570,6 +570,84 @@ Table&nbsp;1: Fault-contact filter – rows in, derived column out
 <p>The same granite, logged continuously through the hole, split into two coded intervals by the fault pick sitting between them. When Leapfrog models a surface from this table, a single clause does the filtering: <code>WHERE fault IS NULL</code> drops both coded intervals, leaving only the intervals no fault runs through.</p>
 <p>The intervals do real interpolation work, which is why this beats dropping a single contact point. Each one typically carries volume points – distance values that push or pull the interpolated surface, so an interval left in on the wrong side of a fault doesn’t just add a stray contact, it drags the surface across the fault toward data that belongs to the other block. Coding the whole interval, not just the pick, is what keeps that from happening.</p>
 <p>The <code>ignore</code> column works the same way. An interval flagged in <code>model_ignore</code> – bad recovery, suspect logging, a historic hole with questionable survey data – gets an ignore code and an ignore_comment saying why. In Leapfrog, <code>AND ignore IS NULL</code> drops it. One filtering idiom, applied to two different problems: don’t delete the questionable data, code it, and let a <code>WHERE … IS NULL</code> clause decide what the model sees. The raw log stays intact and the reason stays attached.</p>
+<p>The interpretation tables carry their own provenance. Every row records who made the edit, when, why, and how confident they were – and rows are deactivated rather than deleted, so another geologist’s interpretation can be switched off, tested against, or restored without destroying it. Leapfrog offers nothing comparable: an edit made inside a Leapfrog project is overwritten the next time the drilling reloads, and nothing records who made it or what it said. This is the answer to the questions the old model couldn’t hold – <em>why was that interval reclassified, who did it, when</em>.</p>
+<div class="column-body-outset">
+<div id="tbl-audit" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-audit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Rows from <code>model_intervals</code> – every interpretation carries its author, its date, its reasoning, and a confidence grade. Deactivated rows stay in the table.
+</figcaption>
+<div aria-describedby="tbl-audit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>holeid</th>
+<th>from</th>
+<th>to</th>
+<th>type</th>
+<th>code</th>
+<th>confidence</th>
+<th>comment</th>
+<th>active</th>
+<th>updated_by</th>
+<th>updated_at</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>SC-84</td>
+<td>452.0</td>
+<td>458.5</td>
+<td>diabase</td>
+<td>dike-25</td>
+<td>4</td>
+<td>re-examined core imagery</td>
+<td>FALSE</td>
+<td>j-smith</td>
+<td>2022-03-14</td>
+</tr>
+<tr class="even">
+<td>SC-123</td>
+<td>514.2</td>
+<td>538.5</td>
+<td>colluvium</td>
+<td>float</td>
+<td>1</td>
+<td>granite with sediment intervals below</td>
+<td>TRUE</td>
+<td>z-hynd</td>
+<td>2023-10-01</td>
+</tr>
+<tr class="odd">
+<td>SC-144</td>
+<td>627.4</td>
+<td>628.5</td>
+<td>basalt</td>
+<td>dike-03</td>
+<td>2</td>
+<td>assuming ~155/90 orientation</td>
+<td>TRUE</td>
+<td>z-hynd</td>
+<td>2023-09-26</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
 </section>
 <section id="easier-to-interpret-not-just-maintain" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="easier-to-interpret-not-just-maintain">Easier to interpret, not just maintain</h2>

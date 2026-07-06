@@ -191,6 +191,21 @@ The intervals do real interpolation work, which is why this beats dropping a sin
 
 The `ignore` column works the same way. An interval flagged in `model_ignore` – bad recovery, suspect logging, a historic hole with questionable survey data – gets an ignore code and an ignore_comment saying why. In Leapfrog, `AND ignore IS NULL` drops it. One filtering idiom, applied to two different problems: don't delete the questionable data, code it, and let a `WHERE … IS NULL` clause decide what the model sees. The raw log stays intact and the reason stays attached.
 
+The interpretation tables carry their own provenance. Every row records who made the edit, when, why, and how confident they were – and rows are deactivated rather than deleted, so another geologist's interpretation can be switched off, tested against, or restored without destroying it. Leapfrog offers nothing comparable: an edit made inside a Leapfrog project is overwritten the next time the drilling reloads, and nothing records who made it or what it said. This is the answer to the questions the old model couldn't hold – *why was that interval reclassified, who did it, when*.
+
+::: {.column-body-outset}
+::: {#tbl-audit}
+| holeid | from | to | type | code | confidence | comment | active | updated_by | updated_at |
+|---|---|---|---|---|---|---|---|---|---|
+| SC-84 | 452.0 | 458.5 | diabase | dike-25 | 4 | re-examined core imagery | FALSE | j-smith | 2022-03-14 |
+| SC-123 | 514.2 | 538.5 | colluvium | float | 1 | granite with sediment intervals below | TRUE | z-hynd | 2023-10-01 |
+| SC-144 | 627.4 | 628.5 | basalt | dike-03 | 2 | assuming ~170/90 orientation | TRUE | z-hynd | 2023-09-26 |
+
+Rows from `model_intervals` – every interpretation carries its author, its date, its reasoning, and a confidence grade. Deactivated rows stay in the table.
+:::
+:::
+
+
 ## Easier to interpret, not just maintain
 
 Two builds nobody asked for. Both started as questions – could the database make the model easier to interpret, not just easier to maintain – and both turned out useful enough to keep. They sit outside the original brief.

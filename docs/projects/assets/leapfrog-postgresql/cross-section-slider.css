@@ -40,3 +40,16 @@
   border: none;
   cursor: pointer;
 }
+#tbl-audit td, #tbl-audit th {
+  white-space: nowrap;
+}
+/* let only the comment column wrap */
+#tbl-audit td:nth-child(7),
+#tbl-audit th:nth-child(7) {
+  white-space: normal;
+  min-width: 14rem;
+}
+#tbl-audit table {
+  font-size: 0.9rem;
+  width: auto;
+}

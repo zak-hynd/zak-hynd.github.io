@@ -38,7 +38,7 @@ The Don't clause goes in only when there's a real, nameable way a future session
 LAEA abandoned (antimeridian artefacts). Don't revert.
 ```
 
-That entry exists because a session already tried to revert. LAEA – Lambert Azimuthal Equal Area – was the wrong call in one session, and a later one (possibly Claude Code trying to fix something unrelated) tried to bring it back. The entry heads off a third round of that – the wasted time, the burnt tokens – by naming the choice, the reason, and the wrong turn, so the next session just declines it.
+That entry exists because a session already tried to revert. LAEA – Lambert Azimuthal Equal Area – was the wrong call in one session, and a later one (possibly Claude Code trying to fix something unrelated) tried to bring it back. The entry heads off a third round of that – the wasted time, the burnt tokens – by naming the choice, the reason, and the wrong turn, so the next session declines it.
 
 ::: {#fig-polaroid}
 ![](assets/ai-workflow/polaroid.webp){fig-alt="A hand holding a Polaroid photograph, its image black and undeveloped, a handwritten note reading CRS: NZTM – DON'T REVERT attached below." width="75%"}
@@ -49,9 +49,9 @@ Leonard's whole system in one frame: the record lives outside the head because h
 
 ## The rituals
 
-The files only work if every session treats them with the same discipline. At open: paste `PROJECT.md`, review state, ask about anything unclear, then start. The paste is the whole orientation – nothing recapped from memory, nothing reconstructed from a conversation that no longer exists, or hallucinated by a sycophantic LLM trying to seem useful. During: one task at a time, and anything that looks wrong gets flagged, not quietly fixed – a session that "corrects" something it half-understands is generating work no one can see – the reasoning gone the moment the session closes. At close: the log collapses into current state and backlog – unless the session ended degraded, in which case the collapse waits for the next open.
+The files only work if every session treats them with the same discipline. At open: paste `PROJECT.md`, review state, ask about anything unclear, then start. The paste is the whole orientation – nothing recapped from memory, nothing reconstructed from a conversation that no longer exists, nothing hallucinated by a sycophantic LLM trying to seem useful. During: one task at a time, and anything that looks wrong gets flagged, not quietly fixed – a session that "corrects" something it half-understands is generating work no one can see – the reasoning gone the moment the session closes. At close: the log collapses into current state and backlog – unless the session ended degraded, in which case the collapse waits for the next open.
 
-Session log entries are regularly made as the work happens, not at the end, because the end of an LLM chat session often isn't in good enough shape to write from. Reliability drops before the context runs out. Each log is written to survive context loss – addressed to a session that wasn't in the room, readable on its own, not shorthand for a working memory that will be gone. Deliberate paranoia.
+Session log entries get made as the work happens, not at the end, because the end of an LLM chat session often isn't in good enough shape to write from. Reliability drops before the context runs out. Each log is written to survive context loss – addressed to a session that wasn't in the room, readable on its own, not shorthand for a working memory that will be gone. Deliberate paranoia.
 
 ## Division of labour
 
@@ -73,12 +73,12 @@ Two sessions disagreed about when to collapse the log. One argued for close of s
 
 Chat sessions often reach for file tools – writing to disk, searching documents – when the output was a dozen lines that could go straight into the chat. One attempt spent an entire session's token budget trying to write to disk, and cost four hours before work could continue. The fix is a standing rule: all output as text in chat, pasted by hand. It looks like a small preference. It's three constraints at once – token economy, session reliability, and keeping me in the paste-and-commit loop.
 
-None of these came from the system noticing its own failure. Each came from a person seeing the failure, working out the cause, and writing the fix back into the files. The system doesn't fix itself. A person spots the failure and works out the cause – then the file makes that fix stick, so the next session inherits it instead of repeating the failure.
+None of these came from the system noticing its own failure. Each came from a person seeing the failure and working out the cause – then the file makes the fix stick, so the next session inherits it instead of repeating it.
 
 ## Reflection
 
 The overhead is real, and it gets paid every session. Logging as you go interrupts the work it records. The open ritual spends the first few minutes re-orienting instead of producing. The verification never lets up – every intermediate result read, every piece of generated code held to a bar I could defend without the tool in the room. I'd make the trade again. The alternative isn't a lighter workflow; it's re-explaining the project to a goldfish each morning and hoping nothing settled comes unsettled.
 
-The system doesn't prevent degradation – sessions still go bad, sometimes with context to spare. What it does is make degradation survivable: the state lives in the files, not the conversation, so a bad session gets abandoned and a fresh one rebuilt from the documents in minutes. That's a smaller promise than "reliable AI" – but it's true. Reliability isn't; recoverability is.
+The system doesn't prevent degradation – sessions still go bad, sometimes with context to spare. What it does is make degradation survivable: the state lives in the files, not the conversation, so a bad session gets abandoned and a fresh one rebuilt from the documents in minutes. That's a smaller promise than "reliable AI" – but it's true.
 
 For the record, this page was written the way it describes – co-designed across sessions, drawing on my project notes and the decision files, with the workflow keeping state between them. What to keep, what to cut, what the page actually claims: mine.

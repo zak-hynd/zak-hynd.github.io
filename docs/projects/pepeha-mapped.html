@@ -6,8 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-06-22">
-<meta name="description" content="Procedurally generated geodata-driven pepeha">
+<meta name="dcterms.date" content="2026-07-06">
+<meta name="description" content="A five-page PDF pepeha built by a Python pipeline – all geodata fetched live at runtime, nothing bundled, nothing hand-assembled.">
 
 <title>Pepeha Mapped – zh:</title>
 <style>
@@ -129,8 +129,17 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-build" id="toc-the-build" class="nav-link active" data-scroll-target="#the-build">The build</a></li>
+  <li><a href="#the-result" id="toc-the-result" class="nav-link" data-scroll-target="#the-result">The result</a></li>
+  <li><a href="#working-with-ai" id="toc-working-with-ai" class="nav-link" data-scroll-target="#working-with-ai">Working with AI</a></li>
+  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">Reflection</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -138,11 +147,12 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Pepeha Mapped</h1>
+<p class="subtitle lead">A self-introduction rendered as a software pipeline – live data in, five-page atlas out</p>
 </div>
 
 <div>
   <div class="description">
-    Procedurally generated geodata-driven pepeha
+    A five-page PDF pepeha built by a Python pipeline – all geodata fetched live at runtime, nothing bundled, nothing hand-assembled.
   </div>
 </div>
 
@@ -153,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 22, 2026</p>
+      <p class="date">July 6, 2026</p>
     </div>
   </div>
   
@@ -165,9 +175,54 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Placeholder — content pending.</p>
+<div id="fig-maunga" class="figure quarto-float quarto-figure quarto-figure-center anchored" alt="Hillshaded relief map of the Tapuae-o-Uenuku range in warm inferno tones on a dark background">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-maunga-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="assets/pepeha/maunga.webp" class="img-fluid figure-img" style="width:75.0%" alt="Hillshaded relief map of the Tapuae-o-Uenuku range in warm inferno tones on a dark background">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-maunga-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Tapuae‑o‑Uenuku, coloured with Inferno elevation shading and hillshaded from Copernicus DEM tiles fetched at runtime. One of five pages in the assembled PDF.
+</figcaption>
+</figure>
+</div>
+<p>A pepeha is a Māori form of self-introduction, used across New Zealand in formal settings. It locates you by the places and people you belong to – a mountain, a river, an iwi, often chosen for significance rather than birthplace – before your name arrives, last. GISC401’s first assignment asks students to map theirs: three maps, generated procedurally in Python, presented together in a single PDF.</p>
+<blockquote class="blockquote">
+<p>Kia ora tātou<br>
+Ko Tapuae-o-Uenuku te maunga<br>
+Ko Wairau te awa<br>
+Ko Rongowhakaata te iwi<br>
+Nō Te Waipounamu ahau<br>
+He akonga ahau ki te Whare Wānanga o Waitaha<br>
+Ko Zak tōku ingoa<br>
+Tēnā tātou katoa</p>
+</blockquote>
+<p>The usual submission is a Jupyter notebook, the data files it reads, and a PDF assembled by hand. This one was a zipped codebase. The marker pastes a LINZ API key into a notebook, runs one cell, and the pipeline does the rest – fetches every layer from live web services, renders each map, and builds the five-page PDF. No data ships with it. Nothing is added by hand.</p>
+<p>The assignment didn’t ask for any of that, which is the point. The question I set myself was what end-to-end geospatial data science looks like in Python – not downloading a shapefile and making a plot, but fetching, processing, rendering, and producing everything from source, in a codebase structured so each piece can be found, tested, and defended. The overengineering was deliberate. It was the personal challenge, and it turned a cartography assignment into a proper software build.</p>
+<section id="the-build" class="level2">
+<h2 class="anchored" data-anchor-id="the-build">The build</h2>
+<p>Each element of the pepeha gets its own treatment. The maunga is hillshaded from Copernicus GLO-90 DEM tiles, pulled as cloud-optimised GeoTIFFs from AWS. The Wairau comes from LINZ Data Service WFS layers, river lines and polygons together. The Rongowhakaata rohe is a polygon from a Gisborne District Council feature server. Natural Earth supplies the coastlines and graticules for the orthographic globes that open and close the document. Four services, none of them bundled – every run starts from the sources.</p>
+<p>The code is laid out the way a small production system would be: <code>src/data/</code> owns the fetching, <code>src/processing/</code> the terrain and vector work, <code>src/maps/</code> one module per map plus a shared styles file, and an orchestrator module that runs the whole sequence – fetch, render, assemble – logging progress back to the notebook at each step. The notebook itself is two cells: paste a key, run. A four-level cache – DEM tiles, vector data, rendered PNGs, final PDF – means the first run takes minutes and every run after takes seconds. The layout instinct comes from a decade of working around production codebases without writing them; putting it into practice myself started with a web development course a couple of years ago, and this was the first geospatial project to get the full treatment.</p>
+<p>A pepeha flows like water, from the maunga down to the sea, and the visual design follows it. Every element takes its colour from a single colormap, matplotlib’s inferno, sampled at intervals – the maunga at the warm end, stepping down through the awa and the rohe toward the sea, with the descent visible in the elevation ramp of the maunga map itself. Neutral tones for landmass and labels were chosen to sit alongside the samples without competing. All of it lives in one styles module. No hex string appears anywhere else.</p>
+<p>The full codebase is on <a href="https://github.com/zak-hynd/pepeha-mapped">GitHub</a>.</p>
+</section>
+<section id="the-result" class="level2">
+<h2 class="anchored" data-anchor-id="the-result">The result</h2>
+<p>The five pages assemble into one document – globe, maunga, awa, iwi, globe again – the pepeha distributed across them, one line to a page, the closing globe gathering the remainder. It reads top to bottom the way the pepeha does, maunga to sea.</p>
+<object data="assets/pepeha/GISC401-MapYourPepeha-2026-Z.Hynd.pdf" type="application/pdf" style="width:100%; height:min(800px, 80vh);">
+  <p>The PDF can't be displayed inline in this browser – <a href="assets/pepeha/GISC401-MapYourPepeha-2026-Z.Hynd.pdf">download it here</a>.</p>
+</object>
+</section>
+<section id="working-with-ai" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-ai">Working with AI</h2>
+<p>The project doubled as a first proper run of an AI-assisted build process – planning sessions for the architecture and design decisions, an agentic coding tool for the larger multi-file edits, and a session log and decision ledger so context survived between chats. The judgement calls, the testing, and the bug-catching stayed with me; the process is <a href="../projects/ai-workflow.html">documented in its own right</a>, because managing it well turned out to be the more interesting problem.</p>
+</section>
+<section id="reflection" class="level2">
+<h2 class="anchored" data-anchor-id="reflection">Reflection</h2>
+<p>The architecture carries the marks of how it grew. The project started as several notebooks – one per map, others testing fetches against different data types – with most of the components already working before any of it was restructured. The refactor componentised that into modules, and the details got polished from there, but some seams from the notebook era survived the whole way through. Two are still visible. The LINZ key is read from an environment variable inside <code>linz.py</code>, a leftover from an earlier design, so the orchestrator has to set the variable before its imports run – an ordering constraint that a key-as-parameter refactor would remove. And each map module composes its own data fetches, which works, but means the orchestrator can only report progress per map rather than per fetch.</p>
+<p>Both were known, and both were left on purpose. The debt got triaged like anything else: the cheap items were paid down near the end, and these two didn’t make the cut – not because time ran out, but because the fix didn’t justify the effort on an assignment that was already well past its brief. Tech debt isn’t a failure state; it’s a queue, and knowing what belongs at the bottom of it is most of the job.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script>

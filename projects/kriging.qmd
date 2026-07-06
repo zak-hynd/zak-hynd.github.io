@@ -1,8 +1,0 @@
----
-title: "Kriging — Phosphorus Retention"
-description: "Universal kriging comparison, SAGA GIS vs Python"
-date: 2026-06-22
-order: 8
----
-
-Placeholder — content pending.

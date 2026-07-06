@@ -15,14 +15,14 @@ Tapuae-o-Uenuku – elevation coloured with inferno, hillshaded, from Copernicus
 
 A pepeha is a Māori form of self-introduction, used across New Zealand in formal settings. It locates you by the places and people you belong to – a mountain, a river, an iwi, often chosen for significance rather than birthplace – before your name arrives, last. GISC401's first assignment asks students to map theirs: three maps, generated procedurally in Python, presented together in a single PDF.
 
-> Kia ora tātou  
-> Ko Tapuae-o-Uenuku te maunga  
-> Ko Wairau te awa  
-> Ko Rongowhakaata te iwi  
-> Nō Te Waipounamu ahau  
-> He akonga ahau ki te Whare Wānanga o Waitaha  
-> Ko Zak tōku ingoa  
-> Tēnā tātou katoa
+> *Kia ora tātou*  
+> *Ko Tapuae-o-Uenuku te maunga*  
+> *Ko Wairau te awa*  
+> *Ko Rongowhakaata te iwi*  
+> *Nō Te Waipounamu ahau*  
+> *He akonga ahau ki te Whare Wānanga o Waitaha*  
+> *Ko Zak tōku ingoa*  
+> *Tēnā tātou katoa*
 
 The usual submission is a Jupyter notebook, the data files it reads, and a PDF assembled by hand. This one was a zipped codebase. The marker pastes a LINZ API key into a notebook, runs one cell, and the pipeline does the rest – fetches every layer from live web services, renders each map, and builds the five-page PDF. No data ships with it. Nothing is added by hand.
 

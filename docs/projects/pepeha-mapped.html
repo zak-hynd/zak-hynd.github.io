@@ -181,20 +181,20 @@ ul.task-list li input[type="checkbox"] {
 <img src="assets/pepeha/maunga.webp" class="img-fluid figure-img" style="width:75.0%" alt="Hillshaded relief map of the Tapuae-o-Uenuku range in warm inferno tones on a dark background">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-maunga-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Tapuae‑o‑Uenuku, coloured with Inferno elevation shading and hillshaded from Copernicus DEM tiles fetched at runtime. One of five pages in the assembled PDF.
+Figure&nbsp;1: Tapuae-o-Uenuku – elevation coloured with inferno, hillshaded, from Copernicus DEM tiles fetched at runtime. One of five pages in the assembled PDF.
 </figcaption>
 </figure>
 </div>
 <p>A pepeha is a Māori form of self-introduction, used across New Zealand in formal settings. It locates you by the places and people you belong to – a mountain, a river, an iwi, often chosen for significance rather than birthplace – before your name arrives, last. GISC401’s first assignment asks students to map theirs: three maps, generated procedurally in Python, presented together in a single PDF.</p>
 <blockquote class="blockquote">
-<p>Kia ora tātou<br>
-Ko Tapuae-o-Uenuku te maunga<br>
-Ko Wairau te awa<br>
-Ko Rongowhakaata te iwi<br>
-Nō Te Waipounamu ahau<br>
-He akonga ahau ki te Whare Wānanga o Waitaha<br>
-Ko Zak tōku ingoa<br>
-Tēnā tātou katoa</p>
+<p><em>Kia ora tātou</em><br>
+<em>Ko Tapuae-o-Uenuku te maunga</em><br>
+<em>Ko Wairau te awa</em><br>
+<em>Ko Rongowhakaata te iwi</em><br>
+<em>Nō Te Waipounamu ahau</em><br>
+<em>He akonga ahau ki te Whare Wānanga o Waitaha</em><br>
+<em>Ko Zak tōku ingoa</em><br>
+<em>Tēnā tātou katoa</em></p>
 </blockquote>
 <p>The usual submission is a Jupyter notebook, the data files it reads, and a PDF assembled by hand. This one was a zipped codebase. The marker pastes a LINZ API key into a notebook, runs one cell, and the pipeline does the rest – fetches every layer from live web services, renders each map, and builds the five-page PDF. No data ships with it. Nothing is added by hand.</p>
 <p>The assignment didn’t ask for any of that, which is the point. The question I set myself was what end-to-end geospatial data science looks like in Python – not downloading a shapefile and making a plot, but fetching, processing, rendering, and producing everything from source, in a codebase structured so each piece can be found, tested, and defended. The overengineering was deliberate. It was the personal challenge, and it turned a cartography assignment into a proper software build.</p>

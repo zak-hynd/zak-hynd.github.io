@@ -6,6 +6,8 @@
   height: 6px;
   border-radius: 3px;
   background: linear-gradient(to right, #3eb4ad 0%, #444 0%);
+  background-clip: content-box;   /* keeps gradient at 6px despite padding */
+  padding: 7px 0;                 /* invisible click target above/below */
   outline: none;
   cursor: pointer;
   display: block;
@@ -22,16 +24,17 @@
 }
 #cs-range::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 14px;
-  height: 14px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background: #3eb4ad;
   border: none;
   cursor: pointer;
+  margin-top: -7px;   /* (6 - 20) / 2 */
 }
 #cs-range::-moz-range-thumb {
-  width: 14px;
-  height: 14px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background: #3eb4ad;
   border: none;

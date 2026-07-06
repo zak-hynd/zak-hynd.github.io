@@ -223,7 +223,6 @@ Figure&nbsp;3: The corridor and both focus areas. Wide braidplain (West, top): b
 <section id="whats-next" class="level2">
 <h2 class="anchored" data-anchor-id="whats-next">What’s next</h2>
 <p>One river, one event is a thin test. The pipeline was built to make that a cheap problem to fix: it is parameterised on catchment name and area of interest, so extending to the Rakaia or the Rangitata, or to a quieter time period, is a re-run rather than a redesign. What a wider run would test is the property the single catchment could only suggest – whether one calibration really does hold across rivers and events, or whether the Waimakariri was a lucky fit.</p>
-<p>The method has obvious next steps, and I’m exploring them further – a confidence-weighted vote with decay so stale passes stop corroborating the current state, additional SAR polarisations, and eventually supervised classification, once an accumulating state-map archive can generate its own training labels. That last one is the interesting inversion: the proof of concept can’t use machine learning for want of ground truth, but run it long enough and it produces the ground truth itself.</p>
 <p>The method has obvious next steps, and I’m exploring them further:</p>
 <ul>
 <li><p><strong>A smarter vote.</strong> Confidence weighting, so passes near a classification threshold count for less than clean ones, and a decay term, so a month-old detection stops corroborating the current state. The equal-weight tally was the right starting simplification, not the end point.</p></li>

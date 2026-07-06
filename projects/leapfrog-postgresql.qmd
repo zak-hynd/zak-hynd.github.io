@@ -198,7 +198,7 @@ The interpretation tables carry their own provenance. Every row records who made
 | holeid | from | to | type | code | confidence | comment | active | updated_by | updated_at |
 |---|---|---|---|---|---|---|---|---|---|
 | SC-84 | 452.0 | 458.5 | diabase | dike-25 | 4 | re-examined core imagery | FALSE | j-smith | 2022-03-14 |
-| SC-123 | 514.2 | 538.5 | colluvium | float | 1 | granite with sediment intervals below | TRUE | z-hynd | 2023-10-01 |
+| SC-123 | 514.2 | 517.1 | colluvium | float | 1 | granite with sediment intervals below | TRUE | z-hynd | 2023-10-01 |
 | SC-144 | 627.4 | 628.5 | basalt | dike-03 | 2 | assuming ~170/90 orientation | TRUE | z-hynd | 2023-09-26 |
 
 Rows from `model_intervals` – every interpretation carries its author, its date, its reasoning, and a confidence grade. Deactivated rows stay in the table.

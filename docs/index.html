@@ -75,6 +75,35 @@ ul.task-list li input[type="checkbox"] {
 <link rel="icon" type="image/x-icon" href="./assets/favicon/favicon.ico?v=1">
 
 <link rel="apple-touch-icon" href="./assets/favicon/apple-touch-icon.png?v=1">
+<script>
+
+  if (window.location.hash === '#toggle-goatcounter') {
+
+    if (localStorage.getItem('skipgc') === 't') {
+
+      localStorage.removeItem('skipgc');
+
+      alert('GoatCounter counting ENABLED in this browser.');
+
+    } else {
+
+      localStorage.setItem('skipgc', 't');
+
+      alert('GoatCounter counting DISABLED in this browser.');
+
+    }
+
+  }
+
+  if (localStorage.getItem('skipgc') === 't') {
+
+    window.goatcounter = { no_onload: true };
+
+  }
+
+</script>
+
+<script data-goatcounter="https://zakhynd.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
 
 
 <link rel="stylesheet" href="styles.css">

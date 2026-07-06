@@ -1,0 +1,16 @@
+<script>
+  if (window.location.hash === '#toggle-goatcounter') {
+    if (localStorage.getItem('skipgc') === 't') {
+      localStorage.removeItem('skipgc');
+      alert('GoatCounter counting ENABLED in this browser.');
+    } else {
+      localStorage.setItem('skipgc', 't');
+      alert('GoatCounter counting DISABLED in this browser.');
+    }
+  }
+  if (localStorage.getItem('skipgc') === 't') {
+    window.goatcounter = { no_onload: true };
+  }
+</script>
+<script data-goatcounter="https://zakhynd.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>

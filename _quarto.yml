@@ -15,6 +15,7 @@ format:
     toc: true
     include-in-header:
       - assets/_favicon.html
+      - assets/_goatcounter.html
     include-after-body:
       - assets/_footer.html
 

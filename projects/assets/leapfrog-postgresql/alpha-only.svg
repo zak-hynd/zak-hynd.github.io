@@ -23,9 +23,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#505050"
      inkscape:document-units="mm"
-     inkscape:zoom="1.1414299"
-     inkscape:cx="421.40126"
-     inkscape:cy="413.95446"
+     inkscape:zoom="0.80711282"
+     inkscape:cx="451.60973"
+     inkscape:cy="468.9555"
      inkscape:window-width="2256"
      inkscape:window-height="1398"
      inkscape:window-x="-11"
@@ -291,7 +291,7 @@
      id="layer7"
      inkscape:label="Annotation">
     <path
-       style="fill:#413f80;fill-opacity:1;stroke:#85d9b1;stroke-width:1.45520833;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:0.60000002;paint-order:markers stroke fill"
+       style="fill:#30203e;fill-opacity:1;stroke:#89a1bf;stroke-width:1.7;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:0.6;paint-order:markers stroke fill"
        d="m 98.449931,130.86143 8.392609,-13.21805"
        id="path1"
        sodipodi:nodetypes="cc"
@@ -304,50 +304,50 @@
        inkscape:label="pointer" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666616px;line-height:1;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#30203e;fill-opacity:1;stroke:#85d9b1;stroke-width:0.396875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:0.60000002;paint-order:markers stroke fill"
+       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:8.46666616px;line-height:1;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#30203e;fill-opacity:1;stroke:#89a1bf;stroke-width:0.6;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:0.60000002;paint-order:markers stroke fill"
        x="34.34148"
        y="51.656281"
        id="text36"
        inkscape:label="85"><tspan
          sodipodi:role="line"
          id="tspan36"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666616px;line-height:1;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#30203e;fill-opacity:1;stroke:#85d9b1;stroke-width:0.396875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:0.60000002;paint-order:markers stroke fill"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:8.46666616px;line-height:1;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#30203e;fill-opacity:1;stroke:#89a1bf;stroke-width:0.6;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:0.60000002;paint-order:markers stroke fill"
          x="34.34148"
          y="51.656281">α: 85°</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666616px;line-height:1;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#30203e;fill-opacity:1;stroke:#85d9b1;stroke-width:0.396875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:0.60000002;paint-order:markers stroke fill"
+       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:8.46667px;line-height:1;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#30203e;fill-opacity:1;stroke:#89a1bf;stroke-width:0.6;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:0.6;paint-order:markers stroke fill"
        x="93.48555"
        y="115.23966"
        id="text37"
        inkscape:label="Outer envelope"><tspan
          sodipodi:role="line"
          id="tspan37"
-         style="fill:#30203e;fill-opacity:1;stroke:#85d9b1;stroke-width:0.396875;stroke-dasharray:none;stroke-opacity:0.60000002;-inkscape-font-specification:'Liberation Sans, Normal';font-family:'Liberation Sans';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:8.46666616px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+         style="fill:#30203e;fill-opacity:1;stroke:#89a1bf;stroke-width:0.6;stroke-dasharray:none;stroke-opacity:0.6;-inkscape-font-specification:'Segoe UI, Semi-Bold';font-family:'Segoe UI';font-weight:600;font-style:normal;font-stretch:normal;font-variant:normal;font-size:8.46667px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;line-height:1;writing-mode:lr-tb;direction:ltr;stroke-linecap:square;stroke-miterlimit:2;paint-order:markers stroke fill"
          x="93.48555"
          y="115.23966">outer envelope</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666616px;line-height:1;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#30203e;fill-opacity:1;stroke:#85d9b1;stroke-width:0.396875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:0.60000002;paint-order:markers stroke fill"
+       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:8.46666616px;line-height:1;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#30203e;fill-opacity:1;stroke:#89a1bf;stroke-width:0.6;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:0.60000002;paint-order:markers stroke fill"
        x="46.460644"
        y="157.22589"
        id="text38"
        inkscape:label="75"><tspan
          sodipodi:role="line"
          id="tspan38"
-         style="fill:#30203e;fill-opacity:1;stroke:#85d9b1;stroke-width:0.396875;stroke-dasharray:none;stroke-opacity:0.60000002;-inkscape-font-specification:'Liberation Sans, Normal';font-family:'Liberation Sans';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:8.46666616px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+         style="fill:#30203e;fill-opacity:1;stroke:#89a1bf;stroke-width:0.6;stroke-dasharray:none;stroke-opacity:0.60000002;-inkscape-font-specification:'Segoe UI, Semi-Bold';font-family:'Segoe UI';font-weight:600;font-style:normal;font-stretch:normal;font-variant:normal;font-size:8.46666616px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
          x="46.460644"
          y="157.22589">α: 75°</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666616px;line-height:1;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#30203e;fill-opacity:1;stroke:#85d9b1;stroke-width:0.396875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:0.60000002;paint-order:markers stroke fill"
+       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:8.46666616px;line-height:1;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#30203e;fill-opacity:1;stroke:#89a1bf;stroke-width:0.6;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:0.60000002;paint-order:markers stroke fill"
        x="183.38884"
        y="71.394371"
        id="text39"
        inkscape:label="60"><tspan
          sodipodi:role="line"
          id="tspan39"
-         style="fill:#30203e;fill-opacity:1;stroke:#85d9b1;stroke-width:0.396875;stroke-dasharray:none;stroke-opacity:0.60000002;-inkscape-font-specification:'Liberation Sans, Normal';font-family:'Liberation Sans';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:8.46666616px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+         style="fill:#30203e;fill-opacity:1;stroke:#89a1bf;stroke-width:0.6;stroke-dasharray:none;stroke-opacity:0.60000002;-inkscape-font-specification:'Segoe UI, Semi-Bold';font-family:'Segoe UI';font-weight:600;font-style:normal;font-stretch:normal;font-variant:normal;font-size:8.46666616px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
          x="183.38884"
          y="71.394371">α: 60°</tspan></text>
     <text
@@ -369,14 +369,14 @@
          id="tspan42">β: 0°</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666616px;line-height:1;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#30203e;fill-opacity:1;stroke:#85d9b1;stroke-width:0.396875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:0.60000002;paint-order:markers stroke fill"
+       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:8.46666616px;line-height:1;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#30203e;fill-opacity:1;stroke:#89a1bf;stroke-width:0.6;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:0.60000002;paint-order:markers stroke fill"
        x="173.78438"
        y="202.52756"
        id="text40"
        inkscape:label="40"><tspan
          sodipodi:role="line"
          id="tspan40"
-         style="fill:#30203e;fill-opacity:1;stroke:#85d9b1;stroke-width:0.396875;stroke-dasharray:none;stroke-opacity:0.60000002;-inkscape-font-specification:'Liberation Sans, Normal';font-family:'Liberation Sans';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:8.46666616px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+         style="fill:#30203e;fill-opacity:1;stroke:#89a1bf;stroke-width:0.6;stroke-dasharray:none;stroke-opacity:0.60000002;-inkscape-font-specification:'Segoe UI, Semi-Bold';font-family:'Segoe UI';font-weight:600;font-style:normal;font-stretch:normal;font-variant:normal;font-size:8.46666616px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
          x="173.78438"
          y="202.52756">α: 40°</tspan></text>
   </g>

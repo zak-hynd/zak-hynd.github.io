@@ -1,0 +1,8 @@
+---
+title: "Other work"
+description: "Smaller pieces that earn a mention - each here because it shows something the main projects don't."
+date: 2026-06-22
+order: 2
+---
+
+Placeholder — content pending.

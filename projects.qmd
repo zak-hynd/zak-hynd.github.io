@@ -1,9 +1,32 @@
 ---
 title: "Projects"
 listing:
-  contents: projects
-  type: grid
-  sort: "order asc"
-  fields: [image, title, description]
-  page-size: 12
+  - id: primary
+    contents:
+      - projects/leapfrog-postgresql.qmd
+      - projects/river-braids.qmd
+      - projects/ai-workflow.qmd
+      - projects/pepeha-mapped.qmd
+      - projects/catchment-trends.qmd
+    type: grid
+    sort: "order asc"
+    fields: [image, title, description]
+    page-size: 12
+  - id: other-work
+    contents:
+      - projects/far-from-help.qmd
+      - projects/other-work.qmd
+    type: table
+    sort: "order asc"
+    fields: [title, description]
 ---
+
+::: {#primary}
+:::
+
+## Other work {#other-work-heading}
+
+Smaller pieces that earn a mention - each here because it shows something the main projects don't.
+
+::: {#other-work}
+:::

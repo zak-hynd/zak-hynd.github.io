@@ -44,7 +44,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-dbe95831f7107030fadaf55d648c1b9d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-3f150e99ad5bf3ccdec162e68d6977f7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    const listingTargetEl = window.document.querySelector('#listing-primary .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
@@ -88,7 +88,35 @@ ul.task-list li input[type="checkbox"] {
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+    window['quarto-listings']['listing-primary'] = new List('listing-primary', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-other-work .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-filename-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-filename","listing-file-modified"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-other-work'] = new List('listing-other-work', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -216,8 +244,14 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#other-work-heading" id="toc-other-work-heading" class="nav-link active" data-scroll-target="#other-work-heading">Other work</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -241,13 +275,9 @@ window.Quarto = {
 </header>
 
 
-
-
-
-
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div id="listing-primary" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1782475200000" data-listing-file-modified-sort="1783324901163" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="18" data-listing-word-count-sort="3413">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1782475200000" data-listing-file-modified-sort="1783416227897" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="18" data-listing-word-count-sort="3413">
 <a href="./projects/leapfrog-postgresql.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -258,12 +288,12 @@ window.Quarto = {
 Leapfrog + PostgreSQL drilling workflow
 </h5>
 <div class="card-text listing-description delink">
-<p>Geologic modelling and database workflow for Ivanhoe Electric, Santa Cruz</p>
+<p>Geologic modelling and database workflow for Ivanhoe Electric, Santa Cruz.</p>
 </div>
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-date-sort="1783166400000" data-listing-file-modified-sort="1783311763246" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1338">
+<div class="g-col-1" data-index="1" data-listing-date-sort="1783166400000" data-listing-file-modified-sort="1783416282762" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1338">
 <a href="./projects/river-braids.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -295,7 +325,7 @@ AI project management workflow
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="3" data-listing-date-sort="1783252800000" data-listing-file-modified-sort="1783307969276" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="959">
+<div class="g-col-1" data-index="3" data-listing-date-sort="1783252800000" data-listing-file-modified-sort="1783416255929" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="959">
 <a href="./projects/pepeha-mapped.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -311,8 +341,8 @@ Pepeha Mapped
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="4" data-listing-date-sort="1783339200000" data-listing-file-modified-sort="1783393383442" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="745">
-<a href="./projects/catchment-storymap.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="4" data-listing-date-sort="1783339200000" data-listing-file-modified-sort="1783416204935" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="745">
+<a href="./projects/catchment-trends.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
 <img loading="lazy" src="./projects/assets/catchment-trends/catchment-portfolio-app.webp" class="thumbnail-image card-img" style="height: 150px;">
@@ -322,42 +352,70 @@ Pepeha Mapped
 Catchment Trends
 </h5>
 <div class="card-text listing-description delink">
-<p>Requirements analysis and ArcGIS Online build for Our Land and Water, at Manaaki Whenua – Landcare Research</p>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="5" data-listing-date-sort="1782043200000" data-listing-file-modified-sort="1782081791685" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="4">
-<a href="./projects/portoviejo-poster.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Portoviejo Earthquake Poster
-</h5>
-<div class="card-text listing-description delink">
-<p>3D geological models and microseismic deployment, Jama-Pedernales earthquake</p>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="6" data-listing-date-sort="1782043200000" data-listing-file-modified-sort="1783297034800" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="4">
-<a href="./projects/africa-choropleth.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Africa Map and Choropleth
-</h5>
-<div class="card-text listing-description delink">
-<p>Cartographic design and projection work</p>
+<p>Requirements analysis and ArcGIS Online build for Our Land and Water, at Manaaki Whenua – Landcare Research.</p>
 </div>
 </div>
 </div></a>
 </div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</div>
+<section id="other-work-heading" class="level2">
+<h2 class="anchored" data-anchor-id="other-work-heading">Other work</h2>
+<p>Smaller pieces that earn a mention rather than a headline - each here because it shows something the main projects don’t.</p>
+<div id="listing-other-work" class="quarto-listing quarto-listing-container-table">
+<div class="listing-actions-group">
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+
+<th>
+Title
+</th>
+
+<th>
+Description
+</th>
+
+</tr>
+</thead>
+<tbody class="list">
+
+<tr data-index="0" data-listing-file-modified-sort="1783417281151" data-listing-filename-sort="far-from-help.qmd">
+<td>
+<a href="./projects\far-from-help.qmd" class="title listing-title">&nbsp;</a>
+</td>
+<td>
+<span class="listing-description">&nbsp;</span>
+</td>
+
+</tr>
+
+<tr data-index="1" data-listing-file-modified-sort="1783417387100" data-listing-filename-sort="other-work.qmd">
+<td>
+<a href="./projects\other-work.qmd" class="title listing-title">&nbsp;</a>
+</td>
+<td>
+<span class="listing-description">&nbsp;</span>
+</td>
+
+</tr>
+
+</tbody>
+</table>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+
+
+
+</section>
+
+</main> <!-- /main -->
 <script>
 
 document.addEventListener('DOMContentLoaded', function () {

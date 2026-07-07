@@ -1,8 +1,0 @@
----
-title: "Portoviejo Earthquake Poster"
-description: "3D geological models and microseismic deployment, Jama-Pedernales earthquake"
-date: 2026-06-22
-order: 6
----
-
-Placeholder — content pending.

@@ -46,7 +46,7 @@ This isn't an audit trail. The discipline is manual, and the real provenance rec
 
 The idealised cross‑section below shows why the deposit has to be broken into parts. Revealing the section step by step – faults, BRI, bedrock, dikes, valley fill – illustrates how much complexity a single model would be trying to hold. Faults are built first not because they're oldest – they aren't – but because in Leapfrog they define the blocks the older units have to be modelled within. Build order is a tool constraint, not a geological sequence.
 
-::: {#fig-cross-section}
+::: {#fig-cross-section .figure}
 ```{=html}
 <div class="cs-slider-wrap" style="margin: 2rem 0;">
   <div style="position: relative;">
@@ -89,6 +89,7 @@ For the most part, Leapfrog modelled the geometry well enough. The two things it
 
 So the database carried what the tool couldn't. The drilling data sat in PostgreSQL, and a layer of derived VIEWs sat between the raw tables and Leapfrog. The keystone was `lf_lith`: one flat table, assembled on the fly, that Leapfrog could consume as a single lithology source while the work of combining several tables happened underneath it, in SQL, where it was legible and reproducible.
 
+::: {.figure}
 ```{dot}
 //| label: fig-lf-schema
 //| fig-cap: "Raw and interpretation tables derive into VIEWs; Leapfrog reads only the VIEWs. The arrows show the flow of data, coloured by source table. The ignore table fans across the schema, marking records to be ignorable within Leapfrog's SQL filters."
@@ -153,6 +154,8 @@ digraph schema {
   lf_alpha_only -> leapfrog [style=dashed];
 }
 ```
+:::
+
 
 ::: {.callout-note}
 ## What `lf_lith` computes
@@ -216,8 +219,8 @@ Core is logged with named colours, not hex – "Dark Brown", "Light Grey", and s
 
 So the database supplied it. A lookup table, colour_lookup, paired every colour name that appears in the lithology log with a suitable hex value. The blend function then took the up-to-six colours on an interval and combined them into a single hexRGB, weighted so the major colour dominates and the streak only tints – the same priority a geologist reads them in. The interval then renders in 3D as close to its logged colour as a single value allows.
 
-::: {#fig-rgb-intervals}
-![](assets/leapfrog-postgresql/rgb-intervals.webp){fig-alt="Schematic 3D plot of drillhole intervals displaying logged rock colour" width="75%"}
+::: {#fig-rgb-intervals .figure}
+![](assets/leapfrog-postgresql/rgb-intervals.webp){fig-alt="Schematic 3D plot of drillhole intervals displaying logged rock colour"}
 
 Schematic 3D plot of drillhole intervals displaying blended logged rock colour (hexRGB). Synthetic data.
 :::
@@ -235,8 +238,8 @@ With alpha but no beta, the true plane sits somewhere on a cone of possible orie
 
 The figure below shows the idea in section: two drillholes cutting a set of bedding structures logged with alpha but no beta, each hourglass the same cone construction sliced flat.
 
-::: {#fig-alpha-only}
-![](assets/leapfrog-postgresql/alpha-only.svg){fig-alt="Cross-section showing two drillholes intersecting four bedding structures, each drawn as an hourglass of possible plane orientations" width="75%"}
+::: {#fig-alpha-only .figure}
+![](assets/leapfrog-postgresql/alpha-only.svg){fig-alt="Cross-section showing two drillholes intersecting four bedding structures, each drawn as an hourglass of possible plane orientations"}
 
 Idealised cross-section through two drillholes (grey) and the modelled sedimentary units. Four bedding structures logged with alpha but no beta. For each, the white line shows the steepest apparent dip that the structure can present in this section, and the transparent fill marks the full range of apparent dips generated as the plane sweeps through the possible beta angles. Synthetic data; the geometry is schematic, not surveyed.
 :::

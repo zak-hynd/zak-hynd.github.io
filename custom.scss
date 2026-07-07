@@ -58,6 +58,23 @@ a:hover {
   border-bottom: 1px solid rgba(198, 235, 209, 0.1);
 }
 
+/* Projects page: projects.qmd */
 #other-work-heading {
   margin-top: 3rem;
+}
+
+/* Global responsive images */
+img,
+.figure img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prevent giant tall/square images on desktop */
+@media (min-width: 1024px) {
+  img,
+  .figure img {
+    max-height: 40vh;     /* or 70vh */
+    object-fit: contain;
+  }
 }

@@ -15,7 +15,7 @@ listing:
   - id: other-work
     contents:
       - projects/far-from-help.qmd
-      - projects/other-work.qmd
+      # - projects/other-work.qmd
     type: table
     sort: "order asc"
     fields: [title, description]
@@ -26,7 +26,7 @@ listing:
 
 ## Other work {#other-work-heading}
 
-Smaller pieces that earn a mention - each here because it shows something the main projects don't.
+Smaller pieces, each here for a specific reason.
 
 ::: {#other-work}
 :::

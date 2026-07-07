@@ -1,13 +1,13 @@
 ---
 title: "Far From Help"
 subtitle: "Population-weighted road distance to hospital, across 66 territorial authorities"
-description: "A choropleth built to make an argument, and the scatterplot that shows what it hides."
+description: "Road-network distance to the nearest DHB hospital, mapped as a choropleth and paired with the scatterplot that shows who the distances impact."
 date: 2026-07-08
 image: assets/far-from-help/choropleth.webp
 order: 1
 ---
 
-This started in a spatial analysis course (GISC404). A lab had us testing deprivation for spatial autocorrelation – Moran's I, LISA – and asked what other factors might be worth looking at alongside it. I calculated the euclidean distance to the nearest hospital: quickly done, but it ignores the roads people actually drive. When the geovisual analytics course (GISC403) set an open cartography brief, I took the chance to build the road-network version properly.
+This started in a spatial analysis course (GISC404). A lab had us testing deprivation for spatial autocorrelation – Moran's I, LISA – and asked what other factors might be worth looking at alongside it. I calculated the euclidean distance to the nearest hospital: quickly done and appearing correlated at first glance, but flawed because it ignores the roads people actually drive. When the geovisual analytics course (GISC403) set an open cartography brief, I took the chance to build the road-network version properly.
 
 The brief was a mock **Atlas of Design** submission: a classed choropleth making a convincing argument from an explicit point of view. So the map needed a story, not just a variable.
 
@@ -18,7 +18,7 @@ The brief was a mock **Atlas of Design** submission: a classed choropleth making
 The submitted A3 poster.
 :::
 
-The choropleth reads the way you'd expect: the longest mean distances sit in the remote South Island, where sparse roads and mountain terrain push them past 40 km, with Mackenzie District highest in the country at 89 km. But those districts are also the emptiest. Weight the same distances by population and a different set of places surfaces – Horowhenua, Thames-Coromandel, the Far North – districts where tens of thousands of people live a long drive from a hospital. The choropleth colours them mid-range and moves on; the scatterplot is on the poster to catch them.
+The choropleth reads the way you'd expect: the longest mean distances sit in the remote South Island, where sparse roads and mountain terrain push them past 40 km, with Mackenzie District highest in the country at 89 km. What the map can't show is who those distances fall on. Its darkest class holds Mackenzie's few thousand residents and Horowhenua's tens of thousands in the same colour. The scatterplot is on the poster to separate them: population against distance, and the populous-and-remote quadrant – Horowhenua, Thames-Coromandel, the Far North – is where long distances meet large populations.
 
 ::: {#fig-scatterplot .figure}
 ![](assets/far-from-help/scatterplot.svg){fig-alt="Scatterplot of territorial authority population on a log scale against mean road distance to the nearest hospital. Mackenzie sits alone at top left, extreme distance and small population. Horowhenua, Thames-Coromandel, Far North and Waikato combine substantial populations with 25 to 55 km mean distances."}
@@ -29,10 +29,12 @@ Population against mean road distance to the nearest hospital, coloured by the m
 
 An earlier design was a bivariate choropleth, deprivation against access, closing the loop back to the lab that prompted the whole thing. It didn't look good, and the story got much harder to tell. One variable on the map and one on the scatterplot keeps both legible.
 
-The distance layer is a network analysis in ArcGIS Pro: the LINZ road network, Health NZ public hospitals as destinations, and sample points along the roads roughly every kilometre. Each meshblock takes the mean of its sample points, weighted by its 2013 census population, and the weighted values aggregate up to territorial authority level.
+The distance layer is a network analysis in ArcGIS Pro: the LINZ road network, hospitals from the LINZ NZ Facilities dataset, and sample points along the roads roughly every kilometre. Each meshblock takes the mean of its sample points, weighted by its 2013 census population, and the weighted values aggregate up to territorial authority level.
+
+The destination set was a deliberate simplification. Healthcare access in the deprivation sense is much wider than hospitals – GPs, pharmacies, medical centres – and the facilities data itself spans private hospitals, hospices, midwifery units and more. I filtered to public (DHB) hospitals: the cleanest fit for an emergency-access story, and the one the available attributes could isolate reliably. Road distance also isn't drive time – terrain and road class would change the picture – but modelling travel time was well past this exercise's scope.
 
 The network took several rounds to build. The first attempts had roads that looked connected and weren't – the giveaway was travel distance jumping by tens of kilometres between neighbouring points inside a town. Snapping road endpoints together to within a couple of metres healed most of the breaks, and a few more passes caught the rest.
 
-Verification was sanity-level. On a perceptually uniform colour ramp the network distances closely track the euclidean ones, diverging where they should – Banks Peninsula sits a short straight line from Christchurch and tens of kilometres of winding road from its hospital. Mackenzie's 89 km looked low against the 110 km drive from Tekapo to Timaru Hospital, but Fairlie holds a good share of the district's population and sits far closer. The figures compare districts; they aren't route planning. The population data is the other limit – 2013 meshblocks, over a decade stale, so the pattern holds better than the exact numbers.
+Verification was sanity-level. On a perceptually uniform colour ramp the network distances closely track the euclidean ones, diverging where they should: Akaroa is about 40 km from Christchurch Hospital as the crow flies and about 80 km by road, and Banks Peninsula's meshblocks showed exactly that gap. Mackenzie's 89 km looked low against the 110 km drive from Tekapo to Timaru Hospital, but Fairlie holds a good share of the district's population and sits far closer. The figures compare districts; they aren't route planning. The population data is the other limit – 2013 meshblocks, over a decade stale, so the pattern holds better than the exact numbers.
 
-The brief required an explicit point of view, and the poster's is the closing panel: for the districts the scatterplot points at, rescue helicopters cover the distance roads can't, and most of them fly on donations.
+The brief required an explicit point of view, and the poster's closing panel is it: for the populous-and-remote districts, rescue helicopters are the counter to road distance – a flying ambulance collapses an hour's drive into minutes. Like most of New Zealand's emergency services they run on donations and sponsorship, most of all in the regions that need them most.

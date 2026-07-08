@@ -63,18 +63,78 @@ a:hover {
   margin-top: 3rem;
 }
 
-/* Global responsive images */
-img,
-.figure img {
-  max-width: 100%;
+/* ---- Figures ---- */
+
+/* Three roles, chosen by how wide the figure should be — never by
+   file format. Each rule reaches both raster <img> and inline <svg>,
+   and works whether Quarto puts the class on the media element or on
+   its <figure>/<div> wrapper.
+     1. capped — full column on mobile, ~600px cap on desktop  (.fig-capped)
+     2. outset — wider-than-body on desktop, normal on mobile   (.column-body-outset)
+     3. normal — page width on both                            (no class) */
+
+/* 1. Capped. */
+.fig-capped,
+.fig-capped :is(img, svg) {
+  display: block;
+  margin-inline: auto;
+  width: 100%;
+  height: auto;
+  /* !important beats the inline max-width:none graphviz bakes into its
+     <svg>; a no-op on raster <img>, which carries no such inline style. */
+  max-width: 37.5rem !important;
+}
+
+/* 2. Outset. Quarto's grid gives the wrapper the wider track, but a
+   replaced element resolves justify-self to `start`, so it sits at
+   intrinsic width, left-aligned, instead of filling the cell. Match a
+   descendant — the class is on the wrapper, not the img. */
+.column-body-outset :is(img, svg) {
+  width: 100%;
   height: auto;
 }
 
-/* Prevent giant tall/square images on desktop */
-@media (min-width: 1024px) {
-  img,
-  .figure img {
-    max-height: 40vh;     /* or 70vh */
-    object-fit: contain;
+/* ---- Tables ---- */
+
+/* Scope tightening to cross-ref floats only (Quarto ids start tbl-),
+   so layout/listing tables keep their default full width. */
+
+/* Each float is its own scroll boundary: wide tables scroll internally
+   instead of dragging the page wide on mobile. */
+div[id^="tbl-"] {
+  overflow-x: auto;
+}
+
+/* Compact look. SPECIFICITY: Bootstrap sets width via `.table` (0,1,0)
+   and cell padding via `.table > :not(caption) > * > *` (0,1,1). A plain
+   `main table` rule is 0,0,x and loses — which is why a `.table`-carrying
+   table (the fault-filter subfloat) stayed loose while tbl-audit went
+   tight. These sit at 0,1,2+ and beat Bootstrap, so both render alike. */
+div[id^="tbl-"] table {
+  font-size: 0.9rem;
+  width: auto;
+  margin-inline: auto;
+  border-collapse: collapse;
+  white-space: nowrap;
+}
+div[id^="tbl-"] table > :not(caption) > * > * {
+  padding: 0.3rem 0.5rem;
+}
+
+/* 4. Fit-or-scroll. Desktop: page width, centred, scaled to fit. Mobile:
+   stop shrinking (nodes get unreadable) and let the diagram scroll
+   horizontally inside its own boundary instead. Breakpoint at Bootstrap's
+   md (768px). (.fig-fit) */
+.fig-fit {
+  overflow-x: auto;
+}
+.fig-fit :is(img, svg) {
+  display: block;
+  margin-inline: auto;
+  height: auto;
+}
+@media (min-width: 768px) {
+  .fig-fit :is(img, svg) {
+    max-width: 100% !important;
   }
 }

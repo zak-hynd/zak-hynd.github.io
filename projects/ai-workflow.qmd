@@ -9,7 +9,7 @@ image: assets/ai-workflow/polaroid.webp
 
 ## Context
 
-In [*Memento*](https://en.wikipedia.org/wiki/Memento_(film)), Leonard Shelby can't form new memories. His world resets every few minutes, so he moves his memory outside his head – notes, Polaroids, and for the things that must never be lost or revised, tattoos. The film is a thriller, but it's also a systems-design case study.
+In Christopher Nolan's [*Memento*](https://en.wikipedia.org/wiki/Memento_(film)), Leonard Shelby can't form new memories. His world resets every few minutes, so he moves his memory outside his head – notes, Polaroids, and for the things that must never be lost or revised, tattoos. The film is a thriller, but it's also a systems-design case study.
 
 An LLM chat session has Leonard's condition. It starts cold every time, and it ends early more often than not – reliability drops well before the context window is full. Leave that unmanaged and the results are predictable. A decision made carefully in one session gets reopened, just as confidently, by the next. Work drifts. The reasoning behind a choice lives nowhere except a conversation that has already closed.
 
@@ -40,8 +40,8 @@ LAEA abandoned (antimeridian artefacts). Don't revert.
 
 That entry exists because a session already tried to revert. LAEA – Lambert Azimuthal Equal Area – was the wrong call in one session, and a later one (possibly Claude Code trying to fix something unrelated) tried to bring it back. The entry heads off a third round of that – the wasted time, the burnt tokens – by naming the choice, the reason, and the wrong turn, so the next session declines it.
 
-::: {#fig-polaroid}
-![](assets/ai-workflow/polaroid.webp){fig-alt="A hand holding a Polaroid photograph, its image black and undeveloped, a handwritten note reading CRS: NZTM – DON'T REVERT attached below." width="75%"}
+::: {#fig-polaroid .fig-capped}
+![](assets/ai-workflow/polaroid.webp){fig-alt="A hand holding a Polaroid photograph, its image black and undeveloped, a handwritten note reading CRS: NZTM – DON'T REVERT attached below."}
 
 Leonard's whole system in one frame: the record lives outside the head because he can't form new memories. "CRS: NZTM – DON'T REVERT" is a real DECISIONS.md entry – the format that can survive between session resets.
 :::

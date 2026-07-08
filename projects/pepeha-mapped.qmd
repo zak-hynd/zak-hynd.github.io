@@ -7,8 +7,8 @@ order: 4
 image: assets/pepeha/globe-clean.webp
 ---
 
-::: {#fig-maunga .figure}
-![](assets/pepeha/maunga.webp){fig-alt="Hillshaded relief map of the Tapuae-o-Uenuku range in warm inferno tones on a dark background" width="75%"}
+::: {#fig-maunga .fig-capped}
+![](assets/pepeha/maunga.webp){fig-alt="Hillshaded relief map of the Tapuae-o-Uenuku range in warm inferno tones on a dark background"}
 
 Tapuae-o-Uenuku – elevation coloured with inferno, hillshaded, from Copernicus DEM tiles fetched at runtime. One of five pages in the assembled PDF.
 :::

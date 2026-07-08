@@ -44,7 +44,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3fbecd6d2ce4ecb946142ce487178e1f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-b04d8f5069353b8a9ed45b5bfe23609e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -227,7 +227,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Those edits were segmented by purpose, not dumped into one object – geophysics-derived elevations in one, consistent step-fault offsets in another, max/min constraints in a third, with comment-and-date discipline encouraged on each. That’s separation of concerns, and it helps the next person read what an edit was for. It also did real work: the edits were shared objects, inherited by multiple surfaces rather than redrawn for each – so when the change request added five new faults, the surfaces they generated picked up the right edits automatically, without anyone re-tracing them. The same instinct as everywhere else here – define the thing once, let it propagate, keep the manual state minimal.</p>
 <p>This isn’t an audit trail. The discipline is manual, and the real provenance record lives in the database, not here.</p>
 <p>The idealised cross‑section below shows why the deposit has to be broken into parts. Revealing the section step by step – faults, BRI, bedrock, dikes, valley fill – illustrates how much complexity a single model would be trying to hold. Faults are built first not because they’re oldest – they aren’t – but because in Leapfrog they define the blocks the older units have to be modelled within. Build order is a tool constraint, not a geological sequence.</p>
-<div id="fig-cross-section" class="figure quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-cross-section" class="fig-capped quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-cross-section-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cs-slider-wrap" style="margin: 2rem 0;">
@@ -257,7 +257,7 @@ Figure&nbsp;1: Idealised cross-section, not to scale. The section cuts across a 
 <h2 class="anchored" data-anchor-id="the-database-layer">The database layer</h2>
 <p>For the most part, Leapfrog modelled the geometry well enough. The two things it couldn’t do are the two a long project needs most: reason across several tables at once, and remember why a decision was made. It reads drillhole data, but it won’t compute a derived classification from the overlap of three other tables, and it has no native place to record that an interval was reclassified, by whom, or on what grounds.</p>
 <p>So the database carried what the tool couldn’t. The drilling data sat in PostgreSQL, and a layer of derived VIEWs sat between the raw tables and Leapfrog. The keystone was <code>lf_lith</code>: one flat table, assembled on the fly, that Leapfrog could consume as a single lithology source while the work of combining several tables happened underneath it, in SQL, where it was legible and reproducible.</p>
-<div class="figure">
+<div class="fig-fit">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div id="fig-lf-schema" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -267,15 +267,15 @@ Figure&nbsp;1: Idealised cross-section, not to scale. The section cuts across a 
 <svg width="672" height="480" viewbox="0.00 0.00 449.23 372.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 368)">
 <title>schema</title>
-<g id="clust1" class="cluster">
-<title>cluster_raw</title>
-<path fill="transparent" stroke="#413f80" d="M34.54,-186C34.54,-186 98.7,-186 98.7,-186 104.7,-186 110.7,-192 110.7,-198 110.7,-198 110.7,-344 110.7,-344 110.7,-350 104.7,-356 98.7,-356 98.7,-356 34.54,-356 34.54,-356 28.54,-356 22.54,-350 22.54,-344 22.54,-344 22.54,-198 22.54,-198 22.54,-192 28.54,-186 34.54,-186"></path>
-<text text-anchor="middle" x="64.25" y="-339.4" font-family="Open Sans" font-size="14.00" fill="#c6ebd1">raw tables</text>
-</g>
 <g id="clust2" class="cluster">
 <title>cluster_interp</title>
 <path fill="transparent" stroke="#413f80" d="M20,-8C20,-8 113.24,-8 113.24,-8 119.24,-8 125.24,-14 125.24,-20 125.24,-20 125.24,-166 125.24,-166 125.24,-172 119.24,-178 113.24,-178 113.24,-178 20,-178 20,-178 14,-178 8,-172 8,-166 8,-166 8,-20 8,-20 8,-14 14,-8 20,-8"></path>
 <text text-anchor="middle" x="61.53" y="-161.4" font-family="Open Sans" font-size="14.00" fill="#c6ebd1">interpretation</text>
+</g>
+<g id="clust1" class="cluster">
+<title>cluster_raw</title>
+<path fill="transparent" stroke="#413f80" d="M34.54,-186C34.54,-186 98.7,-186 98.7,-186 104.7,-186 110.7,-192 110.7,-198 110.7,-198 110.7,-344 110.7,-344 110.7,-350 104.7,-356 98.7,-356 98.7,-356 34.54,-356 34.54,-356 28.54,-356 22.54,-350 22.54,-344 22.54,-344 22.54,-198 22.54,-198 22.54,-192 28.54,-186 34.54,-186"></path>
+<text text-anchor="middle" x="64.25" y="-339.4" font-family="Open Sans" font-size="14.00" fill="#c6ebd1">raw tables</text>
 </g>
 <g id="clust3" class="cluster">
 <title>cluster_views</title>
@@ -315,8 +315,8 @@ Figure&nbsp;1: Idealised cross-section, not to scale. The section cuts across a 
 <!-- survey&#45;&gt;lf_survey -->
 <g id="edge2" class="edge">
 <title>survey-&gt;lf_survey</title>
-<path fill="none" stroke="#6b6480" stroke-width="1.5" d="M93.75,-237.3C104.29,-234.84 116.1,-230.76 125.24,-224 156.96,-200.56 142.84,-173.87 174.24,-150 178.65,-146.65 183.74,-143.94 188.99,-141.76"></path>
-<polygon fill="#6b6480" stroke="#6b6480" stroke-width="1.5" points="189.85,-143.68 194.72,-139.6 188.36,-139.75 189.85,-143.68"></polygon>
+<path fill="none" stroke="#6b6480" stroke-width="1.5" d="M93.73,-237.28C104.27,-234.81 116.07,-230.73 125.24,-224 156.74,-200.88 143.26,-174.82 174.24,-151 178.65,-147.6 183.75,-144.82 189,-142.55"></path>
+<polygon fill="#6b6480" stroke="#6b6480" stroke-width="1.5" points="189.92,-144.45 194.73,-140.28 188.38,-140.54 189.92,-144.45"></polygon>
 </g>
 <!-- lithology -->
 <g id="node3" class="node">
@@ -333,8 +333,8 @@ Figure&nbsp;1: Idealised cross-section, not to scale. The section cuts across a 
 <!-- lithology&#45;&gt;lf_lith -->
 <g id="edge6" class="edge">
 <title>lithology-&gt;lf_lith</title>
-<path fill="none" stroke="#85d9b1" stroke-width="1.5" d="M98.55,-195.42C107.69,-191.44 117.35,-186.3 125.24,-180 153.5,-157.41 144.78,-136.01 174.24,-115 180.25,-110.71 187.4,-107.46 194.46,-105.02"></path>
-<polygon fill="#85d9b1" stroke="#85d9b1" stroke-width="1.5" points="195.26,-106.97 200.34,-103.15 193.98,-102.97 195.26,-106.97"></polygon>
+<path fill="none" stroke="#85d9b1" stroke-width="1.5" d="M98.52,-195.39C107.66,-191.4 117.33,-186.27 125.24,-180 153.3,-157.74 145.17,-136.94 174.24,-116 180.26,-111.66 187.42,-108.3 194.48,-105.72"></path>
+<polygon fill="#85d9b1" stroke="#85d9b1" stroke-width="1.5" points="195.34,-107.64 200.36,-103.74 194,-103.67 195.34,-107.64"></polygon>
 </g>
 <!-- structures -->
 <g id="node4" class="node">
@@ -387,8 +387,8 @@ Figure&nbsp;1: Idealised cross-section, not to scale. The section cuts across a 
 <!-- model_points&#45;&gt;lf_lith -->
 <g id="edge7" class="edge">
 <title>model_points-&gt;lf_lith</title>
-<path fill="none" stroke="#3eb4ad" stroke-width="1.5" d="M111.31,-39.2C116.1,-40.92 120.83,-42.85 125.24,-45 149.29,-56.73 150.45,-67.74 174.24,-80 180.64,-83.3 187.78,-86.21 194.68,-88.68"></path>
-<polygon fill="#3eb4ad" stroke="#3eb4ad" stroke-width="1.5" points="194.03,-90.68 200.39,-90.64 195.4,-86.71 194.03,-90.68"></polygon>
+<path fill="none" stroke="#3eb4ad" stroke-width="1.5" d="M111.34,-39.14C116.12,-40.87 120.85,-42.82 125.24,-45 149.45,-57 150.19,-68.67 174.24,-81 180.61,-84.27 187.74,-87.08 194.63,-89.42"></path>
+<polygon fill="#3eb4ad" stroke="#3eb4ad" stroke-width="1.5" points="193.99,-91.42 200.34,-91.28 195.29,-87.43 193.99,-91.42"></polygon>
 </g>
 <!-- model_intervals -->
 <g id="node6" class="node">
@@ -465,8 +465,8 @@ Figure&nbsp;1: Idealised cross-section, not to scale. The section cuts across a 
 <!-- lf_model_pt&#45;&gt;leapfrog -->
 <g id="edge16" class="edge">
 <title>lf_model_pt-&gt;leapfrog</title>
-<path fill="none" stroke="#6b6480" stroke-width="1.5" d="M267.16,-73.95C272.18,-75.77 277.19,-77.79 281.84,-80 311.58,-94.13 342.79,-115.34 363.81,-130.71"></path>
-<polygon fill="#6b6480" stroke="#6b6480" stroke-width="1.5" points="362.59,-132.42 368.67,-134.29 365.08,-129.04 362.59,-132.42"></polygon>
+<path fill="none" stroke="#6b6480" stroke-width="1.5" d="M267.13,-74.77C272.16,-76.67 277.18,-78.75 281.84,-81 310.88,-94.99 341.58,-115.4 362.64,-130.39"></path>
+<polygon fill="#6b6480" stroke="#6b6480" stroke-width="1.5" points="361.69,-132.29 367.79,-134.08 364.13,-128.87 361.69,-132.29"></polygon>
 </g>
 <!-- lf_structure&#45;&gt;leapfrog -->
 <g id="edge18" class="edge">
@@ -483,8 +483,8 @@ Figure&nbsp;1: Idealised cross-section, not to scale. The section cuts across a 
 <!-- lf_lith&#45;&gt;leapfrog -->
 <g id="edge17" class="edge">
 <title>lf_lith-&gt;leapfrog</title>
-<path fill="none" stroke="#6b6480" stroke-width="1.5" d="M254.58,-106.27C263.25,-109.03 272.97,-112.14 281.84,-115 304.39,-122.28 329.58,-130.5 349.88,-137.14"></path>
-<polygon fill="#6b6480" stroke="#6b6480" stroke-width="1.5" points="349.38,-139.19 355.74,-139.06 350.69,-135.2 349.38,-139.19"></polygon>
+<path fill="none" stroke="#6b6480" stroke-width="1.5" d="M254.68,-106.47C280.58,-114.86 320.55,-127.81 350.17,-137.41"></path>
+<polygon fill="#6b6480" stroke="#6b6480" stroke-width="1.5" points="349.59,-139.43 355.95,-139.28 350.89,-135.43 349.59,-139.43"></polygon>
 </g>
 </g>
 </svg>
@@ -519,6 +519,7 @@ Figure&nbsp;2: Raw and interpretation tables derive into VIEWs; Leapfrog reads o
 </div>
 </div>
 <p>The <code>fault</code> column is the clearest case of the database doing what the tool couldn’t. A drillhole crossing a fault logs a contact at the fault plane – but that contact belongs to the fault, not to the lithological surface the modeller is trying to constrain. Fed in naively, it drags the surface toward the fault and distorts it. The fix is a filter: each interval is coded <code>above_</code> or <code>below_</code> the relevant fault from its overlap with the fault-contact points recorded in <code>model_points</code>, and the surface is informed only by the points on the correct side. The contaminating intervals don’t get deleted – they get classified, and excluded from the relevant modelled surfaces.</p>
+<div class="table-responsive">
 <div id="tbl-fault-filter" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-fault-filter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -545,7 +546,7 @@ Table&nbsp;1: Fault-contact filter – rows in, derived column out
 <tbody>
 <tr class="odd">
 <td>SC-123</td>
-<td>431.6</td>
+<td><code>431.6</code></td>
 <td><code>fault</code></td>
 <td><code>Fault-04</code></td>
 <td>from RQD logs</td>
@@ -577,14 +578,14 @@ Table&nbsp;1: Fault-contact filter – rows in, derived column out
 <tr class="odd">
 <td>SC-123</td>
 <td>425.0</td>
-<td>431.6</td>
+<td><code>431.6</code></td>
 <td>OracleGranite</td>
 <td><code>above_Fault-04</code></td>
 <td>…</td>
 </tr>
 <tr class="even">
 <td>SC-123</td>
-<td>431.6</td>
+<td><code>431.6</code></td>
 <td>445.0</td>
 <td>OracleGranite</td>
 <td><code>below_Fault-04</code></td>
@@ -598,11 +599,20 @@ Table&nbsp;1: Fault-contact filter – rows in, derived column out
 </div>
 </figure>
 </div>
+</div>
 <p>The same granite, logged continuously through the hole, split into two coded intervals by the fault pick sitting between them. When Leapfrog models a surface from this table, a single clause does the filtering: <code>WHERE fault IS NULL</code> drops both coded intervals, leaving only the intervals no fault runs through.</p>
 <p>The intervals do interpolation work of their own, which is why this beats dropping a single contact point. Each one typically comes with volume points – distance values that push or pull the interpolated surface, so an interval left in on the wrong side of a fault doesn’t just add a stray contact, it drags the surface across the fault toward data that belongs to the other block. Coding the whole interval, not just the pick, is what keeps that from happening.</p>
 <p>The <code>ignore</code> column works the same way. An interval flagged in <code>model_ignore</code> – bad recovery, suspect logging, a historic hole with questionable survey data – gets an ignore code and an ignore_comment saying why. In Leapfrog, <code>AND ignore IS NULL</code> drops it. One filtering idiom, applied to two different problems: don’t delete the questionable data, code it, and let a <code>WHERE … IS NULL</code> clause decide what the model sees. The raw log stays intact and the reason stays attached.</p>
 <p>The interpretation tables hold their own provenance. Every row records who made the edit, when, why, and how confident they were – and rows are deactivated rather than deleted, so another geologist’s interpretation can be switched off, tested against, or restored without destroying it. Leapfrog offers nothing comparable: an edit made inside a Leapfrog project is overwritten the next time the drilling reloads, and nothing records who made it or what it said. This is the answer to the questions the old model couldn’t hold – <em>why was that interval reclassified, who did it, when</em>.</p>
-<div class="column-body-outset">
+<style>
+/* #tbl-audit: keep cells on one line except the 'comment' column */
+#tbl-audit td:nth-child(7),
+#tbl-audit th:nth-child(7) {
+  white-space: normal;
+  min-width: 14rem;
+}
+</style>
+<div class="column-body-outset table-responsive">
 <div id="tbl-audit" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-audit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -686,7 +696,7 @@ Table&nbsp;2: Rows from <code>model_intervals</code> – every interpretation re
 <p><strong>Colour blend</strong></p>
 <p>Core is logged with named colours, not hex – “Dark Brown”, “Light Grey”, and so on, up to six per interval across major, minor, and streak. Leapfrog can’t render a named colour, so by default the logged colour never makes it into 3D, and a geologist scanning the model loses one of the cues they’d use at the core tray.</p>
 <p>So the database supplied it. A lookup table, colour_lookup, paired every colour name that appears in the lithology log with a suitable hex value. The blend function then took the up-to-six colours on an interval and combined them into a single hexRGB, weighted so the major colour dominates and the streak only tints – the same priority a geologist reads them in. The interval then renders in 3D as close to its logged colour as a single value allows.</p>
-<div id="fig-rgb-intervals" class="figure quarto-float quarto-figure quarto-figure-center anchored" alt="Schematic 3D plot of drillhole intervals displaying logged rock colour">
+<div id="fig-rgb-intervals" class="fig-capped quarto-float quarto-figure quarto-figure-center anchored" alt="Schematic 3D plot of drillhole intervals displaying logged rock colour">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-rgb-intervals-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="assets/leapfrog-postgresql/rgb-intervals.webp" class="img-fluid figure-img" alt="Schematic 3D plot of drillhole intervals displaying logged rock colour">
@@ -703,7 +713,7 @@ Figure&nbsp;3: Schematic 3D plot of drillhole intervals displaying blended logge
 <p>Beta is measured from a fixed reference on the core – usually a line marked along the bottom of the hole. No reference line, no beta.</p>
 </div></div><p>With alpha but no beta, the true plane sits somewhere on a cone of possible orientations – so rather than discard the measurement, the <code>lf_alpha_only</code> VIEW reconstructs the cone. It fans roughly ten synthetic beta values around the circle for each alpha-only measurement, each offset about a millimetre in depth to dodge the duplicate-point flag Leapfrog raises on coincident points. In 3D the fan stands as an hourglass – view-only, never feeding a surface – and set beside the properly oriented structures and the modelled contacts nearby, it lets a geologist judge by eye whether a surface’s orientation is validated by the structural measurements.</p>
 <p>The figure below shows the idea in section: two drillholes cutting a set of bedding structures logged with alpha but no beta, each hourglass the same cone construction sliced flat.</p>
-<div id="fig-alpha-only" class="figure quarto-float quarto-figure quarto-figure-center anchored" alt="Cross-section showing two drillholes intersecting four bedding structures, each drawn as an hourglass of possible plane orientations">
+<div id="fig-alpha-only" class="fig-capped quarto-float quarto-figure quarto-figure-center anchored" alt="Cross-section showing two drillholes intersecting four bedding structures, each drawn as an hourglass of possible plane orientations">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-alpha-only-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="assets/leapfrog-postgresql/alpha-only.svg" class="img-fluid figure-img" alt="Cross-section showing two drillholes intersecting four bedding structures, each drawn as an hourglass of possible plane orientations">

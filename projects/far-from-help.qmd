@@ -20,7 +20,7 @@ The submitted A3 poster.
 
 The choropleth reads the way you'd expect: the longest mean distances sit in the remote South Island, where sparse roads and mountain terrain push them past 40 km, with Mackenzie District highest in the country at 89 km. What the map can't show is who those distances fall on. Its darkest class holds Mackenzie's few thousand residents and Horowhenua's tens of thousands in the same colour. The scatterplot is on the poster to separate them: population against distance, and the populous-and-remote quadrant – Horowhenua, Thames-Coromandel, the Far North – is where long distances meet large populations.
 
-::: {#fig-scatterplot .figure}
+::: {#fig-scatterplot .fig-capped}
 ![](assets/far-from-help/scatterplot.svg){fig-alt="Scatterplot of territorial authority population on a log scale against mean road distance to the nearest hospital. Mackenzie sits alone at top left, extreme distance and small population. Horowhenua, Thames-Coromandel, Far North and Waikato combine substantial populations with 25 to 55 km mean distances."}
 
 Population against mean road distance to the nearest hospital, coloured by the map's distance classes. The populous-and-remote quadrant is the argument the choropleth can't make on its own.

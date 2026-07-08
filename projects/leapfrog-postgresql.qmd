@@ -46,7 +46,7 @@ This isn't an audit trail. The discipline is manual, and the real provenance rec
 
 The idealised cross‑section below shows why the deposit has to be broken into parts. Revealing the section step by step – faults, BRI, bedrock, dikes, valley fill – illustrates how much complexity a single model would be trying to hold. Faults are built first not because they're oldest – they aren't – but because in Leapfrog they define the blocks the older units have to be modelled within. Build order is a tool constraint, not a geological sequence.
 
-::: {#fig-cross-section .figure}
+::: {#fig-cross-section .fig-capped}
 ```{=html}
 <div class="cs-slider-wrap" style="margin: 2rem 0;">
   <div style="position: relative;">
@@ -89,7 +89,7 @@ For the most part, Leapfrog modelled the geometry well enough. The two things it
 
 So the database carried what the tool couldn't. The drilling data sat in PostgreSQL, and a layer of derived VIEWs sat between the raw tables and Leapfrog. The keystone was `lf_lith`: one flat table, assembled on the fly, that Leapfrog could consume as a single lithology source while the work of combining several tables happened underneath it, in SQL, where it was legible and reproducible.
 
-::: {.figure}
+::: {.fig-fit}
 ```{dot}
 //| label: fig-lf-schema
 //| fig-cap: "Raw and interpretation tables derive into VIEWs; Leapfrog reads only the VIEWs. The arrows show the flow of data, coloured by source table. The ignore table fans across the schema, marking records to be ignorable within Leapfrog's SQL filters."
@@ -171,22 +171,22 @@ digraph schema {
 
 The `fault` column is the clearest case of the database doing what the tool couldn't. A drillhole crossing a fault logs a contact at the fault plane – but that contact belongs to the fault, not to the lithological surface the modeller is trying to constrain. Fed in naively, it drags the surface toward the fault and distorts it. The fix is a filter: each interval is coded `above_` or `below_` the relevant fault from its overlap with the fault-contact points recorded in `model_points`, and the surface is informed only by the points on the correct side. The contaminating intervals don't get deleted – they get classified, and excluded from the relevant modelled surfaces.
 
-
+::: {.table-responsive}
 ::: {#tbl-fault-filter}
 | holeid | depth | type | code | comment | ... |
 |---|---|---|---|---|---|
-| SC-123 | 431.6 | `fault` | `Fault-04` | from RQD logs | ... |
+| SC-123 | `431.6` | `fault` | `Fault-04` | from RQD logs | ... |
 : The `model_points` table records the fault pick {#tbl-fault-pick}
 
 | holeid | from | to | major_lith | `fault` | ... |
 |---|---|---|---|---|---|
-| SC-123 | 425.0 | 431.6 | OracleGranite | `above_Fault-04` | ... |
-| SC-123 | 431.6 | 445.0 | OracleGranite | `below_Fault-04` | ... |
+| SC-123 | 425.0 | `431.6` | OracleGranite | `above_Fault-04` | ... |
+| SC-123 | `431.6` | 445.0 | OracleGranite | `below_Fault-04` | ... |
 : `lf_lith` reads the fault depth and codes the intervals on either side of it {#tbl-lf-lith-fault}
 
 Fault-contact filter – rows in, derived column out
 :::
-
+:::
 
 The same granite, logged continuously through the hole, split into two coded intervals by the fault pick sitting between them. When Leapfrog models a surface from this table, a single clause does the filtering: `WHERE fault IS NULL` drops both coded intervals, leaving only the intervals no fault runs through.
 
@@ -196,7 +196,16 @@ The `ignore` column works the same way. An interval flagged in `model_ignore` �
 
 The interpretation tables hold their own provenance. Every row records who made the edit, when, why, and how confident they were – and rows are deactivated rather than deleted, so another geologist's interpretation can be switched off, tested against, or restored without destroying it. Leapfrog offers nothing comparable: an edit made inside a Leapfrog project is overwritten the next time the drilling reloads, and nothing records who made it or what it said. This is the answer to the questions the old model couldn't hold – *why was that interval reclassified, who did it, when*.
 
-::: {.column-body-outset}
+
+<style>
+/* #tbl-audit: keep cells on one line except the 'comment' column */
+#tbl-audit td:nth-child(7),
+#tbl-audit th:nth-child(7) {
+  white-space: normal;
+  min-width: 14rem;
+}
+</style>
+::: {.column-body-outset .table-responsive}
 ::: {#tbl-audit}
 | holeid | from | to | type | code | confidence | comment | active | updated_by | updated_at |
 |---|---|---|---|---|---|---|---|---|---|
@@ -219,7 +228,7 @@ Core is logged with named colours, not hex – "Dark Brown", "Light Grey", and s
 
 So the database supplied it. A lookup table, colour_lookup, paired every colour name that appears in the lithology log with a suitable hex value. The blend function then took the up-to-six colours on an interval and combined them into a single hexRGB, weighted so the major colour dominates and the streak only tints – the same priority a geologist reads them in. The interval then renders in 3D as close to its logged colour as a single value allows.
 
-::: {#fig-rgb-intervals .figure}
+::: {#fig-rgb-intervals .fig-capped}
 ![](assets/leapfrog-postgresql/rgb-intervals.webp){fig-alt="Schematic 3D plot of drillhole intervals displaying logged rock colour"}
 
 Schematic 3D plot of drillhole intervals displaying blended logged rock colour (hexRGB). Synthetic data.
@@ -238,7 +247,7 @@ With alpha but no beta, the true plane sits somewhere on a cone of possible orie
 
 The figure below shows the idea in section: two drillholes cutting a set of bedding structures logged with alpha but no beta, each hourglass the same cone construction sliced flat.
 
-::: {#fig-alpha-only .figure}
+::: {#fig-alpha-only .fig-capped}
 ![](assets/leapfrog-postgresql/alpha-only.svg){fig-alt="Cross-section showing two drillholes intersecting four bedding structures, each drawn as an hourglass of possible plane orientations"}
 
 Idealised cross-section through two drillholes (grey) and the modelled sedimentary units. Four bedding structures logged with alpha but no beta. For each, the white line shows the steepest apparent dip that the structure can present in this section, and the transparent fill marks the full range of apparent dips generated as the plane sweeps through the possible beta angles. Synthetic data; the geometry is schematic, not surveyed.

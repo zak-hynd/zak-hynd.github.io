@@ -38,7 +38,7 @@
     {
       filename: "08-Final-combined-model.svg",
       label: "08 – Combined model with fault planes overlaid",
-      caption: "The faults were built first (Step 1) but included as part of the 'complete model' partly as a discussion point about whether they entirely predate (and offset) the sedimentary units."
+      caption: "The faults were built first (Step 1) but included as part of the 'complete model' partly as a discussion point about how far up the sediment sequence the offset reaches."
     }
   ];
 

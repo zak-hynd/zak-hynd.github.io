@@ -82,7 +82,7 @@ Idealised cross-section, not to scale. The section cuts across a series of Basin
   <span style="display:inline-block; width:16px; height:16px; background:#484848; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Mafic Conglomerate<br>
   <span style="display:inline-block; width:16px; height:16px; background:#a93132; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Basal Conglomerate<br>
   <span style="display:inline-block; width:16px; height:16px; background:#2a7fff; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Basalt Dikes<br>
-  <span style="display:inline-block; width:16px; height:16px; background:#faa403; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Porphyry<br>
+  <span style="display:inline-block; width:16px; height:16px; background:#faa403; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Granodiorite Porphyry<br>
   <span style="display:inline-block; width:16px; height:16px; background:#037f05; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Diabase Dikes<br>
   <span style="display:inline-block; width:16px; height:16px; background:#fdc1cb; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Oracle Granite<br>
 </div>

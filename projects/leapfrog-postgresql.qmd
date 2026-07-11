@@ -1,6 +1,6 @@
 ---
 title: "Leapfrog + PostgreSQL drilling workflow"
-subtitle: "Rebuilding a stalled geologic model, and the database layer beneath the tool"
+subtitle: "Rebuilding an encumbered geologic model, and the database layer beneath the tool"
 description: "Geologic modelling and database workflow for Ivanhoe Electric, Arizona."
 date: 2026-06-27
 order: 1

@@ -225,7 +225,7 @@
   </g>
   <g
      id="layer5"
-     style="display:none"
+     style="display:inline"
      transform="translate(0.45801889)">
     <path
        style="display:inline;fill:#fdc1cb;fill-opacity:1;stroke:#180d16;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:2;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
@@ -305,7 +305,7 @@
      style="display:inline"
      transform="translate(0.45801889)">
     <path
-       style="display:inline;fill:#db72fa;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
+       style="display:none;fill:#db72fa;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
        d="M 65.147778,54.040745 C 53.934254,46.680598 38.737732,32.609476 27.167903,28.578003 24.974416,36.034862 22.780929,42.965394 20.587442,49.447463 12.136974,44.967151 7.1195483,41.592916 0,39.999999 V 99.999997 H 180 V 13 c -4.56286,-0.153447 -12.74293,1.346597 -15.35656,2.256364 -8.42368,31.479503 -12.75225,42.961077 -22.51827,65.777311 -13.00802,-9.888402 -17.09019,-23.39987 -32.82658,-32.761294 l -5.94593,16.14563 C 91.075308,56.43205 82.270865,42.460958 70.541027,37.436452 c -1.79775,6.311977 -3.595499,11.707519 -5.393249,16.604293 z"
        id="path13" />
     <path
@@ -322,7 +322,7 @@
      style="display:inline"
      transform="translate(0.45801889)">
     <path
-       style="display:none;fill:none;fill-opacity:1;stroke:#180d16;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:2;stroke-dasharray:3, 3;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
+       style="display:inline;fill:none;fill-opacity:1;stroke:#180d16;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:2;stroke-dasharray:3, 3;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
        d="m 0,99.999997 c 0,0 13.958684,-31.732648 19.696465,-48.070985 C 25.675837,34.902743 34.999999,0 34.999999,0 m 11.037417,99.999998 c 0,0 13.958685,-31.732649 19.696466,-48.070986 C 71.713254,34.902743 81.037416,-3.314041e-7 81.037416,-3.314041e-7 M 88.320749,100 c 0,0 13.958751,-31.732646 19.696551,-48.070989 C 113.99668,34.902746 123.32084,-2.3314041e-6 123.32084,-2.3314041e-6 M 133.82917,100 c 0,0 13.98112,-31.546652 19.69646,-47.806406 C 159.53787,35.089189 168.82917,0 168.82917,0"
        id="path12" />
     <path

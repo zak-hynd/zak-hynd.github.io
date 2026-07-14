@@ -8,41 +8,46 @@
     {
       filename: "02-Faulted-BRI-model.svg",
       label: "02 – BRI model",
-      caption: "The bedrock interface (BRI) model captures the contact between bedrock units below and valley-fill sediments above, resolved independently within each fault block."
+      caption: "The bedrock interface (BRI) model captures the contact between bedrock units below and valley-fill sediments above, formed independently within each fault block."
     },
     {
       filename: "03-Contiguous-BRI-surface.svg",
       label: "03 – Unioned BRI surface",
-      caption: "The BRI volumes are unioned into one contiguous surface that carries the fault scarps with it. Downstream teams (geotech, resource modelling, etc.), need that surface whole."
+      caption: "The BRI volumes are unioned into one contiguous surface that includes the fault scarps. Downstream teams (geotech, resource modelling, etc.), need that surface whole."
     },
     {
-      filename: "04-Faulted-Bedrock-units.svg",
-      label: "04 – Faulted bedrock units",
-      caption: "Bedrock units modelled within the fault blocks: Oracle Granite (host rock), Diabase dikes (older intrusions), and porphyritic intrusions linked to the mineralised system. The dikes share one offset surface as reference geometry – adjust its orientation, and the fifty-odd dikes follow."
+      filename: "04-Faulted-Bedrock-background.svg",
+      label: "04 – Faulted host rock",
+      caption: "Older host rock units: Oracle Granite, and Pinal Schist; straightforward volumes built within the fault blocks."
     },
     {
-      filename: "05-Unfaulted-Basalt-dikes.svg",
-      label: "05 – Basalt dikes",
+      filename: "05-Faulted-Bedrock-dikes.svg",
+      label: "05 – Faulted intrusives",
+      caption: "Intrusives modelled within the fault blocks: Diabase dikes (older), and porphyritic intrusives linked to the mineralised system. These all share offset surfaces as reference geometry – adjust one orientation, and the ~40 bodies follow."
+    },
+    {
+      filename: "06-Unfaulted-Basalt-dikes.svg",
+      label: "06 – Basalt dikes",
       caption: "Basalt dikes, considered contemporaneous with Basin & Range extensional faulting so built in a separate 'unfaulted' model."
     },
     {
-      filename: "06-Main-sediments.svg",
-      label: "06 – Overburden and valley fill",
+      filename: "07-Main-sediments.svg",
+      label: "07 – Overburden and valley fill",
       caption: "Valley‑fill and overburden units built above the BRI: Basal Conglomerate, Whitetail Conglomerate, Gila Conglomerate, and Alluvium. Straightforward stratigraphic volumes."
     },
     {
-      filename: "07-All-sediments.svg",
-      label: "07 – All sediments",
+      filename: "08-All-sediments.svg",
+      label: "08 – All sediments",
       caption: "Additional sedimentary units requiring more manual modelling techniques to separate layers: Mafic Conglomerate, mass‑wasting boulder deposits (colluvium), and Lacustrine sediments."
     },
     {
-      filename: "08-Final-combined-model.svg",
-      label: "08 – Combined model with fault planes overlaid",
-      caption: "The faults were built first (Step 1) but included as part of the 'complete model' partly as a discussion point about how far up the sediment sequence the offset reaches."
+      filename: "09-Final-combined-model.svg",
+      label: "09 – Combined model with fault planes overlaid",
+      caption: "The faults were built first (Step 1) but clipped and included as part of the 'complete model' to illustrate how far up the sediment sequence the offset might reach."
     }
   ];
 
-  const INITIAL_STEP = 3;
+  const INITIAL_STEP = 4;
   const IMG_BASE = "assets/leapfrog-postgresql/";
 
   function applyStep(stepIndex) {

@@ -4,7 +4,7 @@ subtitle: "Rebuilding an encumbered geologic model, and the database layer benea
 description: "Geologic modelling and database workflow for Ivanhoe Electric, Arizona."
 date: 2026-06-27
 order: 1
-image: assets/leapfrog-postgresql/08-Final-combined-model.svg
+image: assets/leapfrog-postgresql/09-Final-combined-model.svg
 format:
   html:
     toc: true
@@ -60,7 +60,7 @@ The idealised cross‑section below shows why the deposit has to be broken into 
   </div>
   <div style="margin-top: 0.75rem;">
     <div id="cs-label" style="font-size: 0.85rem; color: var(--bs-secondary-color, #aaa); margin-bottom: 0.5rem;"></div>
-    <input id="cs-range" type="range" min="0" max="7" step="1" value="3" aria-label="Cross-section step" />
+    <input id="cs-range" type="range" min="0" max="8" step="1" value="3" aria-label="Cross-section step" />
     <p id="cs-caption" style="font-size: 0.8rem; color: var(--bs-secondary-color, #aaa); margin-top: 0.3rem; margin-bottom: 0;"></p>
   </div>
 </div>
@@ -82,9 +82,10 @@ Idealised cross-section, not to scale. The section cuts across a series of Basin
   <span style="display:inline-block; width:16px; height:16px; background:#484848; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Mafic Conglomerate<br>
   <span style="display:inline-block; width:16px; height:16px; background:#a93132; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Basal Conglomerate<br>
   <span style="display:inline-block; width:16px; height:16px; background:#2a7fff; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Basalt Dikes<br>
-  <span style="display:inline-block; width:16px; height:16px; background:#faa403; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Granodiorite Porphyry<br>
+  <span style="display:inline-block; width:16px; height:16px; background:#faa403; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Porphyry<br>
   <span style="display:inline-block; width:16px; height:16px; background:#037f05; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Diabase Dikes<br>
   <span style="display:inline-block; width:16px; height:16px; background:#fdc1cb; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Oracle Granite<br>
+  <span style="display:inline-block; width:16px; height:16px; background:#96b589; border:1px solid #555; margin-right:6px; vertical-align:middle;"></span>Pinal Schist<br>
 </div>
 :::
 

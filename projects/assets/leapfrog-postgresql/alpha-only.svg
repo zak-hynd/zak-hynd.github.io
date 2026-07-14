@@ -7,31 +7,8 @@
    viewBox="0 0 297 210"
    version="1.1"
    id="svg1"
-   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
-   sodipodi:docname="alpha-only.svg"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview1"
-     pagecolor="#505050"
-     bordercolor="#eeeeee"
-     borderopacity="1"
-     inkscape:showpageshadow="0"
-     inkscape:pageopacity="0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#505050"
-     inkscape:document-units="mm"
-     inkscape:zoom="0.80711282"
-     inkscape:cx="482.58433"
-     inkscape:cy="330.18928"
-     inkscape:window-width="2256"
-     inkscape:window-height="1398"
-     inkscape:window-x="240"
-     inkscape:window-y="1717"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="layer7" />
   <defs
      id="defs1">
     <clipPath
@@ -42,8 +19,7 @@
          id="circle13"
          cx="-206.09755"
          cy="104.47593"
-         r="26.191721"
-         inkscape:label="circle" />
+         r="26.191721" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
@@ -75,8 +51,7 @@
          id="circle19"
          cx="-206.09755"
          cy="104.47593"
-         r="26.191721"
-         inkscape:label="circle" />
+         r="26.191721" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
@@ -86,8 +61,7 @@
          id="circle21"
          cx="-206.09755"
          cy="104.47593"
-         r="26.191721"
-         inkscape:label="circle" />
+         r="26.191721" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
@@ -97,8 +71,7 @@
          id="circle21-1"
          cx="-206.09755"
          cy="104.47593"
-         r="26.191721"
-         inkscape:label="circle" />
+         r="26.191721" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
@@ -108,15 +81,11 @@
          id="circle23"
          cx="-206.09755"
          cy="104.47593"
-         r="26.191721"
-         inkscape:label="circle" />
+         r="26.191721" />
     </clipPath>
   </defs>
   <g
-     inkscape:groupmode="layer"
-     id="layer2"
-     inkscape:label="background"
-     sodipodi:insensitive="true">
+     id="layer2">
     <rect
        style="fill:#d0cdcf;fill-opacity:1;stroke:none;stroke-width:0.79375;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
        id="rect2"
@@ -126,190 +95,137 @@
        y="0.0065128203" />
   </g>
   <g
-     inkscape:groupmode="layer"
-     id="layer3"
-     inkscape:label="model"
-     sodipodi:insensitive="true">
+     id="layer3">
     <path
        d="M -0.0289388,0.00671794 V 189.01895 C 23.061645,185.51492 82.516401,176.89562 125.92771,174.14286 168.36619,171.45177 258.22113,128.6685 296.99427,109.29617 V 0.00671794 Z"
        style="display:inline;fill:#866053;fill-opacity:1;stroke-width:0.79375;stroke-linecap:square;stroke-miterlimit:2;paint-order:markers stroke fill"
-       id="path6"
-       sodipodi:nodetypes="ccsccc"
-       inkscape:label="Whitetail" />
+       id="path6" />
     <path
        d="M 296.99427,105.592 C 258.22113,124.96433 168.36619,167.74761 125.92771,170.4387 82.516401,173.19146 23.061645,181.81076 -0.0289388,185.31479 V 210.0032 H 296.99427 Z"
        style="display:inline;fill:#a93132;stroke-width:0.79375;stroke-linecap:square;stroke-miterlimit:2;paint-order:markers stroke fill"
-       id="path8"
-       sodipodi:nodetypes="cscccc"
-       inkscape:label="Basal" />
+       id="path8" />
     <path
        d="M -0.0289388,0.00671794 V 38.735617 C 23.061645,35.231587 105.27057,46.694471 148.68188,49.259527 191.13156,51.767762 258.22113,29.185167 296.99427,9.8128367 V 0.00671794 Z"
        style="display:inline;fill:#967661;fill-opacity:1;stroke-width:0.79375;stroke-linecap:square;stroke-miterlimit:2;paint-order:markers stroke fill"
-       id="path9"
-       sodipodi:nodetypes="ccsccc"
-       inkscape:label="Gila" />
+       id="path9" />
   </g>
   <g
-     inkscape:label="hole traces"
-     inkscape:groupmode="layer"
-     id="layer1"
-     sodipodi:insensitive="true">
+     id="layer1">
     <path
        style="fill:none;fill-opacity:1;stroke:#aaaaaa;stroke-width:1.32292;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
        d="M 227.53852,-39.313455 191.50534,254.15321"
        id="path12"
-       sodipodi:nodetypes="cc"
-       inkscape:label="hole_7"
        clip-path="url(#clipPath15)" />
     <path
        style="fill:none;fill-opacity:1;stroke:#aaaaaa;stroke-width:1.32292;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
        d="M 62.803819,-40.903434 88.573199,253.64199"
        id="path13"
-       sodipodi:nodetypes="cc"
-       inkscape:label="hole_5"
        clip-path="url(#clipPath13)" />
   </g>
   <g
-     inkscape:groupmode="layer"
-     id="layer5"
-     inkscape:label="structures">
+     id="layer5">
     <g
        id="g21"
        style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.5875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
        clip-path="url(#clipPath22)"
-       transform="rotate(7,-584.95991,3470.1187)"
-       inkscape:label="40">
+       transform="rotate(7,-584.95991,3470.1187)">
       <path
          style="fill:#ffffff;fill-opacity:0.25098;stroke:none;stroke-width:1.5875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
          d="m 173.58633,202.15997 2.06053,-67.25382 47.65326,72.12162 11.36832,-65.66475 z"
          id="path24"
-         transform="rotate(-7,-584.9596,3470.1187)"
-         sodipodi:nodetypes="ccccc" />
+         transform="rotate(-7,-584.9596,3470.1187)" />
       <path
          style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.85208333;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
          d="m -303.4432,-11.72971 190.05336,226.49679"
-         id="path14-1"
-         sodipodi:nodetypes="cc"
-         inkscape:label="vert" />
+         id="path14-1" />
       <path
          style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.85208333;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
          d="M -117.47613,-1.9308532 -307.5295,224.56592"
-         id="path14-1-9"
-         sodipodi:nodetypes="cc"
-         inkscape:label="vert" />
+         id="path14-1-9" />
     </g>
     <g
        id="g27"
        style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.5875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
        clip-path="url(#clipPath22)"
-       transform="rotate(2,1829.7386,7972.5647)"
-       inkscape:label="85">
+       transform="rotate(2,1829.7386,7972.5647)">
       <path
          style="display:inline;fill:#ffffff;fill-opacity:0.25098;stroke:none;stroke-width:1.5875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
          d="m -178.72629,103.10979 -54.77702,1.70798 -1.12061,5.76835 56.47937,-13.437226 z"
-         id="path28"
-         sodipodi:nodetypes="ccccc" />
+         id="path28" />
       <path
          style="display:inline;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.85208333;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
          d="M -60.125577,72.797491 -349.33502,134.27085"
-         id="path26"
-         sodipodi:nodetypes="cc"
-         inkscape:label="vert" />
+         id="path26" />
       <path
          style="display:inline;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.85208333;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
          d="M -373.17155,109.66363 -77.681115,99.344892"
-         id="path27"
-         sodipodi:nodetypes="cc"
-         inkscape:label="vert" />
+         id="path27" />
     </g>
     <g
        id="g31"
        style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.5875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
        clip-path="url(#clipPath22)"
-       transform="rotate(14,216.35107,1797.9054)"
-       inkscape:label="60">
+       transform="rotate(14,216.35107,1797.9054)">
       <path
          style="fill:#ffffff;fill-opacity:0.25098;stroke:none;stroke-width:1.5875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
          d="M 168.57014,102.21321 116.78755,72.536433 114.59761,102.98262 168.68657,73.075076 Z"
          id="path29"
-         sodipodi:nodetypes="ccccc"
          transform="rotate(-7,95.613557,2944.0715)" />
       <path
          style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.85208333;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
          d="M -348.86903,42.307276 -76.702852,157.83498"
-         id="path30"
-         sodipodi:nodetypes="cc"
-         inkscape:label="vert" />
+         id="path30" />
       <path
          style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.85208333;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
          d="M -97.5811,21.325444 -333.71411,199.26441"
-         id="path31"
-         sodipodi:nodetypes="cc"
-         inkscape:label="vert" />
+         id="path31" />
     </g>
     <g
        id="g34"
        style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.5875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
        clip-path="url(#clipPath22)"
-       transform="rotate(2,-1091.0505,8277.9925)"
-       inkscape:label="75">
+       transform="rotate(2,-1091.0505,8277.9925)">
       <path
          style="fill:#ffffff;fill-opacity:0.25098;stroke:none;stroke-width:1.5875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
          d="m 114.69131,94.928395 -0.1272,-14.239451 54.23392,13.943681 0.18868,-14.183903 z"
          id="path32"
-         sodipodi:nodetypes="ccccc"
          transform="rotate(-7,95.613443,2944.0715)" />
       <path
          style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.85208333;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
          d="M -61.634684,44.7721 -335.77565,155.53223"
-         id="path33"
-         sodipodi:nodetypes="cc"
-         inkscape:label="vert" />
+         id="path33" />
       <path
          style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.85208333;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
          d="M -365.79775,80.547556 -73.004645,121.69696"
-         id="path34"
-         sodipodi:nodetypes="cc"
-         inkscape:label="vert" />
+         id="path34" />
     </g>
     <g
        id="g42"
        style="display:none;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.5875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
        clip-path="url(#clipPath22)"
-       transform="rotate(22,-22.792767,1175.827)"
-       inkscape:label="AB50">
+       transform="rotate(22,-22.792767,1175.827)">
       <path
          style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.85208;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
          d="M -117.47613,-1.9308532 -307.5295,224.56592"
-         id="path42"
-         sodipodi:nodetypes="cc"
-         inkscape:label="vert" />
+         id="path42" />
     </g>
   </g>
   <g
-     inkscape:groupmode="layer"
-     id="layer7"
-     inkscape:label="Annotation">
+     id="layer7">
     <path
        style="fill:#30203e;fill-opacity:1;stroke:#30203e;stroke-width:1.85208333;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
        d="m 98.449931,130.86143 8.392609,-13.21805"
-       id="path1"
-       sodipodi:nodetypes="cc"
-       inkscape:label="pointer" />
+       id="path1" />
     <path
        style="fill:none;fill-opacity:1;stroke:#3eb4ad;stroke-width:1.05833333;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
        d="m 98.449931,130.86143 8.392609,-13.21805"
-       id="path36"
-       sodipodi:nodetypes="cc"
-       inkscape:label="pointer" />
+       id="path36" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:8.46667px;line-height:1;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#3eb4ad;fill-opacity:1;stroke:#180d16;stroke-width:0.661458;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:0.6;paint-order:markers stroke fill"
        x="34.34148"
        y="51.656281"
-       id="text36"
-       inkscape:label="85"><tspan
-         sodipodi:role="line"
+       id="text36"><tspan
          id="tspan36"
          style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:8.46667px;line-height:1;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#3eb4ad;fill-opacity:1;stroke:#180d16;stroke-width:0.661458;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:0.6;paint-order:markers stroke fill"
          x="34.34148"
@@ -319,9 +235,7 @@
        style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:8.46667px;line-height:1;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#3eb4ad;fill-opacity:1;stroke:#180d16;stroke-width:0.661458;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:0.6;paint-order:markers stroke fill"
        x="93.48555"
        y="115.23966"
-       id="text37"
-       inkscape:label="Outer envelope"><tspan
-         sodipodi:role="line"
+       id="text37"><tspan
          id="tspan37"
          style="fill:#3eb4ad;fill-opacity:1;stroke:#180d16;stroke-width:0.661458;stroke-dasharray:none;stroke-opacity:0.6;-inkscape-font-specification:'Segoe UI, Semi-Bold';font-family:'Segoe UI';font-weight:600;font-style:normal;font-stretch:normal;font-variant:normal;font-size:8.46667px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;line-height:1;writing-mode:lr-tb;direction:ltr;stroke-linecap:square;stroke-miterlimit:2;paint-order:markers stroke fill"
          x="93.48555"
@@ -331,9 +245,7 @@
        style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:8.46667px;line-height:1;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#3eb4ad;fill-opacity:1;stroke:#180d16;stroke-width:0.661458;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:0.6;paint-order:markers stroke fill"
        x="46.460644"
        y="157.22589"
-       id="text38"
-       inkscape:label="75"><tspan
-         sodipodi:role="line"
+       id="text38"><tspan
          id="tspan38"
          style="fill:#3eb4ad;fill-opacity:1;stroke:#180d16;stroke-width:0.661458;stroke-dasharray:none;stroke-opacity:0.6;-inkscape-font-specification:'Segoe UI, Semi-Bold';font-family:'Segoe UI';font-weight:600;font-style:normal;font-stretch:normal;font-variant:normal;font-size:8.46667px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;line-height:1;writing-mode:lr-tb;direction:ltr;stroke-linecap:square;stroke-miterlimit:2;paint-order:markers stroke fill"
          x="46.460644"
@@ -343,9 +255,7 @@
        style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:8.46667px;line-height:1;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#3eb4ad;fill-opacity:1;stroke:#180d16;stroke-width:0.661458;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:0.6;paint-order:markers stroke fill"
        x="183.38884"
        y="71.394371"
-       id="text39"
-       inkscape:label="60"><tspan
-         sodipodi:role="line"
+       id="text39"><tspan
          id="tspan39"
          style="fill:#3eb4ad;fill-opacity:1;stroke:#180d16;stroke-width:0.661458;stroke-dasharray:none;stroke-opacity:0.6;-inkscape-font-specification:'Segoe UI, Semi-Bold';font-family:'Segoe UI';font-weight:600;font-style:normal;font-stretch:normal;font-variant:normal;font-size:8.46667px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;line-height:1;writing-mode:lr-tb;direction:ltr;stroke-linecap:square;stroke-miterlimit:2;paint-order:markers stroke fill"
          x="183.38884"
@@ -355,14 +265,11 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666616px;line-height:1;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;display:none;fill:#30203e;fill-opacity:1;stroke:#85d9b1;stroke-width:0.396875;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:0.60000002;paint-order:markers stroke fill"
        x="219.76186"
        y="114.84844"
-       id="text39-3"
-       inkscape:label="Alpha&amp;beta"><tspan
-         sodipodi:role="line"
+       id="text39-3"><tspan
          id="tspan39-1"
          style="stroke-width:0.396875;fill:#30203e;fill-opacity:1;stroke:#85d9b1;stroke-opacity:0.60000002;stroke-dasharray:none;-inkscape-font-specification:'Liberation Sans, Normal';font-family:'Liberation Sans';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:8.46666616px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
          x="219.76186"
          y="114.84844">α: 55°</tspan><tspan
-         sodipodi:role="line"
          style="stroke-width:0.396875;fill:#30203e;fill-opacity:1;stroke:#85d9b1;stroke-opacity:0.60000002;stroke-dasharray:none;-inkscape-font-specification:'Liberation Sans, Normal';font-family:'Liberation Sans';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:8.46666616px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
          x="219.76186"
          y="123.66788"
@@ -372,9 +279,7 @@
        style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:8.46666616px;line-height:1;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#3eb4ad;fill-opacity:1;stroke:#180d16;stroke-width:0.66145833;stroke-linecap:square;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:0.60000002;paint-order:markers stroke fill"
        x="173.78438"
        y="202.52756"
-       id="text40"
-       inkscape:label="40"><tspan
-         sodipodi:role="line"
+       id="text40"><tspan
          id="tspan40"
          style="fill:#3eb4ad;fill-opacity:1;stroke:#180d16;stroke-width:0.66145833;stroke-dasharray:none;stroke-opacity:0.60000002;-inkscape-font-specification:'Segoe UI, Semi-Bold';font-family:'Segoe UI';font-weight:600;font-style:normal;font-stretch:normal;font-variant:normal;font-size:8.46666616px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
          x="173.78438"

@@ -1,2 +1,6 @@
 /.quarto/
 **/*.quarto_ipynb
+/*.html
+/projects/*.html
+/*_files/
+/projects/*_files/

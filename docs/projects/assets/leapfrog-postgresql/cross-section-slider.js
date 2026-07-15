@@ -38,7 +38,7 @@
     {
       filename: "08-All-sediments.svg",
       label: "08 – All sediments",
-      caption: "Additional sedimentary units requiring more manual modelling techniques to separate layers: Mafic Conglomerate, mass‑wasting boulder deposits (colluvium), and Lacustrine sediments."
+      caption: "Additional sedimentary units requiring more manual modelling techniques to separate layers: Mafic Conglomerate, mass‑wasting bedrock boulder deposits, and Lacustrine sediments."
     },
     {
       filename: "09-Final-combined-model.svg",

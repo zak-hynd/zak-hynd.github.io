@@ -36,10 +36,11 @@ A single-page geographic reference map of Africa: 171 labels, local-name spellin
 
 ## Sanskrit sine tables
 
-I helped a friend then doing postdoctoral work at Canterbury by digitising the sine tables from a 17th-century Sanskrit astronomical text, then computed their differences against the modern sine – in sexagesimal form, matching the originals – to separate two kinds of error that look identical on the page. Small deviations sit below the table's own rounding limit – that's precision, not error. The large ones land at sexagesimal place values: a slip of one digit in the 60ths column shows up as almost exactly 1/60, so the error's size helps identify the column the scribe miscopied. The work is acknowledged in [Misra (2021), Recomputing Sanskrit Astronomical Tables: The Amṛtalaharī of Nityānanda.](https://doi.org/10.1484/M.PALS-EB.5.127699)
+I helped a friend then doing postdoctoral work at Canterbury by digitising the sine tables from a 17th-century Sanskrit astronomical text, then computed their differences against the modern sine – in sexagesimal form, matching the originals – to separate two kinds of error that look identical on the page. Small deviations sit below the table's own rounding limit – that's precision, not error. The large ones land at sexagesimal place values: a slip of one digit in the 60ths column shows up as almost exactly 1/60, so the error's size helps identify the column the scribe miscopied.
+The work is acknowledged in [Misra (2021), Recomputing Sanskrit Astronomical Tables: The Amṛtalaharī of Nityānanda.](https://doi.org/10.1484/M.PALS-EB.5.127699)
 
 ::: {#fig-sine-table-diffs}
-![](assets/other-work/sine-table-diffs.svg){fig-alt="Scatter plot of deviations between a 17th-century sine table and the modern sine function, on a logarithmic axis. Most points sit below a dashed rounding-limit line near 0.0001; a handful of points cluster on a second dashed line at 1/60, with three larger outliers above it." }
+![](assets/other-work/sine-table-diffs.svg){.lightbox fig-alt="Scatter plot of deviations between a 17th-century sine table and the modern sine function, on a logarithmic axis. Most points sit below a dashed rounding-limit line near 0.0001; a handful of points cluster on a second dashed line at 1/60, with three larger outliers above it." }
 
 Absolute deviation of the manuscript's sine values from the modern function, log scale. Deviations below the rounding limit are the table's native precision; the band at 1/60 marks single-digit copying slips in the 60ths column.
 :::

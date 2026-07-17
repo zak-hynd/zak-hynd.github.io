@@ -26,12 +26,12 @@ From the conference paper: the 3D geological model of Portoviejo, Ecuador, with 
 
 ## Africa reference map
 
-A single-page geographic reference map of Africa: 171 labels, local-name spellings with full diacritics, no inset. The whole problem is hierarchy – keeping that label density legible at a glance, with nothing shouting and nothing lost.
+A single-page geographic reference map of Africa: 172 labels, local-name spellings with full diacritics, no inset. The whole problem is hierarchy – keeping that label density legible at a glance, with nothing shouting and nothing lost.
 
 ::: {#fig-africa .fig-capped}
 ![](assets/other-work/africa-full.webp){.lightbox fig-alt="A single-page geographic reference map of Africa, showing major rivers and lakes, and labels for geographic locations, including capitals and major cities."}
 
-171 labels on one page – the hierarchy is the map.
+172 labels on one page – the hierarchy is the map.
 :::
 
 ## Sanskrit sine tables

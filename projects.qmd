@@ -15,7 +15,7 @@ listing:
   - id: other-work
     contents:
       - projects/far-from-help.qmd
-      # - projects/other-work.qmd
+      - projects/other-work.qmd
     type: table
     sort: "order asc"
     fields: [title, description]

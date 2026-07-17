@@ -6,8 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-06-22">
-<meta name="description" content="Smaller pieces that earn a mention - each here because it shows something the main projects don’t.">
+<meta name="dcterms.date" content="2026-07-17">
+<meta name="description" content="Smaller pieces that show something the main projects don’t.">
 
 <title>Other work – zh:</title>
 <style>
@@ -45,6 +45,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-b04d8f5069353b8a9ed45b5bfe23609e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -158,8 +161,16 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#portoviejo-earthquake-damage-3d-geological-model" id="toc-portoviejo-earthquake-damage-3d-geological-model" class="nav-link active" data-scroll-target="#portoviejo-earthquake-damage-3d-geological-model">Portoviejo earthquake damage — 3D geological model</a></li>
+  <li><a href="#africa-reference-map" id="toc-africa-reference-map" class="nav-link" data-scroll-target="#africa-reference-map">Africa reference map</a></li>
+  <li><a href="#sanskrit-sine-tables" id="toc-sanskrit-sine-tables" class="nav-link" data-scroll-target="#sanskrit-sine-tables">Sanskrit sine tables</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -171,7 +182,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Smaller pieces that earn a mention - each here because it shows something the main projects don’t.
+    Smaller pieces that show something the main projects don’t.
   </div>
 </div>
 
@@ -182,7 +193,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 22, 2026</p>
+      <p class="date">July 17, 2026</p>
     </div>
   </div>
   
@@ -194,9 +205,56 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Placeholder — content pending.</p>
+<p>Smaller pieces, each here because it shows something specific: geomodelling applied to earthquake hazard, cartographic design under pressure, and an analytical instinct that travels outside geospatial work entirely.</p>
+<section id="portoviejo-earthquake-damage-3d-geological-model" class="level2">
+<h2 class="anchored" data-anchor-id="portoviejo-earthquake-damage-3d-geological-model">Portoviejo earthquake damage — 3D geological model</h2>
+<p>After the Mw 7.8 Jama-Pedernales earthquake in 2016, building damage in Portoviejo, Ecuador clustered in patterns shaking intensity alone didn’t explain. I built the 3D geological model of the city in Leapfrog; the model connected each building to the rock type beneath it, providing the geological context needed to interpret the damage patterns.</p>
+<p>Modelling from a geological map usually means digitising contact polylines, which tell a contact surface where it should pass but nothing about where it shouldn’t. The mapped polygons hold that second half – every point inside a unit is a point the contact can’t cross – and Leapfrog has no native way to use them. So I classified points on the topographic surface by mapped unit and fed them into each contact surface as distance-valued no-go points. I haven’t seen the approach elsewhere.</p>
+<p>First presented as lead author at the VIII Jornadas de Ciencias de la Tierra in Quito, May 2017, then at the Geological Society of Japan annual meeting later that year. I built the geomodel; the seismic and geotechnical interpretation was the wider team’s.</p>
+<div id="fig-portoviejo" class="fig-capped quarto-float quarto-figure quarto-figure-center anchored" alt="Oblique view of a 3D geological model of Portoviejo, Ecuador, showing the city and surrounding terrain, with different rock units colored distinctly. The model illustrates how building damage patterns relate to underlying geology.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-portoviejo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="assets/other-work/portoviejo.webp" class="img-fluid figure-img" alt="Oblique view of a 3D geological model of Portoviejo, Ecuador, showing the city and surrounding terrain, with different rock units colored distinctly. The model illustrates how building damage patterns relate to underlying geology.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-portoviejo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: From the conference paper: the 3D geological model of Portoviejo, Ecuador, with building damage points overlaid.
+</figcaption>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p>Toy, V., Hynd, Z., Marrero, J. M., Palacios, P., Perrault, M., Ramon, P., &amp; Yepes, H. (2017). 3D geological models and a dense microseismic deployment help to explain building damage in Portoviejo, Ecuador, during the Mw 7.8 Jama-Pedernales (Muisne) earthquake. Geological Society of Japan Annual Meeting 2017. <a href="https://doi.org/10.14863/geosocabst.2017.0_328">doi.org/10.14863/geosocabst.2017.0_328</a></p>
+</blockquote>
+</section>
+<section id="africa-reference-map" class="level2">
+<h2 class="anchored" data-anchor-id="africa-reference-map">Africa reference map</h2>
+<p>A single-page geographic reference map of Africa: 171 labels, local-name spellings with full diacritics, no inset. The whole problem is hierarchy — keeping that label density legible at a glance, with nothing shouting and nothing lost.</p>
+<div id="fig-africa" class="fig-capped lightbox quarto-float quarto-figure quarto-figure-center anchored" alt="A single-page geographic reference map of Africa, showing major rivers and lakes, and labels for geographic locations, including capitals and major cities.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-africa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="assets/other-work/africa-full.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;2: 171 labels on one page – the hierarchy is the map."><img src="assets/other-work/africa-full.webp" class="img-fluid figure-img" alt="A single-page geographic reference map of Africa, showing major rivers and lakes, and labels for geographic locations, including capitals and major cities."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-africa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: 171 labels on one page – the hierarchy is the map.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sanskrit-sine-tables" class="level2">
+<h2 class="anchored" data-anchor-id="sanskrit-sine-tables">Sanskrit sine tables</h2>
+<p>I helped a friend then doing postdoctoral work at Canterbury by digitising the sine tables from a 17th-century Sanskrit astronomical text, then computed their differences against the modern sine – in sexagesimal form, matching the originals – to separate two kinds of error that look identical on the page. Small deviations sit below the table’s own rounding limit – that’s precision, not error. The large ones land at sexagesimal place values: a slip of one digit in the 60ths column shows up as almost exactly 1/60, so the error’s size helps identify the column the scribe miscopied. The work is acknowledged in <a href="https://doi.org/10.1484/M.PALS-EB.5.127699">Misra (2021), Recomputing Sanskrit Astronomical Tables: The Amṛtalaharī of Nityānanda.</a></p>
+<div id="fig-sine-table-diffs" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Scatter plot of deviations between a 17th-century sine table and the modern sine function, on a logarithmic axis. Most points sit below a dashed rounding-limit line near 0.0001; a handful of points cluster on a second dashed line at 1/60, with three larger outliers above it.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sine-table-diffs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="assets/other-work/sine-table-diffs.svg" class="img-fluid figure-img" alt="Scatter plot of deviations between a 17th-century sine table and the modern sine function, on a logarithmic axis. Most points sit below a dashed rounding-limit line near 0.0001; a handful of points cluster on a second dashed line at 1/60, with three larger outliers above it.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sine-table-diffs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Absolute deviation of the manuscript’s sine values from the modern function, log scale. Deviations below the rounding limit are the table’s native precision; the band at 1/60 marks single-digit copying slips in the 60ths column.
+</figcaption>
+</figure>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script>
@@ -673,6 +731,38 @@ document.addEventListener('DOMContentLoaded', function () {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

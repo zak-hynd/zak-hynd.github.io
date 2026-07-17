@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2026-07-04">
+<meta name="description" content="An assistant that forgets between sessions, and the file system to manage its memory.">
 
-<title>Projects – zh:</title>
+<title>AI project management workflow – zh:</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,25 +28,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b04d8f5069353b8a9ed45b5bfe23609e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-b04d8f5069353b8a9ed45b5bfe23609e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,68 +72,11 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
+<link rel="icon" type="image/svg+xml" sizes="any" href="../assets/favicon/favicon.svg?v=1">
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-primary .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
+<link rel="icon" type="image/x-icon" href="../assets/favicon/favicon.ico?v=1">
 
-    const options = {
-      valueNames: ['listing-image','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-primary'] = new List('listing-primary', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-other-work .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-other-work'] = new List('listing-other-work', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-<link rel="icon" type="image/svg+xml" sizes="any" href="./assets/favicon/favicon.svg?v=1">
-
-<link rel="icon" type="image/x-icon" href="./assets/favicon/favicon.ico?v=1">
-
-<link rel="apple-touch-icon" href="./assets/favicon/apple-touch-icon.png?v=1">
+<link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png?v=1">
 <script>
 
   if (window.location.hash === '#toggle-goatcounter') {
@@ -164,37 +107,8 @@ ul.task-list li input[type="checkbox"] {
 
 <script data-goatcounter="https://zakhynd.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -204,7 +118,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">zh:</span>
     </a>
   </div>
@@ -215,15 +129,15 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./projects.html" aria-current="page"> 
+    <a class="nav-link" href="../projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
 </ul>
@@ -249,7 +163,12 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#other-work-heading" id="toc-other-work-heading" class="nav-link active" data-scroll-target="#other-work-heading">Other work</a></li>
+  <li><a href="#context" id="toc-context" class="nav-link active" data-scroll-target="#context">Context</a></li>
+  <li><a href="#the-file-system" id="toc-the-file-system" class="nav-link" data-scroll-target="#the-file-system">The file system</a></li>
+  <li><a href="#the-rituals" id="toc-the-rituals" class="nav-link" data-scroll-target="#the-rituals">The rituals</a></li>
+  <li><a href="#division-of-labour" id="toc-division-of-labour" class="nav-link" data-scroll-target="#division-of-labour">Division of labour</a></li>
+  <li><a href="#the-system-correcting-itself" id="toc-the-system-correcting-itself" class="nav-link" data-scroll-target="#the-system-correcting-itself">The system correcting itself</a></li>
+  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">Reflection</a></li>
   </ul>
 </nav>
     </div>
@@ -258,14 +177,26 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Projects</h1>
+<h1 class="title">AI project management workflow</h1>
+<p class="subtitle lead">Files, rituals, and a division of labour for a worker with no memory</p>
 </div>
 
+<div>
+  <div class="description">
+    An assistant that forgets between sessions, and the file system to manage its memory.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 4, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -275,152 +206,60 @@ window.Quarto = {
 </header>
 
 
-<div id="listing-primary" class="quarto-listing quarto-listing-container-grid">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1782475200000" data-listing-file-modified-sort="1784082655562" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="21" data-listing-word-count-sort="4064">
-<a href="./projects/leapfrog-postgresql.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./projects/assets/leapfrog-postgresql/09-Final-combined-model.svg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Leapfrog + PostgreSQL drilling workflow
-</h5>
-<div class="card-text listing-description delink">
-<p>Geologic modelling and database workflow for Ivanhoe Electric, Arizona.</p>
+<section id="context" class="level2">
+<h2 class="anchored" data-anchor-id="context">Context</h2>
+<p>In Christopher Nolan’s <a href="https://en.wikipedia.org/wiki/Memento_(film)"><em>Memento</em></a>, Leonard Shelby can’t form new memories. His world resets every few minutes, so he moves his memory outside his head – notes, Polaroids, and for the things that must never be lost or revised, tattoos. The film is a thriller, but it’s also a systems-design case study.</p>
+<p>An LLM chat session has Leonard’s condition. It starts cold every time, and it ends early more often than not – reliability drops well before the context window is full. Leave that unmanaged and the results are predictable. A decision made carefully in one session gets reopened, just as confidently, by the next. Work drifts. The reasoning behind a choice lives nowhere except a conversation that has already closed.</p>
+<p>The last one is the real problem, and it’s the same failure the <a href="../projects/leapfrog-postgresql.html">Leapfrog + PostgreSQL page</a> describes, but at slower, more geologic speed: a model becomes unmaintainable once the reasoning behind it leaves with the person who held it in their head. Here that happens in days rather than years. Every new session is the new geologist, handed the geometry and none of the rationale.</p>
+<p>I’ve built the fix before, in a different setting. For years I ran a priority system at a geoscience-software company – it reconciled competing demands on a single codebase, and one of its purposes was keeping state and reasoning legible to people who weren’t in the room when a call got made. Managing AI sessions is that problem again in different clothes: a run of sessions with no memory between them, and decisions that have to outlive whoever – or whatever – made them. So the answer was never a better prompt – it was a small set of files, a few rituals, and a division of labour that keeps the final call with a human.</p>
+</section>
+<section id="the-file-system" class="level2">
+<h2 class="anchored" data-anchor-id="the-file-system">The file system</h2>
+<p>Two files, split by lifecycle rather than topic. What goes where depends on how long it should live and how often it gets read, not what it’s about. Leonard made the same split: Polaroids for what churns, tattoos for what must survive every reset untouched.</p>
+<p><code>PROJECT.md</code> churns. Current state, active work, the session log – rewritten constantly, kept under about 120 lines, pasted in at the start of every session. It answers the first question a cold session asks: where are things, and what’s next? History doesn’t collect here. That’s what git is for.</p>
+<p><code>DECISIONS.md</code> persists. It’s the drift-prevention record – the file that stops a decision made once, with full context, being quietly reopened by a later session without it. One rule keeps the pair stable: a stale-looking decision is not a wrong one. DECISIONS.md holds the decision, PROJECT.md holds current reality, and when today’s state seems to contradict a settled choice, that’s state to note – not a decision to reopen.</p>
+<p>Each entry takes a fixed form:</p>
+<pre><code>[scope] [what]: [choice] — [reason]. Don't [specific drift].</code></pre>
+<p>The Don’t clause goes in only when there’s a real, nameable way a future session would steer wrong. One from the <a href="../projects/pepeha-mapped.html">Pepeha Mapped</a> build:</p>
+<pre><code>[globe.py] projection: orthographic centred ~-43.5°S, 172.6°E.
+LAEA abandoned (antimeridian artefacts). Don't revert.</code></pre>
+<p>That entry exists because a session already tried to revert. LAEA – Lambert Azimuthal Equal Area – was the wrong call in one session, and a later one (possibly Claude Code trying to fix something unrelated) tried to bring it back. The entry heads off a third round of that – the wasted time, the burnt tokens – by naming the choice, the reason, and the wrong turn, so the next session declines it.</p>
+<div id="fig-polaroid" class="fig-capped quarto-float quarto-figure quarto-figure-center anchored" alt="A hand holding a Polaroid photograph, its image black and undeveloped, a handwritten note reading CRS: NZTM – DON'T REVERT attached below.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-polaroid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="assets/ai-workflow/polaroid.webp" class="img-fluid figure-img" alt="A hand holding a Polaroid photograph, its image black and undeveloped, a handwritten note reading CRS: NZTM – DON'T REVERT attached below.">
 </div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-polaroid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Leonard’s whole system in one frame: the record lives outside the head because he can’t form new memories. “CRS: NZTM – DON’T REVERT” is a real DECISIONS.md entry – the format that can survive between session resets.
+</figcaption>
+</figure>
 </div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="1" data-listing-date-sort="1783166400000" data-listing-file-modified-sort="1784270948778" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1335">
-<a href="./projects/river-braids.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./projects/assets/river-braids/change-map-crop.webp" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-River Braid Change Mapping
-</h5>
-<div class="card-text listing-description delink">
-<p>Fusing SAR and multispectral satellite imagery to map braided-river channel change after a major flood – a proof of concept for wide-area monitoring.</p>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="2" data-listing-date-sort="1783080000000" data-listing-file-modified-sort="1783504621355" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1651">
-<a href="./projects/ai-workflow.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./projects/assets/ai-workflow/polaroid.webp" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-AI project management workflow
-</h5>
-<div class="card-text listing-description delink">
-<p>An assistant that forgets between sessions, and the file system to manage its memory.</p>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="3" data-listing-date-sort="1783252800000" data-listing-file-modified-sort="1783504758236" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="958">
-<a href="./projects/pepeha-mapped.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./projects/assets/pepeha/globe-clean.webp" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Pepeha Mapped
-</h5>
-<div class="card-text listing-description delink">
-<p>A five-page PDF pepeha built by a Python pipeline – all geodata fetched live at runtime, nothing bundled, nothing hand-assembled.</p>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="4" data-listing-date-sort="1783339200000" data-listing-file-modified-sort="1783416204935" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="745">
-<a href="./projects/catchment-trends.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./projects/assets/catchment-trends/catchment-portfolio-app.webp" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Catchment Trends
-</h5>
-<div class="card-text listing-description delink">
-<p>Requirements analysis and ArcGIS Online build for Our Land and Water, at Manaaki Whenua – Landcare Research.</p>
-</div>
-</div>
-</div></a>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-<section id="other-work-heading" class="level2">
-<h2 class="anchored" data-anchor-id="other-work-heading">Other work</h2>
-<p>Smaller pieces, each here for a specific reason.</p>
-<div id="listing-other-work" class="quarto-listing quarto-listing-container-table">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-    <select id="listing-other-work-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-other-work'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-      <option value="" disabled="" selected="" hidden="">Order By</option>
-      <option value="index" data-direction="asc">Default</option>
-      <option value="listing-title-sort" data-direction="asc">
-        Title
-      </option>
-    </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
-</th>
-
-<th>
-Description
-</th>
-
-</tr>
-</thead>
-<tbody class="list">
-
-<tr data-index="0" data-listing-date-sort="1783425600000" data-listing-file-modified-sort="1784271055986" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="777" data-listing-title-sort="Far From Help" data-listing-filename-sort="far-from-help.qmd">
-<td>
-<a href="./projects/far-from-help.html" class="title listing-title">Far From Help</a>
-</td>
-<td>
-<span class="listing-description">Road-network distance to the nearest DHB hospital, mapped as a choropleth and paired with the scatterplot that shows who the distances impact.</span>
-</td>
-
-</tr>
-
-<tr data-index="1" data-listing-date-sort="1784203200000" data-listing-file-modified-sort="1784270797624" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="568" data-listing-title-sort="Other work" data-listing-filename-sort="other-work.qmd">
-<td>
-<a href="./projects/other-work.html" class="title listing-title">Other work</a>
-</td>
-<td>
-<span class="listing-description">Smaller pieces that show something the main projects don’t.</span>
-</td>
-
-</tr>
-
-</tbody>
-</table>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-
+</section>
+<section id="the-rituals" class="level2">
+<h2 class="anchored" data-anchor-id="the-rituals">The rituals</h2>
+<p>The files only work if every session treats them with the same discipline. At open: paste <code>PROJECT.md</code>, review state, ask about anything unclear, then start. The paste is the whole orientation – nothing recapped from memory, nothing reconstructed from a conversation that no longer exists, nothing hallucinated by a sycophantic LLM trying to seem useful. During: one task at a time, and anything that looks wrong gets flagged, not quietly fixed – a session that “corrects” something it half-understands is generating work no one can see – the reasoning gone the moment the session closes. At close: the log collapses into current state and backlog – unless the session ended degraded, in which case the collapse waits for the next open.</p>
+<p>Session log entries get made as the work happens, not at the end, because the end of an LLM chat session often isn’t in good enough shape to write from. Reliability drops before the context runs out. Each log is written to survive context loss – addressed to a session that wasn’t in the room, readable on its own, not shorthand for a working memory that will be gone. Deliberate paranoia.</p>
+</section>
+<section id="division-of-labour" class="level2">
+<h2 class="anchored" data-anchor-id="division-of-labour">Division of labour</h2>
+<p>Most of the work is two parties: me, and a planning session. We design together – code architecture and document architecture both – argue the calls, and write the decisions down. That’s the whole collaboration on most projects. The planning session is a capable colleague with one defect: it remembers nothing from yesterday – or worse, it <em>misremembers</em> things. So the files do the remembering a colleague otherwise would, and the ritual makes sure the next session reads them.</p>
+<p>When a build is large enough, a third role appears. <a href="../projects/pepeha-mapped.html">Pepeha Mapped</a> was one – enough files and moving parts to warrant a dedicated executor, so Claude Code did the heavy edits. Most projects don’t reach that bar; the executor is contingent on the work, not a fixed part of the workflow. When Claude Code is in play it runs one task per prompt: reads the files, makes the edits, runs what it can, reports back, and stops. The one-task boundary is an inspection point – a human reviewing each step before the next one starts.</p>
+<p>Being concrete about what that caught, on the Pepeha build: a fetch function silently dropping data because of a hardcoded CRS in a bounding-box suffix; a projection that broke at the antimeridian; a layer handing back geographic coordinates where everything downstream expected NZTM. Some I caught, some the LLM caught, most fell to both of us reading the same evidence. Keeping score isn’t the point – what matters is that a person sat in front of every intermediate result, so wrong output got flagged instead of compounding.</p>
+<p>Where the code worked but couldn’t be explained cleanly, it got rewritten anyway. The bar wasn’t “it runs.” It was code I could interrogate and defend – tested end to end, bugs caught, design calls mine.</p>
+</section>
+<section id="the-system-correcting-itself" class="level2">
+<h2 class="anchored" data-anchor-id="the-system-correcting-itself">The system correcting itself</h2>
+<p>Any workflow that gets used enough will find flaws in its implementation. This one has three corrections worth mentioning.</p>
+<p><code>DECISIONS.md</code> started append-only – never delete, never modify, the obvious guard against drift. Then it grew, superseded entries sat next to the entries that replaced them, and cold sessions began anchoring on the wrong version. The file built to prevent confusion had become a source of it. The rule changed: rewrite in place when a decision is genuinely superseded, because git holds the history – the file feeds session context, it isn’t the audit trail. The template now records that old failure in its own header, so no future session re-suggests append-only for the reason I first chose it.</p>
+<p>Two sessions disagreed about when to collapse the log. One argued for close of session, context still in hand; the next argued, just as confidently, for the open of the following one. Both are defensible, which is exactly why the sessions couldn’t settle it. I took the arguments and made the call: collapse at close, defer to the next open when a session ends degraded. The dispute is the division of labour in miniature – the sessions argue, both sides can be right, and a person (not a chat session) breaks the tie.</p>
+<p>Chat sessions often reach for file tools – writing to disk, searching documents – when the output was a dozen lines that could go straight into the chat. One attempt spent an entire session’s token budget trying to write to disk, and cost four hours before work could continue. The fix is a standing rule: all output as text in chat, pasted by hand. It looks like a small preference. It’s three constraints at once – token economy, session reliability, and keeping me in the paste-and-commit loop.</p>
+<p>None of these came from the system noticing its own failure. Each came from a person seeing the failure and working out the cause – then the file makes the fix stick, so the next session inherits it instead of repeating it.</p>
+</section>
+<section id="reflection" class="level2">
+<h2 class="anchored" data-anchor-id="reflection">Reflection</h2>
+<p>The overhead is real, and it gets paid every session. Logging as you go interrupts the work it records. The open ritual spends the first few minutes re-orienting instead of producing. The verification never lets up – every intermediate result read, every piece of generated code held to a bar I could defend without the tool in the room. I’d make the trade again. The alternative isn’t a lighter workflow; it’s re-explaining the project to a goldfish each morning and hoping nothing settled comes unsettled.</p>
+<p>The system doesn’t prevent degradation – sessions still go bad, sometimes with context to spare. What it does is make degradation survivable: the state lives in the files, not the conversation, so a bad session gets abandoned and a fresh one rebuilt from the documents in minutes. That’s a smaller promise than “reliable AI” – but it’s true.</p>
+<p>For the record, this page was written the way it describes – co-designed across sessions, drawing on my project notes and the decision files, with the workflow keeping state between them. What to keep, what to cut, what the page actually claims: mine.</p>
 
 
 </section>

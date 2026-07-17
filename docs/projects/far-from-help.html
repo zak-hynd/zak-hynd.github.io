@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2026-07-08">
+<meta name="description" content="Road-network distance to the nearest DHB hospital, mapped as a choropleth and paired with the scatterplot that shows who the distances impact.">
 
-<title>Projects – zh:</title>
+<title>Far From Help – zh:</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,25 +28,26 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b04d8f5069353b8a9ed45b5bfe23609e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-b04d8f5069353b8a9ed45b5bfe23609e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,68 +75,11 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
+<link rel="icon" type="image/svg+xml" sizes="any" href="../assets/favicon/favicon.svg?v=1">
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-primary .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
+<link rel="icon" type="image/x-icon" href="../assets/favicon/favicon.ico?v=1">
 
-    const options = {
-      valueNames: ['listing-image','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-primary'] = new List('listing-primary', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-other-work .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-other-work'] = new List('listing-other-work', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-<link rel="icon" type="image/svg+xml" sizes="any" href="./assets/favicon/favicon.svg?v=1">
-
-<link rel="icon" type="image/x-icon" href="./assets/favicon/favicon.ico?v=1">
-
-<link rel="apple-touch-icon" href="./assets/favicon/apple-touch-icon.png?v=1">
+<link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png?v=1">
 <script>
 
   if (window.location.hash === '#toggle-goatcounter') {
@@ -164,37 +110,8 @@ ul.task-list li input[type="checkbox"] {
 
 <script data-goatcounter="https://zakhynd.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -204,7 +121,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">zh:</span>
     </a>
   </div>
@@ -215,15 +132,15 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./projects.html" aria-current="page"> 
+    <a class="nav-link" href="../projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
 </ul>
@@ -244,28 +161,34 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#other-work-heading" id="toc-other-work-heading" class="nav-link active" data-scroll-target="#other-work-heading">Other work</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Projects</h1>
+<h1 class="title">Far From Help</h1>
+<p class="subtitle lead">Population-weighted road distance to hospital, across 66 territorial authorities</p>
 </div>
 
+<div>
+  <div class="description">
+    Road-network distance to the nearest DHB hospital, mapped as a choropleth and paired with the scatterplot that shows who the distances impact.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 8, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -275,155 +198,37 @@ window.Quarto = {
 </header>
 
 
-<div id="listing-primary" class="quarto-listing quarto-listing-container-grid">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1782475200000" data-listing-file-modified-sort="1784082655562" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="21" data-listing-word-count-sort="4064">
-<a href="./projects/leapfrog-postgresql.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./projects/assets/leapfrog-postgresql/09-Final-combined-model.svg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Leapfrog + PostgreSQL drilling workflow
-</h5>
-<div class="card-text listing-description delink">
-<p>Geologic modelling and database workflow for Ivanhoe Electric, Arizona.</p>
+<p>This started in a spatial analysis course (GISC404). A lab had us testing deprivation for spatial autocorrelation – Moran’s I, LISA – and asked what other factors might be worth looking at alongside it. I calculated the euclidean distance to the nearest hospital: quickly done and appearing correlated at first glance, but flawed because it ignores the roads people actually drive. When the geovisual analytics course (GISC403) set an open cartography brief, I took the chance to build the road-network version properly.</p>
+<p>The brief was a mock <strong>Atlas of Design</strong> submission: a classed choropleth making a convincing argument from an explicit point of view. So the map needed a story, not just a variable.</p>
+<div id="fig-choropleth" class="lightbox quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" alt="Dark-themed A3 poster titled Far From Help. A choropleth map of New Zealand colours each territorial authority from cream (under 7 km) to deep red (over 35 km) by mean road distance to the nearest hospital; remote South Island districts are darkest, with Mackenzie District called out at 89 km, the highest in the country. A scatterplot of population against distance highlights Horowhenua, Thames-Coromandel, Far North and Waikato as populous districts with poor road access. Closing text notes rescue helicopter services and asks readers to consider donating.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-choropleth-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="assets/far-from-help/choropleth.webp" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: The submitted A3 poster."><img src="assets/far-from-help/choropleth.webp" class="img-fluid figure-img column-body-outset" alt="Dark-themed A3 poster titled Far From Help. A choropleth map of New Zealand colours each territorial authority from cream (under 7 km) to deep red (over 35 km) by mean road distance to the nearest hospital; remote South Island districts are darkest, with Mackenzie District called out at 89 km, the highest in the country. A scatterplot of population against distance highlights Horowhenua, Thames-Coromandel, Far North and Waikato as populous districts with poor road access. Closing text notes rescue helicopter services and asks readers to consider donating."></a>
 </div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-choropleth-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The submitted A3 poster.
+</figcaption>
+</figure>
 </div>
-</div></a>
+<p>The choropleth reads the way you’d expect: the longest mean distances sit in the remote South Island, where sparse roads and mountain terrain push them past 40 km, with Mackenzie District highest in the country at 89 km. What the map can’t show is who those distances fall on. Its darkest class holds Mackenzie’s few thousand residents and Horowhenua’s tens of thousands in the same colour. The scatterplot is on the poster to separate them: population against distance, and the populous-and-remote quadrant – Horowhenua, Thames-Coromandel, the Far North – is where long distances meet large populations.</p>
+<div id="fig-scatterplot" class="fig-capped quarto-float quarto-figure quarto-figure-center anchored" alt="Scatterplot of territorial authority population on a log scale against mean road distance to the nearest hospital. Mackenzie sits alone at top left, extreme distance and small population. Horowhenua, Thames-Coromandel, Far North and Waikato combine substantial populations with 25 to 55 km mean distances.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-scatterplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="assets/far-from-help/scatterplot.svg" class="img-fluid figure-img" alt="Scatterplot of territorial authority population on a log scale against mean road distance to the nearest hospital. Mackenzie sits alone at top left, extreme distance and small population. Horowhenua, Thames-Coromandel, Far North and Waikato combine substantial populations with 25 to 55 km mean distances.">
 </div>
-<div class="g-col-1" data-index="1" data-listing-date-sort="1783166400000" data-listing-file-modified-sort="1784270948778" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1335">
-<a href="./projects/river-braids.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./projects/assets/river-braids/change-map-crop.webp" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-River Braid Change Mapping
-</h5>
-<div class="card-text listing-description delink">
-<p>Fusing SAR and multispectral satellite imagery to map braided-river channel change after a major flood – a proof of concept for wide-area monitoring.</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scatterplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Population against mean road distance to the nearest hospital, coloured by the map’s distance classes. The populous-and-remote quadrant is the argument the choropleth can’t make on its own.
+</figcaption>
+</figure>
 </div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="2" data-listing-date-sort="1783080000000" data-listing-file-modified-sort="1783504621355" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1651">
-<a href="./projects/ai-workflow.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./projects/assets/ai-workflow/polaroid.webp" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-AI project management workflow
-</h5>
-<div class="card-text listing-description delink">
-<p>An assistant that forgets between sessions, and the file system to manage its memory.</p>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="3" data-listing-date-sort="1783252800000" data-listing-file-modified-sort="1783504758236" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="958">
-<a href="./projects/pepeha-mapped.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./projects/assets/pepeha/globe-clean.webp" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Pepeha Mapped
-</h5>
-<div class="card-text listing-description delink">
-<p>A five-page PDF pepeha built by a Python pipeline – all geodata fetched live at runtime, nothing bundled, nothing hand-assembled.</p>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="4" data-listing-date-sort="1783339200000" data-listing-file-modified-sort="1783416204935" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="745">
-<a href="./projects/catchment-trends.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./projects/assets/catchment-trends/catchment-portfolio-app.webp" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Catchment Trends
-</h5>
-<div class="card-text listing-description delink">
-<p>Requirements analysis and ArcGIS Online build for Our Land and Water, at Manaaki Whenua – Landcare Research.</p>
-</div>
-</div>
-</div></a>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-<section id="other-work-heading" class="level2">
-<h2 class="anchored" data-anchor-id="other-work-heading">Other work</h2>
-<p>Smaller pieces, each here for a specific reason.</p>
-<div id="listing-other-work" class="quarto-listing quarto-listing-container-table">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-    <select id="listing-other-work-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-other-work'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-      <option value="" disabled="" selected="" hidden="">Order By</option>
-      <option value="index" data-direction="asc">Default</option>
-      <option value="listing-title-sort" data-direction="asc">
-        Title
-      </option>
-    </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
-</th>
-
-<th>
-Description
-</th>
-
-</tr>
-</thead>
-<tbody class="list">
-
-<tr data-index="0" data-listing-date-sort="1783425600000" data-listing-file-modified-sort="1784271055986" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="777" data-listing-title-sort="Far From Help" data-listing-filename-sort="far-from-help.qmd">
-<td>
-<a href="./projects/far-from-help.html" class="title listing-title">Far From Help</a>
-</td>
-<td>
-<span class="listing-description">Road-network distance to the nearest DHB hospital, mapped as a choropleth and paired with the scatterplot that shows who the distances impact.</span>
-</td>
-
-</tr>
-
-<tr data-index="1" data-listing-date-sort="1784203200000" data-listing-file-modified-sort="1784270797624" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="568" data-listing-title-sort="Other work" data-listing-filename-sort="other-work.qmd">
-<td>
-<a href="./projects/other-work.html" class="title listing-title">Other work</a>
-</td>
-<td>
-<span class="listing-description">Smaller pieces that show something the main projects don’t.</span>
-</td>
-
-</tr>
-
-</tbody>
-</table>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
+<p>An earlier design was a bivariate choropleth, deprivation against access, closing the loop back to the lab that prompted the whole thing. It didn’t look good, and the story got much harder to tell. One variable on the map and one on the scatterplot keeps both legible.</p>
+<p>The distance layer is a network analysis in ArcGIS Pro: the LINZ road network, hospitals from the LINZ NZ Facilities dataset, and sample points along the roads roughly every kilometre. Each meshblock takes the mean of its sample points, weighted by its 2013 census population, and the weighted values aggregate up to territorial authority level.</p>
+<p>The destination set was a deliberate simplification. Healthcare access in the deprivation sense is much wider than hospitals – GPs, pharmacies, medical centres – and the facilities data itself spans private hospitals, hospices, midwifery units and more. I filtered to public (DHB) hospitals: the cleanest fit for an emergency-access story, and the one the available attributes could isolate reliably. Road distance also isn’t drive time – terrain and road class would change the picture – but modelling travel time was well past this exercise’s scope.</p>
+<p>The network took several rounds to build. The first attempts had roads that looked connected and weren’t – the giveaway was travel distance jumping by tens of kilometres between neighbouring points inside a town. Snapping road endpoints together to within a couple of metres healed most of the breaks, and a few more passes caught the rest.</p>
+<p>Verification was sanity-level. On a perceptually uniform colour ramp the network distances closely track the euclidean ones, diverging where they should: Akaroa is about 40 km from Christchurch Hospital as the crow flies and about 80 km by road, and Banks Peninsula’s meshblocks showed exactly that gap. Mackenzie’s 89 km looked low against the 110 km drive from Tekapo to Timaru Hospital, but Fairlie holds a good share of the district’s population and sits far closer. The figures compare districts; they aren’t route planning. The population data is the other limit – 2013 meshblocks, over a decade stale, so the pattern holds better than the exact numbers.</p>
+<p>The brief required an explicit point of view, and the poster’s closing panel is it: for the populous-and-remote districts, rescue helicopters are the counter to road distance – a flying ambulance collapses an hour’s drive into minutes. Like most of New Zealand’s emergency services they run on donations and sponsorship, most of all in the regions that need them most.</p>
 
 
-
-</section>
 
 </main> <!-- /main -->
 <script>
@@ -900,6 +705,38 @@ document.addEventListener('DOMContentLoaded', function () {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

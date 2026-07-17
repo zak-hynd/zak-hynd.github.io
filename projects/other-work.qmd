@@ -13,7 +13,7 @@ After the Mw 7.8 Jama-Pedernales earthquake in 2016, building damage in Portovie
 
 Modelling from a geological map usually means digitising contact polylines, which tell a contact surface where it should pass but nothing about where it shouldn't. The mapped polygons hold that second half – every point inside a unit is a point the contact can't cross – and Leapfrog has no native way to use them. So I classified points on the topographic surface by mapped unit and fed them into each contact surface as distance-valued no-go points. I haven't seen the approach elsewhere.
 
-First presented as lead author at the VIII Jornadas de Ciencias de la Tierra in Quito, May 2017, then at the Geological Society of Japan annual meeting later that year. I built the geomodel; the seismic and geotechnical interpretation was the wider team's.
+Presented as lead author at the VIII Jornadas de Ciencias de la Tierra in Quito, May 2017; the abstract was also published in the Geological Society of Japan's annual meeting proceedings later that year. I built the geomodel; the seismic and geotechnical interpretation was the wider team's.
 
 ::: {#fig-portoviejo .fig-capped}
 ![](assets/other-work/portoviejo.webp){fig-alt="Oblique view of a 3D geological model of Portoviejo, Ecuador, showing the city and surrounding terrain, with different rock units colored distinctly. The model illustrates how building damage patterns relate to underlying geology."}
@@ -21,7 +21,8 @@ First presented as lead author at the VIII Jornadas de Ciencias de la Tierra in 
 From the conference paper: the 3D geological model of Portoviejo, Ecuador, with building damage points overlaid.
 :::
 
-> Toy, V., Hynd, Z., Marrero, J. M., Palacios, P., Perrault, M., Ramon, P., & Yepes, H. (2017). 3D geological models and a dense microseismic deployment help to explain building damage in Portoviejo, Ecuador, during the Mw 7.8 Jama-Pedernales (Muisne) earthquake. Geological Society of Japan Annual Meeting 2017. [doi.org/10.14863/geosocabst.2017.0_328](https://doi.org/10.14863/geosocabst.2017.0_328)
+> Toy, V., Hynd, Z., Marrero, J. M., Palacios, P., Perrault, M., Ramon, P., & Yepes, H. (2017). 3D geological models and a dense microseismic deployment help to explain building damage in Portoviejo, Ecuador, during the Mw 7.8 Jama-Pedernales (Muisne) earthquake. *Geological Society of Japan Annual Meeting 2017*. [doi.org/10.14863/geosocabst.2017.0_328](https://doi.org/10.14863/geosocabst.2017.0_328)
+
 
 
 ## Africa reference map
@@ -34,9 +35,12 @@ A single-page geographic reference map of Africa: 172 labels, local-name spellin
 172 labels on one page – the hierarchy is the map.
 :::
 
+
+
 ## Sanskrit sine tables
 
-I helped a friend then doing postdoctoral work at Canterbury by digitising the sine tables from a 17th-century Sanskrit astronomical text, then computed their differences against the modern sine – in sexagesimal form, matching the originals – to separate two kinds of error that look identical on the page. Small deviations sit below the table's own rounding limit – that's precision, not error. The large ones land at sexagesimal place values: a slip of one digit in the 60ths column shows up as almost exactly 1/60, so the error's size helps identify the column the scribe miscopied.
+I helped a friend doing postdoctoral work at Canterbury by digitising the sine tables from a 17th‑century Sanskrit astronomical text and comparing them with modern sine values, expressed in the same sexagesimal format. That let us separate two kinds of error that look identical in the manuscript: tiny differences that fall below the table’s rounding threshold (precision limits, not mistakes), and large deviations that land exactly on sexagesimal place values. A slip in the 60ths column shows up as almost 1/60, so the size of the error helps identify the column the scribe miscopied.
+
 The work is acknowledged in [Misra (2021), Recomputing Sanskrit Astronomical Tables: The Amṛtalaharī of Nityānanda.](https://doi.org/10.1484/M.PALS-EB.5.127699)
 
 ::: {#fig-sine-table-diffs}

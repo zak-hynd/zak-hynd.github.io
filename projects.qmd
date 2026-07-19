@@ -19,6 +19,8 @@ listing:
     type: table
     sort: "order asc"
     fields: [title, description]
+    sort-ui: false
+    filter-ui: false
 ---
 
 ::: {#primary}

@@ -13,7 +13,7 @@ After the Mw 7.8 Jama-Pedernales earthquake in 2016, building damage in Portovie
 
 Modelling from a geological map usually means digitising contact polylines, which tell a contact surface where it should pass but nothing about where it shouldn't. The mapped polygons hold that second half – every point inside a unit is a point the contact can't cross – and Leapfrog has no native way to use them. So I classified points on the topographic surface by mapped unit and fed them into each contact surface as distance-valued no-go points. I haven't seen the approach elsewhere.
 
-Presented as lead author at the VIII Jornadas de Ciencias de la Tierra in Quito, May 2017; the abstract was also published in the Geological Society of Japan's annual meeting proceedings later that year. I built the geomodel; the seismic and geotechnical interpretation was the wider team's.
+Lead author on the Portoviejo hazard abstract – VIII Jornadas de Ciencias de la Tierra, Quito, May 2017, also published in the Geological Society of Japan's annual meeting proceedings later that year. I built the geomodel; the seismic and geotechnical interpretation was the wider team's.
 
 ::: {#fig-portoviejo .fig-capped}
 ![](assets/other-work/portoviejo.webp){fig-alt="Oblique view of a 3D geological model of Portoviejo, Ecuador, showing the city and surrounding terrain, with different rock units colored distinctly. The model illustrates how building damage patterns relate to underlying geology."}
